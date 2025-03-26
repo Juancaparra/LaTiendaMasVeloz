@@ -74,6 +74,7 @@
             BtGestionarInventario.TabIndex = 3;
             BtGestionarInventario.Text = "GESTIONAR INVENTARIO";
             BtGestionarInventario.UseVisualStyleBackColor = true;
+            BtGestionarInventario.Click += BtGestionarInventario_Click;
             // 
             // BtGestionarCliente
             // 
