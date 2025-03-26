@@ -19,22 +19,26 @@ namespace Principal
 
         private void BtAgregarProducto_Click(object sender, EventArgs e)
         {
-
+            AgregarProducto agregarProducto = new AgregarProducto();
+            agregarProducto.ShowDialog();
         }
 
         private void BtConsultarProducto_Click(object sender, EventArgs e)
         {
-             
+             ConsultarProducto consultarProducto= new ConsultarProducto();
+            consultarProducto.ShowDialog();
         }
 
         private void BtActualizarProducto_Click(object sender, EventArgs e)
         {
-            
+            ActualizarProducto actualizarProducto= new ActualizarProducto();    
+            actualizarProducto.ShowDialog();
         }
 
         private void BtEliminarProducto_Click(object sender, EventArgs e)
         {
-           
+           EliminarProducto eliminarProducto= new EliminarProducto();
+            eliminarProducto.ShowDialog();
         }
     }
 }
