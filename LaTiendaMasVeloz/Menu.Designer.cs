@@ -84,6 +84,7 @@
             BtGestionarCliente.TabIndex = 4;
             BtGestionarCliente.Text = "GESTIONAR CLIENTES";
             BtGestionarCliente.UseVisualStyleBackColor = true;
+            BtGestionarCliente.Click += BtGestionarCliente_Click;
             // 
             // BtGestionarEmpleados
             // 

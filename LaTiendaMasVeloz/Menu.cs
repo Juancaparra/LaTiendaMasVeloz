@@ -1,5 +1,6 @@
 using Principal;
 using Principal.GestionarInventario;
+using Principal.GestionarClientes;
 
 namespace LaTiendaMasVeloz
 {
@@ -20,6 +21,12 @@ namespace LaTiendaMasVeloz
         {
             GestionarInventario gesInventario = new GestionarInventario();
             gesInventario.ShowDialog();
+        }
+
+        private void BtGestionarCliente_Click(object sender, EventArgs e)
+        {
+            GestionarClientes gestionarCliente = new GestionarClientes();
+            gestionarCliente.ShowDialog();
         }
     }
 }
