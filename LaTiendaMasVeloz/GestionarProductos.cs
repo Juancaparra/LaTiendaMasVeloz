@@ -34,8 +34,7 @@ namespace Principal
 
         private void BtEliminarProducto_Click(object sender, EventArgs e)
         {
-            EliminarProducto eliProducto = new EliminarProducto();
-            eliProducto.ShowDialog();
+           
         }
     }
 }
