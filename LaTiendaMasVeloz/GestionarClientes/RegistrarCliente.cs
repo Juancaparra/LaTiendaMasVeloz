@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Principal.GestionarClientes
         public RegistrarCliente()
         {
             InitializeComponent();
+        }
+
+        private void btRegistrar_Click(object sender, EventArgs e)
+        {
+            ClienteController controller = new ClienteController();
+            string resultado = controller.GuardarCliente(tbCedula.Text, tbNombre.Text, tbTelefono.Text);
+            lbResultadoRegistrar.Text = resultado;
         }
     }
 }

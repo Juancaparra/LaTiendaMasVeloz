@@ -5,10 +5,10 @@ namespace Modelo
 {
     public class BaseDatos : ConexionMySql
     {
-        public int GuardarCliente(string nombre, string descripcion, string autor)
+        public int GuardarCliente(string cedula, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Cliente (id_cliente, cedula, nombre, telefono) VALUES ('" + nombre + "','" + descripcion + "','" + autor + "')";
+            cmd.CommandText = "INSERT INTO Cliente (cedula, nombre, telefono) VALUES ('" + cedula + "','" + nombre + "','" + telefono + "')";
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;
@@ -23,10 +23,10 @@ namespace Modelo
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                ClienteActual.id_cliente = reader.GetInt32(1);
-                ClienteActual.cedula = reader.GetString(2);
-                ClienteActual.nombre = reader.GetString(3);
-                ClienteActual.telefono = reader.GetString(4);
+                ClienteActual.id_cliente = reader.GetInt32(reader.GetOrdinal("id_cliente"));
+                ClienteActual.cedula = reader.GetString(reader.GetOrdinal("cedula"));
+                ClienteActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                ClienteActual.telefono = reader.GetString(reader.GetOrdinal("telefono"));
             }
 
             return ClienteActual;

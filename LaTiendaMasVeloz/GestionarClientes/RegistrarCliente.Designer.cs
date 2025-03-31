@@ -99,6 +99,7 @@
             btRegistrar.TabIndex = 23;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // label4
             // 
