@@ -31,5 +31,32 @@ namespace Modelo
 
             return ClienteActual;
         }
+
+        public int GuardarProveedor(string nit, string nombre, string telefono)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "INSERT INTO Proveedor (nit, nombre, telefono) VALUES ('" + nit + "','" + nombre + "','" + telefono + "')";
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
+        public ProveedorEntity MostrarProveedor(string nit)
+        {
+            ProveedorEntity ProveedorActual = new ProveedorEntity();
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT * FROM Proveedor WHERE nit = @nit LIMIT 1";
+            cmd.Parameters.AddWithValue("@nit", nit);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ProveedorActual.id_proveedor = reader.GetInt32(reader.GetOrdinal("id_proveedor"));
+                ProveedorActual.nit = reader.GetString(reader.GetOrdinal("nit"));
+                ProveedorActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                ProveedorActual.telefono = reader.GetString(reader.GetOrdinal("telefono"));
+            }
+
+            return ProveedorActual;
+        }
     }
 }

@@ -84,6 +84,7 @@
             btRegistrar.TabIndex = 34;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // tbTelefono
             // 
