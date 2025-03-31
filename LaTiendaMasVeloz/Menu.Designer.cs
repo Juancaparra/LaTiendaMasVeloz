@@ -94,6 +94,7 @@
             BtGestionarEmpleados.TabIndex = 5;
             BtGestionarEmpleados.Text = "GESTIONAR EMPLEADOS";
             BtGestionarEmpleados.UseVisualStyleBackColor = true;
+            BtGestionarEmpleados.Click += BtGestionarEmpleados_Click;
             // 
             // Menu
             // 
