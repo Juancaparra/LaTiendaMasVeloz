@@ -2,6 +2,7 @@ using Principal;
 using Principal.GestionarInventario;
 using Principal.GestionarClientes;
 using Principal.GestionarEmpleado;
+using Principal.GestionarProveedor;
 
 namespace LaTiendaMasVeloz
 {
@@ -34,6 +35,12 @@ namespace LaTiendaMasVeloz
         {
             GestionarEmpleado gestionarEmpleado = new GestionarEmpleado();
             gestionarEmpleado.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GestionarProveedor gestionarProveedor = new GestionarProveedor();
+            gestionarProveedor.ShowDialog();
         }
     }
 }

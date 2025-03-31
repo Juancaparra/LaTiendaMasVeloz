@@ -34,6 +34,8 @@
             BtGestionarInventario = new Button();
             BtGestionarCliente = new Button();
             BtGestionarEmpleados = new Button();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -58,7 +60,7 @@
             // 
             // BtGestionarProductos
             // 
-            BtGestionarProductos.Location = new Point(148, 134);
+            BtGestionarProductos.Location = new Point(61, 134);
             BtGestionarProductos.Name = "BtGestionarProductos";
             BtGestionarProductos.Size = new Size(162, 60);
             BtGestionarProductos.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // BtGestionarInventario
             // 
-            BtGestionarInventario.Location = new Point(482, 134);
+            BtGestionarInventario.Location = new Point(572, 134);
             BtGestionarInventario.Name = "BtGestionarInventario";
             BtGestionarInventario.Size = new Size(162, 60);
             BtGestionarInventario.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // BtGestionarCliente
             // 
-            BtGestionarCliente.Location = new Point(148, 244);
+            BtGestionarCliente.Location = new Point(61, 244);
             BtGestionarCliente.Name = "BtGestionarCliente";
             BtGestionarCliente.Size = new Size(162, 60);
             BtGestionarCliente.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             // BtGestionarEmpleados
             // 
-            BtGestionarEmpleados.Location = new Point(482, 244);
+            BtGestionarEmpleados.Location = new Point(572, 244);
             BtGestionarEmpleados.Name = "BtGestionarEmpleados";
             BtGestionarEmpleados.Size = new Size(162, 60);
             BtGestionarEmpleados.TabIndex = 5;
@@ -96,11 +98,32 @@
             BtGestionarEmpleados.UseVisualStyleBackColor = true;
             BtGestionarEmpleados.Click += BtGestionarEmpleados_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(312, 244);
+            button1.Name = "button1";
+            button1.Size = new Size(162, 60);
+            button1.TabIndex = 7;
+            button1.Text = "GESTIONAR PROVEEDORES";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(312, 134);
+            button2.Name = "button2";
+            button2.Size = new Size(162, 60);
+            button2.TabIndex = 6;
+            button2.Text = "GESTIONAR VENTA";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
+            Controls.Add(button2);
             Controls.Add(BtGestionarEmpleados);
             Controls.Add(BtGestionarCliente);
             Controls.Add(BtGestionarInventario);
@@ -121,5 +144,7 @@
         private Button BtGestionarInventario;
         private Button BtGestionarCliente;
         private Button BtGestionarEmpleados;
+        private Button button1;
+        private Button button2;
     }
 }
