@@ -56,6 +56,7 @@
             btConsultar.TabIndex = 33;
             btConsultar.Text = "Consultar";
             btConsultar.UseVisualStyleBackColor = true;
+            btConsultar.Click += new EventHandler(btConsultar_Click);
             // 
             // tbCedula
             // 

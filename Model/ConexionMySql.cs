@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class ConexionMySql
+    public class ConexionMySql
     {
         public MySqlConnection connection;
         private string cadenaConexion;
