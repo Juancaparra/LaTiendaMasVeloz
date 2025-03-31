@@ -41,6 +41,10 @@
             label7 = new Label();
             tbMarca = new TextBox();
             lbResultado = new Label();
+            label8 = new Label();
+            tbUsuario = new TextBox();
+            label9 = new Label();
+            tbNombreProveedor = new TextBox();
             SuspendLayout();
             // 
             // label3
@@ -76,7 +80,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(228, 251);
+            label6.Location = new Point(80, 240);
             label6.Name = "label6";
             label6.Size = new Size(119, 20);
             label6.TabIndex = 33;
@@ -85,7 +89,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(230, 183);
+            label5.Location = new Point(82, 181);
             label5.Name = "label5";
             label5.Size = new Size(129, 20);
             label5.TabIndex = 32;
@@ -94,7 +98,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(210, 123);
+            label4.Location = new Point(62, 121);
             label4.Name = "label4";
             label4.Size = new Size(143, 20);
             label4.TabIndex = 31;
@@ -102,7 +106,7 @@
             // 
             // btRegistrar
             // 
-            btRegistrar.Location = new Point(379, 350);
+            btRegistrar.Location = new Point(378, 316);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(94, 29);
             btRegistrar.TabIndex = 30;
@@ -111,21 +115,21 @@
             // 
             // tbPrecio
             // 
-            tbPrecio.Location = new Point(363, 244);
+            tbPrecio.Location = new Point(215, 233);
             tbPrecio.Name = "tbPrecio";
             tbPrecio.Size = new Size(133, 27);
             tbPrecio.TabIndex = 29;
             // 
             // tbNombre
             // 
-            tbNombre.Location = new Point(363, 180);
+            tbNombre.Location = new Point(215, 178);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new Size(133, 27);
             tbNombre.TabIndex = 28;
             // 
             // tbReferencia
             // 
-            tbReferencia.Location = new Point(363, 120);
+            tbReferencia.Location = new Point(215, 118);
             tbReferencia.Name = "tbReferencia";
             tbReferencia.Size = new Size(133, 27);
             tbReferencia.TabIndex = 27;
@@ -133,7 +137,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(228, 307);
+            label7.Location = new Point(426, 125);
             label7.Name = "label7";
             label7.Size = new Size(118, 20);
             label7.TabIndex = 35;
@@ -141,7 +145,7 @@
             // 
             // tbMarca
             // 
-            tbMarca.Location = new Point(363, 300);
+            tbMarca.Location = new Point(561, 121);
             tbMarca.Name = "tbMarca";
             tbMarca.Size = new Size(133, 27);
             tbMarca.TabIndex = 34;
@@ -149,16 +153,52 @@
             // lbResultado
             // 
             lbResultado.AutoSize = true;
-            lbResultado.Location = new Point(413, 398);
+            lbResultado.Location = new Point(412, 364);
             lbResultado.Name = "lbResultado";
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 36;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(426, 178);
+            label8.Name = "label8";
+            label8.Size = new Size(125, 20);
+            label8.TabIndex = 38;
+            label8.Text = "Ingrese el usuario";
+            // 
+            // tbUsuario
+            // 
+            tbUsuario.Location = new Point(561, 174);
+            tbUsuario.Name = "tbUsuario";
+            tbUsuario.Size = new Size(133, 27);
+            tbUsuario.TabIndex = 37;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(354, 237);
+            label9.Name = "label9";
+            label9.Size = new Size(202, 20);
+            label9.TabIndex = 40;
+            label9.Text = "Ingrese el nombre proveedor";
+            // 
+            // tbNombreProveedor
+            // 
+            tbNombreProveedor.Location = new Point(561, 233);
+            tbNombreProveedor.Name = "tbNombreProveedor";
+            tbNombreProveedor.Size = new Size(133, 27);
+            tbNombreProveedor.TabIndex = 39;
             // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label9);
+            Controls.Add(tbNombreProveedor);
+            Controls.Add(label8);
+            Controls.Add(tbUsuario);
             Controls.Add(lbResultado);
             Controls.Add(label7);
             Controls.Add(tbMarca);
@@ -194,5 +234,9 @@
         private Label label7;
         private TextBox tbMarca;
         private Label lbResultado;
+        private Label label8;
+        private TextBox tbUsuario;
+        private Label label9;
+        private TextBox tbNombreProveedor;
     }
 }
