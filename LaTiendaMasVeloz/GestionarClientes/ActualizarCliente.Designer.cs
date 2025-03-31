@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbTelefonoActualizar = new Label();
+            lbPrecioActualizar = new Label();
             lbNombreActualizar = new Label();
             label4 = new Label();
             btActualizar = new Button();
-            tbCedula = new TextBox();
+            tbReferencia = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            tbNombre = new TextBox();
+            tbPrecio = new TextBox();
             lbResultadoActualizar = new Label();
+            tbMarcaActualizar = new TextBox();
+            label5 = new Label();
             SuspendLayout();
             // 
-            // lbTelefonoActualizar
+            // lbPrecioActualizar
             // 
-            lbTelefonoActualizar.AutoSize = true;
-            lbTelefonoActualizar.Location = new Point(192, 273);
-            lbTelefonoActualizar.Name = "lbTelefonoActualizar";
-            lbTelefonoActualizar.Size = new Size(133, 20);
-            lbTelefonoActualizar.TabIndex = 44;
-            lbTelefonoActualizar.Text = "Ingrese el telefono";
+            lbPrecioActualizar.AutoSize = true;
+            lbPrecioActualizar.Location = new Point(202, 246);
+            lbPrecioActualizar.Name = "lbPrecioActualizar";
+            lbPrecioActualizar.Size = new Size(119, 20);
+            lbPrecioActualizar.TabIndex = 44;
+            lbPrecioActualizar.Text = "Ingrese el precio";
             // 
             // lbNombreActualizar
             // 
             lbNombreActualizar.AutoSize = true;
-            lbNombreActualizar.Location = new Point(192, 202);
+            lbNombreActualizar.Location = new Point(202, 185);
             lbNombreActualizar.Name = "lbNombreActualizar";
             lbNombreActualizar.Size = new Size(129, 20);
             lbNombreActualizar.TabIndex = 43;
@@ -62,27 +64,27 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(192, 139);
+            label4.Location = new Point(183, 122);
             label4.Name = "label4";
-            label4.Size = new Size(121, 20);
+            label4.Size = new Size(143, 20);
             label4.TabIndex = 42;
-            label4.Text = "Ingrese la cedula";
+            label4.Text = "Ingrese la referencia";
             // 
             // btActualizar
             // 
-            btActualizar.Location = new Point(334, 343);
+            btActualizar.Location = new Point(348, 337);
             btActualizar.Name = "btActualizar";
             btActualizar.Size = new Size(94, 29);
             btActualizar.TabIndex = 41;
             btActualizar.Text = "Actualizar";
             btActualizar.UseVisualStyleBackColor = true;
             // 
-            // tbCedula
+            // tbReferencia
             // 
-            tbCedula.Location = new Point(324, 136);
-            tbCedula.Name = "tbCedula";
-            tbCedula.Size = new Size(133, 27);
-            tbCedula.TabIndex = 40;
+            tbReferencia.Location = new Point(334, 119);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 40;
             // 
             // label3
             // 
@@ -113,41 +115,59 @@
             label1.TabIndex = 37;
             label1.Text = "La Tienda Mas Veloz";
             // 
-            // textBox1
+            // tbNombre
             // 
-            textBox1.Location = new Point(324, 202);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 27);
-            textBox1.TabIndex = 45;
+            tbNombre.Location = new Point(334, 185);
+            tbNombre.Name = "tbNombre";
+            tbNombre.Size = new Size(133, 27);
+            tbNombre.TabIndex = 45;
             // 
-            // textBox2
+            // tbPrecio
             // 
-            textBox2.Location = new Point(324, 266);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(133, 27);
-            textBox2.TabIndex = 46;
+            tbPrecio.Location = new Point(334, 239);
+            tbPrecio.Name = "tbPrecio";
+            tbPrecio.Size = new Size(133, 27);
+            tbPrecio.TabIndex = 46;
             // 
             // lbResultadoActualizar
             // 
             lbResultadoActualizar.AutoSize = true;
-            lbResultadoActualizar.Location = new Point(363, 410);
+            lbResultadoActualizar.Location = new Point(387, 393);
             lbResultadoActualizar.Name = "lbResultadoActualizar";
             lbResultadoActualizar.Size = new Size(0, 20);
             lbResultadoActualizar.TabIndex = 47;
+            // 
+            // tbMarcaActualizar
+            // 
+            tbMarcaActualizar.Location = new Point(334, 288);
+            tbMarcaActualizar.Name = "tbMarcaActualizar";
+            tbMarcaActualizar.Size = new Size(133, 27);
+            tbMarcaActualizar.TabIndex = 49;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(202, 295);
+            label5.Name = "label5";
+            label5.Size = new Size(118, 20);
+            label5.TabIndex = 48;
+            label5.Text = "Ingrese la marca";
             // 
             // ActualizarCliente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(tbMarcaActualizar);
+            Controls.Add(label5);
             Controls.Add(lbResultadoActualizar);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(lbTelefonoActualizar);
+            Controls.Add(tbPrecio);
+            Controls.Add(tbNombre);
+            Controls.Add(lbPrecioActualizar);
             Controls.Add(lbNombreActualizar);
             Controls.Add(label4);
             Controls.Add(btActualizar);
-            Controls.Add(tbCedula);
+            Controls.Add(tbReferencia);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -159,16 +179,18 @@
 
         #endregion
 
-        private Label lbTelefonoActualizar;
+        private Label lbPrecioActualizar;
         private Label lbNombreActualizar;
         private Label label4;
         private Button btActualizar;
-        private TextBox tbCedula;
+        private TextBox tbReferencia;
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox tbNombre;
+        private TextBox tbPrecio;
         private Label lbResultadoActualizar;
+        private TextBox tbMarcaActualizar;
+        private Label label5;
     }
 }

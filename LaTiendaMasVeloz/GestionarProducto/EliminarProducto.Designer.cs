@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            BtEliminarProducto = new Button();
-            BtActualizarProducto = new Button();
-            BtConsultarProducto = new Button();
-            BtAgregarProducto = new Button();
             label2 = new Label();
             label1 = new Label();
+            lbResultadoEliminar = new Label();
+            label4 = new Label();
+            btEliminar = new Button();
+            tbReferencia = new TextBox();
             SuspendLayout();
             // 
             // label3
@@ -46,42 +46,6 @@
             label3.Size = new Size(212, 25);
             label3.TabIndex = 19;
             label3.Text = "ELIMINAR PRODUCTOS";
-            // 
-            // BtEliminarProducto
-            // 
-            BtEliminarProducto.Location = new Point(482, 244);
-            BtEliminarProducto.Name = "BtEliminarProducto";
-            BtEliminarProducto.Size = new Size(162, 60);
-            BtEliminarProducto.TabIndex = 18;
-            BtEliminarProducto.Text = "ELIMINAR PRODUCTOS";
-            BtEliminarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtActualizarProducto
-            // 
-            BtActualizarProducto.Location = new Point(148, 244);
-            BtActualizarProducto.Name = "BtActualizarProducto";
-            BtActualizarProducto.Size = new Size(162, 60);
-            BtActualizarProducto.TabIndex = 17;
-            BtActualizarProducto.Text = "ACTUALIZAR PRODUCTOS";
-            BtActualizarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtConsultarProducto
-            // 
-            BtConsultarProducto.Location = new Point(482, 134);
-            BtConsultarProducto.Name = "BtConsultarProducto";
-            BtConsultarProducto.Size = new Size(162, 60);
-            BtConsultarProducto.TabIndex = 16;
-            BtConsultarProducto.Text = "CONSULTAR PRODUCTOS";
-            BtConsultarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtAgregarProducto
-            // 
-            BtAgregarProducto.Location = new Point(148, 134);
-            BtAgregarProducto.Name = "BtAgregarProducto";
-            BtAgregarProducto.Size = new Size(162, 60);
-            BtAgregarProducto.TabIndex = 15;
-            BtAgregarProducto.Text = "AGREGAR PRODUCTOS";
-            BtAgregarProducto.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -102,16 +66,49 @@
             label1.TabIndex = 13;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // lbResultadoEliminar
+            // 
+            lbResultadoEliminar.AutoSize = true;
+            lbResultadoEliminar.Location = new Point(404, 274);
+            lbResultadoEliminar.Name = "lbResultadoEliminar";
+            lbResultadoEliminar.Size = new Size(0, 20);
+            lbResultadoEliminar.TabIndex = 47;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(211, 151);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 20);
+            label4.TabIndex = 46;
+            label4.Text = "Ingrese la referencia";
+            // 
+            // btEliminar
+            // 
+            btEliminar.Location = new Point(385, 198);
+            btEliminar.Name = "btEliminar";
+            btEliminar.Size = new Size(94, 29);
+            btEliminar.TabIndex = 45;
+            btEliminar.Text = "Eliminar";
+            btEliminar.UseVisualStyleBackColor = true;
+            // 
+            // tbReferencia
+            // 
+            tbReferencia.Location = new Point(361, 148);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 44;
+            // 
             // EliminarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbResultadoEliminar);
+            Controls.Add(label4);
+            Controls.Add(btEliminar);
+            Controls.Add(tbReferencia);
             Controls.Add(label3);
-            Controls.Add(BtEliminarProducto);
-            Controls.Add(BtActualizarProducto);
-            Controls.Add(BtConsultarProducto);
-            Controls.Add(BtAgregarProducto);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "EliminarProducto";
@@ -123,11 +120,11 @@
         #endregion
 
         private Label label3;
-        private Button BtEliminarProducto;
-        private Button BtActualizarProducto;
-        private Button BtConsultarProducto;
-        private Button BtAgregarProducto;
         private Label label2;
         private Label label1;
+        private Label lbResultadoEliminar;
+        private Label label4;
+        private Button btEliminar;
+        private TextBox tbReferencia;
     }
 }

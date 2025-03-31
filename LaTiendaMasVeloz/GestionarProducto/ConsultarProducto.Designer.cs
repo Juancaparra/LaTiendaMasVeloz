@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            BtEliminarProducto = new Button();
-            BtActualizarProducto = new Button();
-            BtConsultarProducto = new Button();
-            BtAgregarProducto = new Button();
             label2 = new Label();
             label1 = new Label();
+            lbResultadoConsultar = new Label();
+            lbPrecioConsultar = new Label();
+            lbNombreConsultar = new Label();
+            label4 = new Label();
+            btConsultar = new Button();
+            tbReferencia = new TextBox();
+            lbMarcaConsultar = new Label();
             SuspendLayout();
             // 
             // label3
@@ -46,42 +49,6 @@
             label3.Size = new Size(230, 25);
             label3.TabIndex = 19;
             label3.Text = "CONSULTAR PRODUCTOS";
-            // 
-            // BtEliminarProducto
-            // 
-            BtEliminarProducto.Location = new Point(478, 246);
-            BtEliminarProducto.Name = "BtEliminarProducto";
-            BtEliminarProducto.Size = new Size(162, 60);
-            BtEliminarProducto.TabIndex = 18;
-            BtEliminarProducto.Text = "ELIMINAR PRODUCTOS";
-            BtEliminarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtActualizarProducto
-            // 
-            BtActualizarProducto.Location = new Point(144, 246);
-            BtActualizarProducto.Name = "BtActualizarProducto";
-            BtActualizarProducto.Size = new Size(162, 60);
-            BtActualizarProducto.TabIndex = 17;
-            BtActualizarProducto.Text = "ACTUALIZAR PRODUCTOS";
-            BtActualizarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtConsultarProducto
-            // 
-            BtConsultarProducto.Location = new Point(478, 136);
-            BtConsultarProducto.Name = "BtConsultarProducto";
-            BtConsultarProducto.Size = new Size(162, 60);
-            BtConsultarProducto.TabIndex = 16;
-            BtConsultarProducto.Text = "CONSULTAR PRODUCTOS";
-            BtConsultarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtAgregarProducto
-            // 
-            BtAgregarProducto.Location = new Point(144, 136);
-            BtAgregarProducto.Name = "BtAgregarProducto";
-            BtAgregarProducto.Size = new Size(162, 60);
-            BtAgregarProducto.TabIndex = 15;
-            BtAgregarProducto.Text = "AGREGAR PRODUCTOS";
-            BtAgregarProducto.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -102,16 +69,79 @@
             label1.TabIndex = 13;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // lbResultadoConsultar
+            // 
+            lbResultadoConsultar.AutoSize = true;
+            lbResultadoConsultar.Location = new Point(383, 386);
+            lbResultadoConsultar.Name = "lbResultadoConsultar";
+            lbResultadoConsultar.Size = new Size(0, 20);
+            lbResultadoConsultar.TabIndex = 43;
+            // 
+            // lbPrecioConsultar
+            // 
+            lbPrecioConsultar.AutoSize = true;
+            lbPrecioConsultar.Location = new Point(217, 299);
+            lbPrecioConsultar.Name = "lbPrecioConsultar";
+            lbPrecioConsultar.Size = new Size(61, 20);
+            lbPrecioConsultar.TabIndex = 42;
+            lbPrecioConsultar.Text = "Precio:  ";
+            // 
+            // lbNombreConsultar
+            // 
+            lbNombreConsultar.AutoSize = true;
+            lbNombreConsultar.Location = new Point(217, 243);
+            lbNombreConsultar.Name = "lbNombreConsultar";
+            lbNombreConsultar.Size = new Size(71, 20);
+            lbNombreConsultar.TabIndex = 41;
+            lbNombreConsultar.Text = "Nombre: ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(197, 142);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 20);
+            label4.TabIndex = 40;
+            label4.Text = "Ingrese la referencia";
+            // 
+            // btConsultar
+            // 
+            btConsultar.Location = new Point(373, 189);
+            btConsultar.Name = "btConsultar";
+            btConsultar.Size = new Size(94, 29);
+            btConsultar.TabIndex = 39;
+            btConsultar.Text = "Consultar";
+            btConsultar.UseVisualStyleBackColor = true;
+            // 
+            // tbReferencia
+            // 
+            tbReferencia.Location = new Point(349, 139);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 38;
+            // 
+            // lbMarcaConsultar
+            // 
+            lbMarcaConsultar.AutoSize = true;
+            lbMarcaConsultar.Location = new Point(217, 351);
+            lbMarcaConsultar.Name = "lbMarcaConsultar";
+            lbMarcaConsultar.Size = new Size(61, 20);
+            lbMarcaConsultar.TabIndex = 44;
+            lbMarcaConsultar.Text = "Marca:  ";
+            // 
             // ConsultarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbMarcaConsultar);
+            Controls.Add(lbResultadoConsultar);
+            Controls.Add(lbPrecioConsultar);
+            Controls.Add(lbNombreConsultar);
+            Controls.Add(label4);
+            Controls.Add(btConsultar);
+            Controls.Add(tbReferencia);
             Controls.Add(label3);
-            Controls.Add(BtEliminarProducto);
-            Controls.Add(BtActualizarProducto);
-            Controls.Add(BtConsultarProducto);
-            Controls.Add(BtAgregarProducto);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ConsultarProducto";
@@ -123,11 +153,14 @@
         #endregion
 
         private Label label3;
-        private Button BtEliminarProducto;
-        private Button BtActualizarProducto;
-        private Button BtConsultarProducto;
-        private Button BtAgregarProducto;
         private Label label2;
         private Label label1;
+        private Label lbResultadoConsultar;
+        private Label lbPrecioConsultar;
+        private Label lbNombreConsultar;
+        private Label label4;
+        private Button btConsultar;
+        private TextBox tbReferencia;
+        private Label lbMarcaConsultar;
     }
 }

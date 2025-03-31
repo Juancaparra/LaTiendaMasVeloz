@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            BtEliminarProducto = new Button();
-            BtActualizarProducto = new Button();
-            BtConsultarProducto = new Button();
-            BtAgregarProducto = new Button();
             label2 = new Label();
             label1 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            btRegistrar = new Button();
+            tbPrecio = new TextBox();
+            tbNombre = new TextBox();
+            tbReferencia = new TextBox();
+            label7 = new Label();
+            tbMarca = new TextBox();
+            lbResultado = new Label();
             SuspendLayout();
             // 
             // label3
@@ -43,46 +49,10 @@
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(282, 76);
             label3.Name = "label3";
-            label3.Size = new Size(201, 25);
+            label3.Size = new Size(214, 25);
             label3.TabIndex = 19;
-            label3.Text = "AGREGAR PRODUCTO";
+            label3.Text = "REGISTRAR PRODUCTO";
             label3.Click += label3_Click;
-            // 
-            // BtEliminarProducto
-            // 
-            BtEliminarProducto.Location = new Point(482, 244);
-            BtEliminarProducto.Name = "BtEliminarProducto";
-            BtEliminarProducto.Size = new Size(162, 60);
-            BtEliminarProducto.TabIndex = 18;
-            BtEliminarProducto.Text = "ELIMINAR PRODUCTOS";
-            BtEliminarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtActualizarProducto
-            // 
-            BtActualizarProducto.Location = new Point(148, 244);
-            BtActualizarProducto.Name = "BtActualizarProducto";
-            BtActualizarProducto.Size = new Size(162, 60);
-            BtActualizarProducto.TabIndex = 17;
-            BtActualizarProducto.Text = "ACTUALIZAR PRODUCTOS";
-            BtActualizarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtConsultarProducto
-            // 
-            BtConsultarProducto.Location = new Point(482, 134);
-            BtConsultarProducto.Name = "BtConsultarProducto";
-            BtConsultarProducto.Size = new Size(162, 60);
-            BtConsultarProducto.TabIndex = 16;
-            BtConsultarProducto.Text = "CONSULTAR PRODUCTOS";
-            BtConsultarProducto.UseVisualStyleBackColor = true;
-            // 
-            // BtAgregarProducto
-            // 
-            BtAgregarProducto.Location = new Point(148, 134);
-            BtAgregarProducto.Name = "BtAgregarProducto";
-            BtAgregarProducto.Size = new Size(162, 60);
-            BtAgregarProducto.TabIndex = 15;
-            BtAgregarProducto.Text = "AGREGAR PRODUCTOS";
-            BtAgregarProducto.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -103,20 +73,108 @@
             label1.TabIndex = 13;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(228, 251);
+            label6.Name = "label6";
+            label6.Size = new Size(119, 20);
+            label6.TabIndex = 33;
+            label6.Text = "Ingrese el precio";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(230, 183);
+            label5.Name = "label5";
+            label5.Size = new Size(129, 20);
+            label5.TabIndex = 32;
+            label5.Text = "Ingrese el nombre";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(210, 123);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 20);
+            label4.TabIndex = 31;
+            label4.Text = "Ingrese la referencia";
+            // 
+            // btRegistrar
+            // 
+            btRegistrar.Location = new Point(379, 350);
+            btRegistrar.Name = "btRegistrar";
+            btRegistrar.Size = new Size(94, 29);
+            btRegistrar.TabIndex = 30;
+            btRegistrar.Text = "Registrar";
+            btRegistrar.UseVisualStyleBackColor = true;
+            // 
+            // tbPrecio
+            // 
+            tbPrecio.Location = new Point(363, 244);
+            tbPrecio.Name = "tbPrecio";
+            tbPrecio.Size = new Size(133, 27);
+            tbPrecio.TabIndex = 29;
+            // 
+            // tbNombre
+            // 
+            tbNombre.Location = new Point(363, 180);
+            tbNombre.Name = "tbNombre";
+            tbNombre.Size = new Size(133, 27);
+            tbNombre.TabIndex = 28;
+            // 
+            // tbReferencia
+            // 
+            tbReferencia.Location = new Point(363, 120);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 27;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(228, 307);
+            label7.Name = "label7";
+            label7.Size = new Size(118, 20);
+            label7.TabIndex = 35;
+            label7.Text = "Ingrese la marca";
+            // 
+            // tbMarca
+            // 
+            tbMarca.Location = new Point(363, 300);
+            tbMarca.Name = "tbMarca";
+            tbMarca.Size = new Size(133, 27);
+            tbMarca.TabIndex = 34;
+            // 
+            // lbResultado
+            // 
+            lbResultado.AutoSize = true;
+            lbResultado.Location = new Point(413, 398);
+            lbResultado.Name = "lbResultado";
+            lbResultado.Size = new Size(0, 20);
+            lbResultado.TabIndex = 36;
+            // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbResultado);
+            Controls.Add(label7);
+            Controls.Add(tbMarca);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(btRegistrar);
+            Controls.Add(tbPrecio);
+            Controls.Add(tbNombre);
+            Controls.Add(tbReferencia);
             Controls.Add(label3);
-            Controls.Add(BtEliminarProducto);
-            Controls.Add(BtActualizarProducto);
-            Controls.Add(BtConsultarProducto);
-            Controls.Add(BtAgregarProducto);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AgregarProducto";
             Text = "AgregarProducto";
+            Load += AgregarProducto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,11 +182,17 @@
         #endregion
 
         private Label label3;
-        private Button BtEliminarProducto;
-        private Button BtActualizarProducto;
-        private Button BtConsultarProducto;
-        private Button BtAgregarProducto;
         private Label label2;
         private Label label1;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Button btRegistrar;
+        private TextBox tbPrecio;
+        private TextBox tbNombre;
+        private TextBox tbReferencia;
+        private Label label7;
+        private TextBox tbMarca;
+        private Label lbResultado;
     }
 }

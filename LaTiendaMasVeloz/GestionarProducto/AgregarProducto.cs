@@ -21,5 +21,10 @@ namespace Principal
         {
 
         }
+
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
