@@ -38,6 +38,8 @@
             btConsultar = new Button();
             tbReferencia = new TextBox();
             lbMarcaConsultar = new Label();
+            label5 = new Label();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label3
@@ -129,11 +131,31 @@
             lbMarcaConsultar.TabIndex = 44;
             lbMarcaConsultar.Text = "Marca:  ";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(482, 243);
+            label5.Name = "label5";
+            label5.Size = new Size(150, 20);
+            label5.TabIndex = 45;
+            label5.Text = "Nombre Encargado:  ";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(482, 299);
+            label6.Name = "label6";
+            label6.Size = new Size(147, 20);
+            label6.TabIndex = 46;
+            label6.Text = "Nombre Proveedor:  ";
+            // 
             // ConsultarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(lbMarcaConsultar);
             Controls.Add(lbResultadoConsultar);
             Controls.Add(lbPrecioConsultar);
@@ -162,5 +184,7 @@
         private Button btConsultar;
         private TextBox tbReferencia;
         private Label lbMarcaConsultar;
+        private Label label5;
+        private Label label6;
     }
 }

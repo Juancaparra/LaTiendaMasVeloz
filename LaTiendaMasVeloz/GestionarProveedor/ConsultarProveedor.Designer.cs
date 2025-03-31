@@ -94,11 +94,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(301, 76);
+            label3.Location = new Point(289, 76);
             label3.Name = "label3";
-            label3.Size = new Size(193, 25);
+            label3.Size = new Size(230, 25);
             label3.TabIndex = 40;
-            label3.Text = "CONSULTAR CLIENTE";
+            label3.Text = "CONSULTAR PROVEEDOR";
             // 
             // label2
             // 
