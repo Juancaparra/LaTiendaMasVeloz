@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Principal.GestionarProveedor
         public RegistrarProveedor()
         {
             InitializeComponent();
+        }
+
+        private void btRegistrar_Click(object sender, EventArgs e)
+        {
+            ProveedorController controller = new ProveedorController();
+            string resultado = controller.GuardarProveedor(tbNIT.Text, tbNombre.Text, tbTelefono.Text);
+            lbResultadoRegistrar.Text = resultado;
         }
     }
 }

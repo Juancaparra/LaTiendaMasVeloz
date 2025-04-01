@@ -82,6 +82,7 @@
             btConsultar.TabIndex = 42;
             btConsultar.Text = "Consultar";
             btConsultar.UseVisualStyleBackColor = true;
+            btConsultar.Click += btConsultar_Click;
             // 
             // tbNIT
             // 
