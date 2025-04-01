@@ -31,7 +31,6 @@
             label1 = new Label();
             label2 = new Label();
             BtGestionarProductos = new Button();
-            BtGestionarInventario = new Button();
             BtGestionarCliente = new Button();
             BtGestionarEmpleados = new Button();
             button1 = new Button();
@@ -67,13 +66,6 @@
             BtGestionarProductos.Text = "GESTIONAR PRODUCTOS";
             BtGestionarProductos.UseVisualStyleBackColor = true;
             BtGestionarProductos.Click += BtGestionarProductos_Click;
-            // 
-            // BtGestionarInventario
-            // 
-            BtGestionarInventario.Location = new Point(0, 0);
-            BtGestionarInventario.Name = "BtGestionarInventario";
-            BtGestionarInventario.Size = new Size(75, 23);
-            BtGestionarInventario.TabIndex = 8;
             // 
             // BtGestionarCliente
             // 
@@ -113,6 +105,7 @@
             button2.TabIndex = 6;
             button2.Text = "GESTIONAR VENTA";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Menu
             // 
@@ -123,7 +116,6 @@
             Controls.Add(button2);
             Controls.Add(BtGestionarEmpleados);
             Controls.Add(BtGestionarCliente);
-            Controls.Add(BtGestionarInventario);
             Controls.Add(BtGestionarProductos);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -138,7 +130,6 @@
         private Label label1;
         private Label label2;
         private Button BtGestionarProductos;
-        private Button BtGestionarInventario;
         private Button BtGestionarCliente;
         private Button BtGestionarEmpleados;
         private Button button1;

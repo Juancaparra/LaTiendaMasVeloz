@@ -17,27 +17,27 @@ namespace Principal.GestionarProveedor
             InitializeComponent();
         }
 
-        private void BtRegistrarCliente_Click(object sender, EventArgs e)
+        private void BtRegistrarProveedor_Click_1(object sender, EventArgs e)
         {
             RegistrarProveedor registrarProveedor = new RegistrarProveedor();
             registrarProveedor.ShowDialog();
         }
 
-        private void BtConsultarCliente_Click(object sender, EventArgs e)
+        private void BtConsultarProveedor_Click(object sender, EventArgs e)
         {
             ConsultarProveedor consultarProveedor = new ConsultarProveedor();
             consultarProveedor.ShowDialog();
         }
 
-        private void BtActualizarCliente_Click(object sender, EventArgs e)
+        private void BtActualizarProveedor_Click(object sender, EventArgs e)
         {
             ActualizarProveedor actualizarProveedor = new ActualizarProveedor();
             actualizarProveedor.ShowDialog();
         }
 
-        private void BtEliminarCliente_Click(object sender, EventArgs e)
+        private void BtEliminarProveedor_Click(object sender, EventArgs e)
         {
-            EliminarProveedor eliminarProveedor =new EliminarProveedor();
+            EliminarProveedor eliminarProveedor = new EliminarProveedor();
             eliminarProveedor.ShowDialog();
         }
     }

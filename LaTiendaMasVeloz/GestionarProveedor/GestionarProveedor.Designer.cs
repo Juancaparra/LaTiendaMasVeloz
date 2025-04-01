@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            BtEliminarCliente = new Button();
-            BtActualizarCliente = new Button();
-            BtConsultarCliente = new Button();
-            BtRegistrarCliente = new Button();
+            BtEliminarProveedor = new Button();
+            BtActualizarProveedor = new Button();
+            BtConsultarProveedor = new Button();
+            BtRegistrarProveedor = new Button();
             label2 = new Label();
             label1 = new Label();
             SuspendLayout();
@@ -47,45 +47,45 @@
             label3.TabIndex = 26;
             label3.Text = "GESTIÓN DE PROVEEDORES";
             // 
-            // BtEliminarCliente
+            // BtEliminarProveedor
             // 
-            BtEliminarCliente.Location = new Point(482, 244);
-            BtEliminarCliente.Name = "BtEliminarCliente";
-            BtEliminarCliente.Size = new Size(162, 60);
-            BtEliminarCliente.TabIndex = 25;
-            BtEliminarCliente.Text = "ELIMINAR PROVEEDOR";
-            BtEliminarCliente.UseVisualStyleBackColor = true;
-            BtEliminarCliente.Click += BtEliminarCliente_Click;
+            BtEliminarProveedor.Location = new Point(482, 244);
+            BtEliminarProveedor.Name = "BtEliminarProveedor";
+            BtEliminarProveedor.Size = new Size(162, 60);
+            BtEliminarProveedor.TabIndex = 25;
+            BtEliminarProveedor.Text = "ELIMINAR PROVEEDOR";
+            BtEliminarProveedor.UseVisualStyleBackColor = true;
+            BtEliminarProveedor.Click += BtEliminarProveedor_Click;
             // 
-            // BtActualizarCliente
+            // BtActualizarProveedor
             // 
-            BtActualizarCliente.Location = new Point(148, 244);
-            BtActualizarCliente.Name = "BtActualizarCliente";
-            BtActualizarCliente.Size = new Size(162, 60);
-            BtActualizarCliente.TabIndex = 24;
-            BtActualizarCliente.Text = "ACTUALIZAR PROVEEDOR";
-            BtActualizarCliente.UseVisualStyleBackColor = true;
-            BtActualizarCliente.Click += BtActualizarCliente_Click;
+            BtActualizarProveedor.Location = new Point(148, 244);
+            BtActualizarProveedor.Name = "BtActualizarProveedor";
+            BtActualizarProveedor.Size = new Size(162, 60);
+            BtActualizarProveedor.TabIndex = 24;
+            BtActualizarProveedor.Text = "ACTUALIZAR PROVEEDOR";
+            BtActualizarProveedor.UseVisualStyleBackColor = true;
+            BtActualizarProveedor.Click += BtActualizarProveedor_Click;
             // 
-            // BtConsultarCliente
+            // BtConsultarProveedor
             // 
-            BtConsultarCliente.Location = new Point(482, 134);
-            BtConsultarCliente.Name = "BtConsultarCliente";
-            BtConsultarCliente.Size = new Size(162, 60);
-            BtConsultarCliente.TabIndex = 23;
-            BtConsultarCliente.Text = "CONSULTAR PROVEEDOR";
-            BtConsultarCliente.UseVisualStyleBackColor = true;
-            BtConsultarCliente.Click += BtConsultarCliente_Click;
+            BtConsultarProveedor.Location = new Point(482, 134);
+            BtConsultarProveedor.Name = "BtConsultarProveedor";
+            BtConsultarProveedor.Size = new Size(162, 60);
+            BtConsultarProveedor.TabIndex = 23;
+            BtConsultarProveedor.Text = "CONSULTAR PROVEEDOR";
+            BtConsultarProveedor.UseVisualStyleBackColor = true;
+            BtConsultarProveedor.Click += BtConsultarProveedor_Click;
             // 
-            // BtRegistrarCliente
+            // BtRegistrarProveedor
             // 
-            BtRegistrarCliente.Location = new Point(148, 134);
-            BtRegistrarCliente.Name = "BtRegistrarCliente";
-            BtRegistrarCliente.Size = new Size(162, 60);
-            BtRegistrarCliente.TabIndex = 22;
-            BtRegistrarCliente.Text = "REGISTRAR PROVEEDOR";
-            BtRegistrarCliente.UseVisualStyleBackColor = true;
-            BtRegistrarCliente.Click += BtRegistrarCliente_Click;
+            BtRegistrarProveedor.Location = new Point(148, 134);
+            BtRegistrarProveedor.Name = "BtRegistrarProveedor";
+            BtRegistrarProveedor.Size = new Size(162, 60);
+            BtRegistrarProveedor.TabIndex = 22;
+            BtRegistrarProveedor.Text = "REGISTRAR PROVEEDOR";
+            BtRegistrarProveedor.UseVisualStyleBackColor = true;
+            BtRegistrarProveedor.Click += BtRegistrarProveedor_Click_1;
             // 
             // label2
             // 
@@ -112,10 +112,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label3);
-            Controls.Add(BtEliminarCliente);
-            Controls.Add(BtActualizarCliente);
-            Controls.Add(BtConsultarCliente);
-            Controls.Add(BtRegistrarCliente);
+            Controls.Add(BtEliminarProveedor);
+            Controls.Add(BtActualizarProveedor);
+            Controls.Add(BtConsultarProveedor);
+            Controls.Add(BtRegistrarProveedor);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "GestionarProveedor";
@@ -127,10 +127,10 @@
         #endregion
 
         private Label label3;
-        private Button BtEliminarCliente;
-        private Button BtActualizarCliente;
-        private Button BtConsultarCliente;
-        private Button BtRegistrarCliente;
+        private Button BtEliminarProveedor;
+        private Button BtActualizarProveedor;
+        private Button BtConsultarProveedor;
+        private Button BtRegistrarProveedor;
         private Label label2;
         private Label label1;
     }
