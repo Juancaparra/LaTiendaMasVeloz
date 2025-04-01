@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Principal.GestionarInventario
+namespace Principal.GestionarVenta
 {
-    public partial class EliminarInventario: Form
+    public partial class RegistrarVenta : Form
     {
-        public EliminarInventario()
+        public RegistrarVenta()
         {
             InitializeComponent();
         }

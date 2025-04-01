@@ -60,7 +60,7 @@
             // 
             // BtGestionarProductos
             // 
-            BtGestionarProductos.Location = new Point(61, 134);
+            BtGestionarProductos.Location = new Point(192, 244);
             BtGestionarProductos.Name = "BtGestionarProductos";
             BtGestionarProductos.Size = new Size(162, 60);
             BtGestionarProductos.TabIndex = 2;
@@ -70,17 +70,14 @@
             // 
             // BtGestionarInventario
             // 
-            BtGestionarInventario.Location = new Point(572, 134);
+            BtGestionarInventario.Location = new Point(0, 0);
             BtGestionarInventario.Name = "BtGestionarInventario";
-            BtGestionarInventario.Size = new Size(162, 60);
-            BtGestionarInventario.TabIndex = 3;
-            BtGestionarInventario.Text = "GESTIONAR INVENTARIO";
-            BtGestionarInventario.UseVisualStyleBackColor = true;
-            BtGestionarInventario.Click += BtGestionarInventario_Click;
+            BtGestionarInventario.Size = new Size(75, 23);
+            BtGestionarInventario.TabIndex = 8;
             // 
             // BtGestionarCliente
             // 
-            BtGestionarCliente.Location = new Point(61, 244);
+            BtGestionarCliente.Location = new Point(64, 134);
             BtGestionarCliente.Name = "BtGestionarCliente";
             BtGestionarCliente.Size = new Size(162, 60);
             BtGestionarCliente.TabIndex = 4;
@@ -90,7 +87,7 @@
             // 
             // BtGestionarEmpleados
             // 
-            BtGestionarEmpleados.Location = new Point(572, 244);
+            BtGestionarEmpleados.Location = new Point(577, 134);
             BtGestionarEmpleados.Name = "BtGestionarEmpleados";
             BtGestionarEmpleados.Size = new Size(162, 60);
             BtGestionarEmpleados.TabIndex = 5;
@@ -100,7 +97,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(312, 244);
+            button1.Location = new Point(441, 244);
             button1.Name = "button1";
             button1.Size = new Size(162, 60);
             button1.TabIndex = 7;
