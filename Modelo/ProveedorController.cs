@@ -34,5 +34,22 @@ namespace Logica
 
             return proveedor;
         }
+
+        public string EliminarProveedor(string nit)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasEliminadas = db.EliminarProveedor(nit);
+
+            if (filasEliminadas > 0)
+            {
+                resultado = "Eliminado";
+            }
+            else
+            {
+                resultado = "No Eliminado";
+            }
+            return resultado;
+        }
     }
 }

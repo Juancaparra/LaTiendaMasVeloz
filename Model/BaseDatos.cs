@@ -59,6 +59,16 @@ namespace Modelo
             return ProveedorActual;
         }
 
+        public int EliminarProveedor(string nit)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "DELETE FROM Proveedor WHERE nit = @nit";
+            cmd.Parameters.AddWithValue("@nit", nit);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
