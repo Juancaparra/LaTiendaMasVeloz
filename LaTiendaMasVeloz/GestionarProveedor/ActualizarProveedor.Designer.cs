@@ -38,18 +38,22 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            lbResultado = new Label();
+            textBox3 = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
             SuspendLayout();
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(325, 268);
+            textBox2.Location = new Point(325, 287);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(133, 27);
             textBox2.TabIndex = 56;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(325, 204);
+            textBox1.Location = new Point(325, 242);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(133, 27);
             textBox1.TabIndex = 55;
@@ -57,7 +61,7 @@
             // lbTelefonoActualizar
             // 
             lbTelefonoActualizar.AutoSize = true;
-            lbTelefonoActualizar.Location = new Point(193, 275);
+            lbTelefonoActualizar.Location = new Point(193, 294);
             lbTelefonoActualizar.Name = "lbTelefonoActualizar";
             lbTelefonoActualizar.Size = new Size(133, 20);
             lbTelefonoActualizar.TabIndex = 54;
@@ -66,7 +70,7 @@
             // lbNombreActualizar
             // 
             lbNombreActualizar.AutoSize = true;
-            lbNombreActualizar.Location = new Point(193, 204);
+            lbNombreActualizar.Location = new Point(193, 242);
             lbNombreActualizar.Name = "lbNombreActualizar";
             lbNombreActualizar.Size = new Size(129, 20);
             lbNombreActualizar.TabIndex = 53;
@@ -75,11 +79,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(193, 141);
+            label4.Location = new Point(121, 144);
             label4.Name = "label4";
-            label4.Size = new Size(100, 20);
+            label4.Size = new Size(198, 20);
             label4.TabIndex = 52;
-            label4.Text = "Ingrese el NIT";
+            label4.Text = "Ingrese el NIT del proveedor";
             // 
             // btActualizar
             // 
@@ -92,7 +96,7 @@
             // 
             // tbNIT
             // 
-            tbNIT.Location = new Point(325, 138);
+            tbNIT.Location = new Point(325, 141);
             tbNIT.Name = "tbNIT";
             tbNIT.Size = new Size(133, 27);
             tbNIT.TabIndex = 50;
@@ -126,11 +130,49 @@
             label1.TabIndex = 47;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // lbResultado
+            // 
+            lbResultado.AutoSize = true;
+            lbResultado.Location = new Point(384, 401);
+            lbResultado.Name = "lbResultado";
+            lbResultado.Size = new Size(0, 20);
+            lbResultado.TabIndex = 57;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(325, 190);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(133, 27);
+            textBox3.TabIndex = 59;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(200, 190);
+            label5.Name = "label5";
+            label5.Size = new Size(94, 20);
+            label5.TabIndex = 58;
+            label5.Text = "NIT (nuevo)  ";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(464, 190);
+            label6.Name = "label6";
+            label6.Size = new Size(58, 17);
+            label6.TabIndex = 60;
+            label6.Text = "opcional";
+            // 
             // ActualizarProveedor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label6);
+            Controls.Add(textBox3);
+            Controls.Add(label5);
+            Controls.Add(lbResultado);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(lbTelefonoActualizar);
@@ -143,6 +185,7 @@
             Controls.Add(label1);
             Name = "ActualizarProveedor";
             Text = "ActualizarProveedor";
+            Load += ActualizarProveedor_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,5 +202,9 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label lbResultado;
+        private TextBox textBox3;
+        private Label label5;
+        private Label label6;
     }
 }

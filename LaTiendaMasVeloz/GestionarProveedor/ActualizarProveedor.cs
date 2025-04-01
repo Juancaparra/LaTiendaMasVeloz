@@ -16,5 +16,10 @@ namespace Principal.GestionarProveedor
         {
             InitializeComponent();
         }
+
+        private void ActualizarProveedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
