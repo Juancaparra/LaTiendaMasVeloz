@@ -40,7 +40,7 @@
             label2 = new Label();
             label1 = new Label();
             lbContraseña = new Label();
-            textBox1 = new TextBox();
+            tbContraseña = new TextBox();
             SuspendLayout();
             // 
             // lbResultadoRegistrar
@@ -86,6 +86,7 @@
             btRegistrar.TabIndex = 34;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // tbUsuario
             // 
@@ -146,12 +147,12 @@
             lbContraseña.TabIndex = 40;
             lbContraseña.Text = "Ingrese la contraseña";
             // 
-            // textBox1
+            // tbContraseña
             // 
-            textBox1.Location = new Point(321, 301);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 27);
-            textBox1.TabIndex = 39;
+            tbContraseña.Location = new Point(321, 301);
+            tbContraseña.Name = "tbContraseña";
+            tbContraseña.Size = new Size(133, 27);
+            tbContraseña.TabIndex = 39;
             // 
             // RegistrarEmpleado
             // 
@@ -159,7 +160,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lbContraseña);
-            Controls.Add(textBox1);
+            Controls.Add(tbContraseña);
             Controls.Add(lbResultadoRegistrar);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -191,6 +192,6 @@
         private Label label2;
         private Label label1;
         private Label lbContraseña;
-        private TextBox textBox1;
+        private TextBox tbContraseña;
     }
 }

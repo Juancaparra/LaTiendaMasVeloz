@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Principal.GestionarEmpleado
         public RegistrarEmpleado()
         {
             InitializeComponent();
+        }
+
+        private void btRegistrar_Click(object sender, EventArgs e)
+        {
+            EmpleadoController controller = new EmpleadoController();
+            string resultado = controller.GuardarEmpleado(tbCedula.Text, tbNombre.Text, tbUsuario.Text, tbContraseña.Text);
+            lbResultadoRegistrar.Text = resultado;
         }
     }
 }

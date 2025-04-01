@@ -58,5 +58,34 @@ namespace Modelo
 
             return ProveedorActual;
         }
+
+        public int GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "INSERT INTO Empleado (cedula, nombre, usuario, contraseña) VALUES ('" + cedula + "','" + nombre + "','" + usuario + "','" + contraseña + "')";
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
+        public EmpleadoEntity MostrarEmpleado(string cedula)
+        {
+            EmpleadoEntity EmpleadoActual = new EmpleadoEntity();
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT * FROM Empleado WHERE cedula = @cedula LIMIT 1";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                EmpleadoActual.id_empleado = reader.GetInt32(reader.GetOrdinal("id_empleado"));
+                EmpleadoActual.cedula = reader.GetString(reader.GetOrdinal("cedula"));
+                EmpleadoActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                EmpleadoActual.usuario = reader.GetString(reader.GetOrdinal("usuario"));
+                EmpleadoActual.contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
+
+            }
+
+            return EmpleadoActual;
+        }
     }
 }
