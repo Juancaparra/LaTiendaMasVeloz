@@ -8,7 +8,10 @@ namespace Modelo
         public int GuardarCliente(string cedula, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Cliente (cedula, nombre, telefono) VALUES ('" + cedula + "','" + nombre + "','" + telefono + "')";
+            cmd.CommandText = "INSERT INTO Cliente (cedula, nombre, telefono) VALUES (@cedula, @nombre, @telefono)";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@telefono", telefono);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;
@@ -35,7 +38,10 @@ namespace Modelo
         public int GuardarProveedor(string nit, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Proveedor (nit, nombre, telefono) VALUES ('" + nit + "','" + nombre + "','" + telefono + "')";
+            cmd.CommandText = "INSERT INTO Proveedor (nit, nombre, telefono) VALUES (@nit, @nombre, @telefono)";
+            cmd.Parameters.AddWithValue("@nit", nit);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@telefono", telefono);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;
@@ -59,6 +65,24 @@ namespace Modelo
             return ProveedorActual;
         }
 
+        public int ActualizarProveedor(ProveedorEntity proveedor)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "UPDATE Proveedor SET nombre = @nombre, telefono = @telefono" +
+                              (string.IsNullOrEmpty(proveedor.nuevoNit) ? "" : ", nit = @nuevoNit") +
+                              " WHERE nit = @nit";
+            cmd.Parameters.AddWithValue("@nit", proveedor.nit);
+            cmd.Parameters.AddWithValue("@nombre", proveedor.nombre);
+            cmd.Parameters.AddWithValue("@telefono", proveedor.telefono);
+            if (!string.IsNullOrEmpty(proveedor.nuevoNit))
+            {
+                cmd.Parameters.AddWithValue("@nuevoNit", proveedor.nuevoNit);
+            }
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int EliminarProveedor(string nit)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
@@ -72,7 +96,11 @@ namespace Modelo
         public int GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Empleado (cedula, nombre, usuario, contraseña) VALUES ('" + cedula + "','" + nombre + "','" + usuario + "','" + contraseña + "')";
+            cmd.CommandText = "INSERT INTO Empleado (cedula, nombre, usuario, contraseña) VALUES (@cedula, @nombre, @usuario, @contraseña)";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            cmd.Parameters.AddWithValue("@contraseña", contraseña);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;

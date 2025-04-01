@@ -26,6 +26,7 @@ namespace Logica
             }
             return resultado;
         }
+
         public ProveedorEntity MostrarProveedor(string nit)
         {
             BaseDatos db = new BaseDatos();
@@ -33,6 +34,23 @@ namespace Logica
             ProveedorEntity proveedor = db.MostrarProveedor(nit);
 
             return proveedor;
+        }
+
+        public string ActualizarProveedor(ProveedorEntity proveedor)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasActualizadas = db.ActualizarProveedor(proveedor);
+
+            if (filasActualizadas > 0)
+            {
+                resultado = "Actualizado";
+            }
+            else
+            {
+                resultado = "No Actualizado";
+            }
+            return resultado;
         }
 
         public string EliminarProveedor(string nit)

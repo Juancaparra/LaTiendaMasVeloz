@@ -93,6 +93,7 @@
             btActualizar.TabIndex = 51;
             btActualizar.Text = "Actualizar";
             btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
             // tbNIT
             // 
