@@ -34,9 +34,9 @@ namespace Logica
 
             if (cliente == null || cliente.id_cliente == 0)
             {
-                return "Proveedor no encontrado";
+                return "Cliente no encontrado";
             }
-            return "Proveedor encontrado";
+            return "Cliente encontrado";
         }
         public string ActualizarCliente(ClienteEntity cliente)
         {
