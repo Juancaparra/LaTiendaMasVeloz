@@ -114,6 +114,7 @@
             btRegistrar.TabIndex = 30;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // tbPrecio
             // 
