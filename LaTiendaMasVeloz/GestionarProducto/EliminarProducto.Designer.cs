@@ -91,6 +91,7 @@
             btEliminar.TabIndex = 45;
             btEliminar.Text = "Eliminar";
             btEliminar.UseVisualStyleBackColor = true;
+            btEliminar.Click += btEliminar_Click;
             // 
             // tbReferencia
             // 

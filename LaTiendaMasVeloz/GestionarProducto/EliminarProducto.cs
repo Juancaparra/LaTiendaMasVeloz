@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace Principal
         public EliminarProducto()
         {
             InitializeComponent();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            string referencia = tbReferencia.Text;
+            ProductoController controller = new ProductoController();
+            string resultado = controller.EliminarProducto(referencia);
+            lbResultadoEliminar.Text = resultado;
         }
     }
 }

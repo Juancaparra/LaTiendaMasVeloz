@@ -23,6 +23,16 @@ namespace Modelo
             return filasAfectadas;
         }
 
+        public int EliminarProducto(string referencia)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "DELETE FROM Producto WHERE referencia = @referencia";
+            cmd.Parameters.AddWithValue("@referencia", referencia);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int GuardarCliente(string cedula, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
