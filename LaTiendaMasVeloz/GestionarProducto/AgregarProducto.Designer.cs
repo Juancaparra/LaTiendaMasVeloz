@@ -44,7 +44,7 @@
             label8 = new Label();
             tbUsuario = new TextBox();
             label9 = new Label();
-            tbNombreProveedor = new TextBox();
+            tbIdProveedor = new TextBox();
             SuspendLayout();
             // 
             // label3
@@ -183,12 +183,12 @@
             label9.TabIndex = 40;
             label9.Text = "Ingrese el id del proveedor";
             // 
-            // tbNombreProveedor
+            // tbIdProveedor
             // 
-            tbNombreProveedor.Location = new Point(561, 233);
-            tbNombreProveedor.Name = "tbNombreProveedor";
-            tbNombreProveedor.Size = new Size(133, 27);
-            tbNombreProveedor.TabIndex = 39;
+            tbIdProveedor.Location = new Point(561, 233);
+            tbIdProveedor.Name = "tbIdProveedor";
+            tbIdProveedor.Size = new Size(133, 27);
+            tbIdProveedor.TabIndex = 39;
             // 
             // AgregarProducto
             // 
@@ -196,7 +196,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label9);
-            Controls.Add(tbNombreProveedor);
+            Controls.Add(tbIdProveedor);
             Controls.Add(label8);
             Controls.Add(tbUsuario);
             Controls.Add(lbResultado);
@@ -237,6 +237,6 @@
         private Label label8;
         private TextBox tbUsuario;
         private Label label9;
-        private TextBox tbNombreProveedor;
+        private TextBox tbIdProveedor;
     }
 }
