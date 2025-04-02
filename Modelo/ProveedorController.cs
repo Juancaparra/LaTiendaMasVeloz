@@ -27,13 +27,16 @@ namespace Logica
             return resultado;
         }
 
-        public ProveedorEntity MostrarProveedor(string nit)
+        public string MostrarProveedor(string nit, out ProveedorEntity proveedor)
         {
             BaseDatos db = new BaseDatos();
+            proveedor = db.MostrarProveedor(nit);
 
-            ProveedorEntity proveedor = db.MostrarProveedor(nit);
-
-            return proveedor;
+            if (proveedor == null || proveedor.id_proveedor == 0)
+            {
+                return "Proveedor no encontrado";
+            }
+            return "Proveedor encontrado";
         }
 
         public string ActualizarProveedor(ProveedorEntity proveedor)

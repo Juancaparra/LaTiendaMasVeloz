@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logica;
+using System.Security.Cryptography.Xml;
 
 namespace Principal.GestionarProveedor
 {
@@ -27,11 +29,20 @@ namespace Principal.GestionarProveedor
         private void btConsultar_Click(object sender, EventArgs e)
         {
             string nit = tbNIT.Text;
-            BaseDatos bd = new BaseDatos();
-            ProveedorEntity proveedor = bd.MostrarProveedor(nit);
+            ProveedorController controller = new ProveedorController();
+            ProveedorEntity proveedor;
+            string resultado = controller.MostrarProveedor(nit, out proveedor);
 
-            lbNombreConsultar.Text = "Nombre: " + proveedor.nombre;
-            lbTelefonoConsultar.Text = "Telefono: " + proveedor.telefono;
+            if (proveedor != null && proveedor.id_proveedor != 0)
+            {
+                lbNombreConsultar.Text = "Nombre: " + proveedor.nombre;
+                lbTelefonoConsultar.Text = "Telefono: " + proveedor.telefono;
+            }
+            else
+            {
+                lbResultadoConsultar.Text = resultado;
+            }
+            
         }
     }
 }

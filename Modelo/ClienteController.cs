@@ -26,13 +26,17 @@ namespace Logica
             }
             return resultado;
         }
-        public ClienteEntity MostrarCliente(string cedula)
+        public string MostrarCliente(string cedula, out ClienteEntity cliente)
         {
             BaseDatos db = new BaseDatos();
 
-            ClienteEntity cliente = db.MostrarCliente(cedula);
+            cliente = db.MostrarCliente(cedula);
 
-            return cliente;
+            if (cliente == null || cliente.id_cliente == 0)
+            {
+                return "Proveedor no encontrado";
+            }
+            return "Proveedor encontrado";
         }
         public string ActualizarCliente(ClienteEntity cliente)
         {

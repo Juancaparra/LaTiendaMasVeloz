@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Logica;
+using Modelo;
 using Modelo.Entities;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,19 @@ namespace Principal.GestionarClientes
         private void btConsultar_Click(object sender, EventArgs e)
         {
             string cedula = tbCedula.Text;
-            BaseDatos bd = new BaseDatos();
-            ClienteEntity cliente = bd.MostrarCliente(cedula);
+            ClienteController controller = new ClienteController();
+            ClienteEntity cliente;
+            string resultado = controller.MostrarCliente(cedula, out cliente);
 
-            lbNombreConsultar.Text = "Nombre: " + cliente.nombre;
-            lbTelefonoConsultar.Text = "Telefono: " + cliente.telefono;
+            if (cliente != null && cliente.id_cliente != 0)
+            {
+                lbNombreConsultar.Text = "Nombre: " + cliente.nombre;
+                lbTelefonoConsultar.Text = "Telefono: " + cliente.telefono;
+            }
+            else
+            {
+                lbResultadoConsultar.Text = resultado;
+            }
         }
     }
 }
