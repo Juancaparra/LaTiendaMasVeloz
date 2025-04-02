@@ -40,6 +40,7 @@
             lbMarcaConsultar = new Label();
             label5 = new Label();
             label6 = new Label();
+            lbStock = new Label();
             SuspendLayout();
             // 
             // label3
@@ -134,7 +135,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(482, 243);
+            label5.Location = new Point(482, 295);
             label5.Name = "label5";
             label5.Size = new Size(150, 20);
             label5.TabIndex = 45;
@@ -143,17 +144,27 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(482, 299);
+            label6.Location = new Point(482, 351);
             label6.Name = "label6";
             label6.Size = new Size(147, 20);
             label6.TabIndex = 46;
             label6.Text = "Nombre Proveedor:  ";
+            // 
+            // lbStock
+            // 
+            lbStock.AutoSize = true;
+            lbStock.Location = new Point(484, 243);
+            lbStock.Name = "lbStock";
+            lbStock.Size = new Size(56, 20);
+            lbStock.TabIndex = 47;
+            lbStock.Text = "Stock:  ";
             // 
             // ConsultarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbStock);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(lbMarcaConsultar);
@@ -186,5 +197,6 @@
         private Label lbMarcaConsultar;
         private Label label5;
         private Label label6;
+        private Label lbStock;
     }
 }
