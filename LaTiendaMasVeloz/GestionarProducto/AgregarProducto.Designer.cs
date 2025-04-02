@@ -45,6 +45,8 @@
             tbUsuario = new TextBox();
             label9 = new Label();
             tbNitProveedor = new TextBox();
+            label10 = new Label();
+            tbStock = new TextBox();
             SuspendLayout();
             // 
             // label3
@@ -106,7 +108,7 @@
             // 
             // btRegistrar
             // 
-            btRegistrar.Location = new Point(378, 316);
+            btRegistrar.Location = new Point(362, 353);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(94, 29);
             btRegistrar.TabIndex = 30;
@@ -153,7 +155,7 @@
             // lbResultado
             // 
             lbResultado.AutoSize = true;
-            lbResultado.Location = new Point(412, 364);
+            lbResultado.Location = new Point(396, 401);
             lbResultado.Name = "lbResultado";
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 36;
@@ -190,11 +192,29 @@
             tbNitProveedor.Size = new Size(133, 27);
             tbNitProveedor.TabIndex = 39;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(80, 302);
+            label10.Name = "label10";
+            label10.Size = new Size(115, 20);
+            label10.TabIndex = 42;
+            label10.Text = "Ingrese el stock ";
+            // 
+            // tbStock
+            // 
+            tbStock.Location = new Point(215, 295);
+            tbStock.Name = "tbStock";
+            tbStock.Size = new Size(133, 27);
+            tbStock.TabIndex = 41;
+            // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label10);
+            Controls.Add(tbStock);
             Controls.Add(label9);
             Controls.Add(tbNitProveedor);
             Controls.Add(label8);
@@ -238,5 +258,7 @@
         private TextBox tbUsuario;
         private Label label9;
         private TextBox tbNitProveedor;
+        private Label label10;
+        private TextBox tbStock;
     }
 }

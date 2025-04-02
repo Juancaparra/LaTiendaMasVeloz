@@ -28,59 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            BtGestionarEmpleados = new Button();
-            BtGestionarCliente = new Button();
-            BtGestionarProductos = new Button();
             label2 = new Label();
             label1 = new Label();
+            tbUsuario = new TextBox();
+            lbUsuario = new Label();
+            lbContraseña = new Label();
+            tbContraseña = new TextBox();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(439, 246);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 60);
-            button1.TabIndex = 14;
-            button1.Text = "GESTIONAR PROVEEDORES";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(310, 136);
-            button2.Name = "button2";
-            button2.Size = new Size(162, 60);
-            button2.TabIndex = 13;
-            button2.Text = "GESTIONAR VENTA";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // BtGestionarEmpleados
-            // 
-            BtGestionarEmpleados.Location = new Point(575, 136);
-            BtGestionarEmpleados.Name = "BtGestionarEmpleados";
-            BtGestionarEmpleados.Size = new Size(162, 60);
-            BtGestionarEmpleados.TabIndex = 12;
-            BtGestionarEmpleados.Text = "GESTIONAR EMPLEADOS";
-            BtGestionarEmpleados.UseVisualStyleBackColor = true;
-            // 
-            // BtGestionarCliente
-            // 
-            BtGestionarCliente.Location = new Point(62, 136);
-            BtGestionarCliente.Name = "BtGestionarCliente";
-            BtGestionarCliente.Size = new Size(162, 60);
-            BtGestionarCliente.TabIndex = 11;
-            BtGestionarCliente.Text = "GESTIONAR CLIENTES";
-            BtGestionarCliente.UseVisualStyleBackColor = true;
-            // 
-            // BtGestionarProductos
-            // 
-            BtGestionarProductos.Location = new Point(190, 246);
-            BtGestionarProductos.Name = "BtGestionarProductos";
-            BtGestionarProductos.Size = new Size(162, 60);
-            BtGestionarProductos.TabIndex = 10;
-            BtGestionarProductos.Text = "GESTIONAR PRODUCTOS";
-            BtGestionarProductos.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -102,16 +56,47 @@
             label1.TabIndex = 8;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // tbUsuario
+            // 
+            tbUsuario.Location = new Point(309, 156);
+            tbUsuario.Name = "tbUsuario";
+            tbUsuario.Size = new Size(179, 27);
+            tbUsuario.TabIndex = 10;
+            // 
+            // lbUsuario
+            // 
+            lbUsuario.AutoSize = true;
+            lbUsuario.Location = new Point(311, 134);
+            lbUsuario.Name = "lbUsuario";
+            lbUsuario.Size = new Size(59, 20);
+            lbUsuario.TabIndex = 11;
+            lbUsuario.Text = "Usuario";
+            // 
+            // lbContraseña
+            // 
+            lbContraseña.AutoSize = true;
+            lbContraseña.Location = new Point(313, 201);
+            lbContraseña.Name = "lbContraseña";
+            lbContraseña.Size = new Size(83, 20);
+            lbContraseña.TabIndex = 13;
+            lbContraseña.Text = "Contraseña";
+            // 
+            // tbContraseña
+            // 
+            tbContraseña.Location = new Point(311, 223);
+            tbContraseña.Name = "tbContraseña";
+            tbContraseña.Size = new Size(179, 27);
+            tbContraseña.TabIndex = 12;
+            // 
             // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(BtGestionarEmpleados);
-            Controls.Add(BtGestionarCliente);
-            Controls.Add(BtGestionarProductos);
+            Controls.Add(lbContraseña);
+            Controls.Add(tbContraseña);
+            Controls.Add(lbUsuario);
+            Controls.Add(tbUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "InicioSesion";
@@ -121,13 +106,11 @@
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button BtGestionarEmpleados;
-        private Button BtGestionarCliente;
-        private Button BtGestionarProductos;
         private Label label2;
         private Label label1;
+        private TextBox tbUsuario;
+        private Label lbUsuario;
+        private Label lbContraseña;
+        private TextBox tbContraseña;
     }
 }
