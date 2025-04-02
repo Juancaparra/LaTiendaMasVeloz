@@ -55,6 +55,34 @@ namespace Modelo
             return ProductoActual;
         }
 
+        public int ActualizarProducto(ProductoEntity producto)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "UPDATE Producto SET " +
+                              "nombre = @nombre, " +
+                              "precio = @precio, " +
+                              "marca = @marca, " +
+                              "stock = @stock, " +
+                              "fk_gerente_usuario = @fk_gerente_usuario, " +
+                              "fk_nit_proveedor = @fk_nit_proveedor" +
+                              (string.IsNullOrEmpty(producto.referencia) ? "" : ", referencia = @nuevaReferencia") +
+                              " WHERE referencia = @referencia";
+            cmd.Parameters.AddWithValue("@referencia", producto.referencia);
+            cmd.Parameters.AddWithValue("@nombre", producto.nombre);
+            cmd.Parameters.AddWithValue("@precio", producto.precio);
+            cmd.Parameters.AddWithValue("@marca", producto.marca);
+            cmd.Parameters.AddWithValue("@stock", producto.stock);
+            cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
+            cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
+            if (!string.IsNullOrEmpty(producto.referencia))
+            {
+                cmd.Parameters.AddWithValue("@nuevaReferencia", producto.referencia);
+            }
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int EliminarProducto(string referencia)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
