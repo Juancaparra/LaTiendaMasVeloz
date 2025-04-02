@@ -5,6 +5,24 @@ namespace Modelo
 {
     public class BaseDatos : ConexionMySql
     {
+
+        public int GuardarProducto(ProductoEntity producto)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "INSERT INTO Producto (referencia, nombre, precio, marca, stock, fk_gerente_usuario, fk_nit_proveedor) " +
+                              "VALUES (@referencia, @nombre, @precio, @marca, @stock, @fk_gerente_usuario, @fk_nit_proveedor)";
+            cmd.Parameters.AddWithValue("@referencia", producto.referencia);
+            cmd.Parameters.AddWithValue("@nombre", producto.nombre);
+            cmd.Parameters.AddWithValue("@precio", producto.precio);
+            cmd.Parameters.AddWithValue("@marca", producto.marca);
+            cmd.Parameters.AddWithValue("@stock", producto.stock);
+            cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
+            cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int GuardarCliente(string cedula, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
