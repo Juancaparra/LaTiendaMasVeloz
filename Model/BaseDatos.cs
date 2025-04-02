@@ -23,6 +23,38 @@ namespace Modelo
             return filasAfectadas;
         }
 
+        public ProductoEntity MostrarProducto(string referencia)
+        {
+            ProductoEntity ProductoActual = new ProductoEntity();
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = @"
+        SELECT p.id_producto, p.referencia, p.nombre, p.precio, p.marca, p.stock, 
+               g.usuario AS gerente_usuario, g.nombre AS gerente_nombre, 
+               pr.nit AS proveedor_nit, pr.nombre AS proveedor_nombre
+        FROM Producto p
+        JOIN Gerente g ON p.fk_gerente_usuario = g.usuario
+        JOIN Proveedor pr ON p.fk_nit_proveedor = pr.nit
+        WHERE p.referencia = @referencia
+        LIMIT 1";
+            cmd.Parameters.AddWithValue("@referencia", referencia);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ProductoActual.id_producto = reader.GetInt32(reader.GetOrdinal("id_producto"));
+                ProductoActual.referencia = reader.GetString(reader.GetOrdinal("referencia"));
+                ProductoActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                ProductoActual.precio = reader.GetDecimal(reader.GetOrdinal("precio"));
+                ProductoActual.marca = reader.GetString(reader.GetOrdinal("marca"));
+                ProductoActual.stock = reader.GetInt32(reader.GetOrdinal("stock"));
+                ProductoActual.usuario = reader.GetString(reader.GetOrdinal("gerente_usuario"));
+                ProductoActual.gerente_nombre = reader.GetString(reader.GetOrdinal("gerente_nombre"));
+                ProductoActual.nit_proveedor = reader.GetString(reader.GetOrdinal("proveedor_nit"));
+                ProductoActual.proveedor_nombre = reader.GetString(reader.GetOrdinal("proveedor_nombre"));
+            }
+
+            return ProductoActual;
+        }
+
         public int EliminarProducto(string referencia)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();

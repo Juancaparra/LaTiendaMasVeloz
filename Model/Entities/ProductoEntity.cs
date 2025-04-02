@@ -15,6 +15,8 @@ namespace Modelo.Entities
         public string marca { get; set; }
         public int stock { get; set; }
         public string usuario { get; set; }
+        public string gerente_nombre { get; set; }
         public string nit_proveedor { get; set; }
+        public string proveedor_nombre { get; set; }
     }
 }

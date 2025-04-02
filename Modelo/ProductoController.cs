@@ -27,6 +27,18 @@ namespace Logica
             return resultado;
         }
 
+        public string ConsultarProducto(string referencia, out ProductoEntity producto)
+        {
+            BaseDatos db = new BaseDatos();
+            producto = db.MostrarProducto(referencia);
+
+            if (producto == null || producto.id_producto == 0)
+            {
+                return "Producto no encontrado";
+            }
+            return "Producto encontrado";
+        }
+
         public string EliminarProducto(string referencia)
         {
             string resultado;
