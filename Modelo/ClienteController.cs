@@ -34,5 +34,38 @@ namespace Logica
 
             return cliente;
         }
+        public string ActualizarCliente(ClienteEntity cliente)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasActualizadas = db.ActualizarCliente(cliente);
+
+            if (filasActualizadas > 0)
+            {
+                resultado = "Actualizado";
+            }
+            else
+            {
+                resultado = "No Actualizado";
+            }
+            return resultado;
+        }
+
+        public string EliminarCliente(string cedula)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasEliminadas = db.EliminarCliente(cedula);
+
+            if (filasEliminadas > 0)
+            {
+                resultado = "Eliminado";
+            }
+            else
+            {
+                resultado = "No Eliminado";
+            }
+            return resultado;
+        }
     }
 }

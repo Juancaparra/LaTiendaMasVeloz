@@ -36,11 +36,11 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            tbNombre = new TextBox();
+            tbTelefono = new TextBox();
             lbResultadoActualizar = new Label();
             label5 = new Label();
-            textBox3 = new TextBox();
+            tbNuevaCedula = new TextBox();
             label6 = new Label();
             SuspendLayout();
             // 
@@ -79,6 +79,7 @@
             btActualizar.TabIndex = 41;
             btActualizar.Text = "Actualizar";
             btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
             // tbCedula
             // 
@@ -116,19 +117,19 @@
             label1.TabIndex = 37;
             label1.Text = "La Tienda Mas Veloz";
             // 
-            // textBox1
+            // tbNombre
             // 
-            textBox1.Location = new Point(324, 233);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 27);
-            textBox1.TabIndex = 45;
+            tbNombre.Location = new Point(324, 233);
+            tbNombre.Name = "tbNombre";
+            tbNombre.Size = new Size(133, 27);
+            tbNombre.TabIndex = 45;
             // 
-            // textBox2
+            // tbTelefono
             // 
-            textBox2.Location = new Point(324, 279);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(133, 27);
-            textBox2.TabIndex = 46;
+            tbTelefono.Location = new Point(324, 279);
+            tbTelefono.Name = "tbTelefono";
+            tbTelefono.Size = new Size(133, 27);
+            tbTelefono.TabIndex = 46;
             // 
             // lbResultadoActualizar
             // 
@@ -147,12 +148,12 @@
             label5.TabIndex = 49;
             label5.Text = "Ingrese la cedula nueva";
             // 
-            // textBox3
+            // tbNuevaCedula
             // 
-            textBox3.Location = new Point(324, 183);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(133, 27);
-            textBox3.TabIndex = 48;
+            tbNuevaCedula.Location = new Point(324, 183);
+            tbNuevaCedula.Name = "tbNuevaCedula";
+            tbNuevaCedula.Size = new Size(133, 27);
+            tbNuevaCedula.TabIndex = 48;
             // 
             // label6
             // 
@@ -171,10 +172,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(tbNuevaCedula);
             Controls.Add(lbResultadoActualizar);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(tbTelefono);
+            Controls.Add(tbNombre);
             Controls.Add(lbTelefonoActualizar);
             Controls.Add(lbNombreActualizar);
             Controls.Add(label4);
@@ -199,11 +200,11 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox tbNombre;
+        private TextBox tbTelefono;
         private Label lbResultadoActualizar;
         private Label label5;
-        private TextBox textBox3;
+        private TextBox tbNuevaCedula;
         private Label label6;
     }
 }

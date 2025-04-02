@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace Principal.GestionarClientes
         public EliminarCliente()
         {
             InitializeComponent();
+        }
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            string cedula = tbCedula.Text;
+            ClienteController controller = new ClienteController();
+            string resultado = controller.EliminarCliente(cedula);
+            lbResultadoEliminar.Text = resultado;
         }
     }
 }

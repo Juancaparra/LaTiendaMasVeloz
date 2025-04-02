@@ -10,6 +10,7 @@ namespace Modelo.Entities
     {
         public int id_cliente { get; set; }
         public string cedula { get; set; }
+        public string nuevoCedula { get; set; }
         public string nombre { get; set; }
         public string telefono { get; set; }
     }

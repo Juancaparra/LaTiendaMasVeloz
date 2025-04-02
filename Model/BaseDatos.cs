@@ -35,6 +35,34 @@ namespace Modelo
             return ClienteActual;
         }
 
+        public int ActualizarCliente(ClienteEntity cliente)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "UPDATE Cliente SET nombre = @nombre, telefono = @telefono" +
+                              (string.IsNullOrEmpty(cliente.nuevoCedula) ? "" : ", cedula = @nuevoCedula") +
+                              " WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", cliente.cedula);
+            cmd.Parameters.AddWithValue("@nombre", cliente.nombre);
+            cmd.Parameters.AddWithValue("@telefono", cliente.telefono);
+            if (!string.IsNullOrEmpty(cliente.nuevoCedula))
+            {
+                cmd.Parameters.AddWithValue("@nuevoCedula", cliente.nuevoCedula);
+            }
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
+        public int EliminarCliente(string cedula)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "DELETE FROM Cliente WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
+
         public int GuardarProveedor(string nit, string nombre, string telefono)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
