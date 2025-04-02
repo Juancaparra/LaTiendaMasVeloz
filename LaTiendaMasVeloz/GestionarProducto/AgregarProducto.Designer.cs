@@ -44,7 +44,7 @@
             label8 = new Label();
             tbUsuario = new TextBox();
             label9 = new Label();
-            tbIdProveedor = new TextBox();
+            tbNitProveedor = new TextBox();
             SuspendLayout();
             // 
             // label3
@@ -179,16 +179,16 @@
             label9.AutoSize = true;
             label9.Location = new Point(362, 237);
             label9.Name = "label9";
-            label9.Size = new Size(188, 20);
+            label9.Size = new Size(192, 20);
             label9.TabIndex = 40;
-            label9.Text = "Ingrese el id del proveedor";
+            label9.Text = "Ingrese el nit del proveedor";
             // 
-            // tbIdProveedor
+            // tbNitProveedor
             // 
-            tbIdProveedor.Location = new Point(561, 233);
-            tbIdProveedor.Name = "tbIdProveedor";
-            tbIdProveedor.Size = new Size(133, 27);
-            tbIdProveedor.TabIndex = 39;
+            tbNitProveedor.Location = new Point(561, 233);
+            tbNitProveedor.Name = "tbNitProveedor";
+            tbNitProveedor.Size = new Size(133, 27);
+            tbNitProveedor.TabIndex = 39;
             // 
             // AgregarProducto
             // 
@@ -196,7 +196,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label9);
-            Controls.Add(tbIdProveedor);
+            Controls.Add(tbNitProveedor);
             Controls.Add(label8);
             Controls.Add(tbUsuario);
             Controls.Add(lbResultado);
@@ -237,6 +237,6 @@
         private Label label8;
         private TextBox tbUsuario;
         private Label label9;
-        private TextBox tbIdProveedor;
+        private TextBox tbNitProveedor;
     }
 }
