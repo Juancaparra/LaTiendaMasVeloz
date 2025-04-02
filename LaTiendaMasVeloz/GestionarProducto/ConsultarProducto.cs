@@ -40,5 +40,10 @@ namespace Principal
                 lbResultadoConsultar.Text = resultado;
             }
         }
+
+        private void lbStock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

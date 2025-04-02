@@ -50,6 +50,8 @@
             label11 = new Label();
             tbReferenciaActualizar = new TextBox();
             label12 = new Label();
+            label13 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             SuspendLayout();
             // 
             // label3
@@ -84,14 +86,14 @@
             // lbResultadoActualizar
             // 
             lbResultadoActualizar.AutoSize = true;
-            lbResultadoActualizar.Location = new Point(410, 407);
+            lbResultadoActualizar.Location = new Point(418, 447);
             lbResultadoActualizar.Name = "lbResultadoActualizar";
             lbResultadoActualizar.Size = new Size(0, 20);
             lbResultadoActualizar.TabIndex = 57;
             // 
             // btActualizar
             // 
-            btActualizar.Location = new Point(371, 351);
+            btActualizar.Location = new Point(379, 399);
             btActualizar.Name = "btActualizar";
             btActualizar.Size = new Size(94, 29);
             btActualizar.TabIndex = 51;
@@ -102,7 +104,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(448, 133);
+            label10.Location = new Point(102, 354);
             label10.Name = "label10";
             label10.Size = new Size(115, 20);
             label10.TabIndex = 71;
@@ -110,7 +112,7 @@
             // 
             // tbStock
             // 
-            tbStock.Location = new Point(583, 126);
+            tbStock.Location = new Point(237, 347);
             tbStock.Name = "tbStock";
             tbStock.Size = new Size(133, 27);
             tbStock.TabIndex = 70;
@@ -118,7 +120,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(384, 294);
+            label9.Location = new Point(384, 291);
             label9.Name = "label9";
             label9.Size = new Size(192, 20);
             label9.TabIndex = 69;
@@ -126,7 +128,7 @@
             // 
             // tbNitProveedor
             // 
-            tbNitProveedor.Location = new Point(583, 290);
+            tbNitProveedor.Location = new Point(583, 287);
             tbNitProveedor.Name = "tbNitProveedor";
             tbNitProveedor.Size = new Size(133, 27);
             tbNitProveedor.TabIndex = 68;
@@ -134,7 +136,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(448, 239);
+            label8.Location = new Point(448, 236);
             label8.Name = "label8";
             label8.Size = new Size(125, 20);
             label8.TabIndex = 67;
@@ -142,7 +144,7 @@
             // 
             // tbUsuario
             // 
-            tbUsuario.Location = new Point(583, 235);
+            tbUsuario.Location = new Point(583, 232);
             tbUsuario.Name = "tbUsuario";
             tbUsuario.Size = new Size(133, 27);
             tbUsuario.TabIndex = 66;
@@ -150,7 +152,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(448, 186);
+            label7.Location = new Point(448, 183);
             label7.Name = "label7";
             label7.Size = new Size(118, 20);
             label7.TabIndex = 65;
@@ -158,7 +160,7 @@
             // 
             // tbMarca
             // 
-            tbMarca.Location = new Point(583, 182);
+            tbMarca.Location = new Point(583, 179);
             tbMarca.Name = "tbMarca";
             tbMarca.Size = new Size(133, 27);
             tbMarca.TabIndex = 64;
@@ -237,11 +239,29 @@
             label12.TabIndex = 74;
             label12.Text = "opcional";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(386, 127);
+            label13.Name = "label13";
+            label13.Size = new Size(188, 20);
+            label13.TabIndex = 76;
+            label13.Text = "Ingrese la fecha de llegada";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(583, 127);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(190, 27);
+            dateTimePicker1.TabIndex = 77;
+            // 
             // ActualizarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 481);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(tbReferenciaActualizar);
@@ -294,5 +314,7 @@
         private Label label11;
         private TextBox tbReferenciaActualizar;
         private Label label12;
+        private Label label13;
+        private DateTimePicker dateTimePicker1;
     }
 }

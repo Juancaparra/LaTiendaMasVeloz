@@ -41,6 +41,7 @@
             lbNombreGerente = new Label();
             lbNombreProveedor = new Label();
             lbStock = new Label();
+            lbFechaLlegada = new Label();
             SuspendLayout();
             // 
             // label3
@@ -75,7 +76,7 @@
             // lbResultadoConsultar
             // 
             lbResultadoConsultar.AutoSize = true;
-            lbResultadoConsultar.Location = new Point(383, 386);
+            lbResultadoConsultar.Location = new Point(369, 403);
             lbResultadoConsultar.Name = "lbResultadoConsultar";
             lbResultadoConsultar.Size = new Size(0, 20);
             lbResultadoConsultar.TabIndex = 43;
@@ -83,7 +84,7 @@
             // lbPrecioConsultar
             // 
             lbPrecioConsultar.AutoSize = true;
-            lbPrecioConsultar.Location = new Point(217, 299);
+            lbPrecioConsultar.Location = new Point(217, 289);
             lbPrecioConsultar.Name = "lbPrecioConsultar";
             lbPrecioConsultar.Size = new Size(61, 20);
             lbPrecioConsultar.TabIndex = 42;
@@ -127,7 +128,7 @@
             // lbMarcaConsultar
             // 
             lbMarcaConsultar.AutoSize = true;
-            lbMarcaConsultar.Location = new Point(217, 351);
+            lbMarcaConsultar.Location = new Point(217, 334);
             lbMarcaConsultar.Name = "lbMarcaConsultar";
             lbMarcaConsultar.Size = new Size(61, 20);
             lbMarcaConsultar.TabIndex = 44;
@@ -136,7 +137,7 @@
             // lbNombreGerente
             // 
             lbNombreGerente.AutoSize = true;
-            lbNombreGerente.Location = new Point(482, 295);
+            lbNombreGerente.Location = new Point(482, 245);
             lbNombreGerente.Name = "lbNombreGerente";
             lbNombreGerente.Size = new Size(150, 20);
             lbNombreGerente.TabIndex = 45;
@@ -145,7 +146,7 @@
             // lbNombreProveedor
             // 
             lbNombreProveedor.AutoSize = true;
-            lbNombreProveedor.Location = new Point(482, 351);
+            lbNombreProveedor.Location = new Point(482, 289);
             lbNombreProveedor.Name = "lbNombreProveedor";
             lbNombreProveedor.Size = new Size(147, 20);
             lbNombreProveedor.TabIndex = 46;
@@ -154,17 +155,28 @@
             // lbStock
             // 
             lbStock.AutoSize = true;
-            lbStock.Location = new Point(484, 243);
+            lbStock.Location = new Point(217, 376);
             lbStock.Name = "lbStock";
             lbStock.Size = new Size(56, 20);
             lbStock.TabIndex = 47;
             lbStock.Text = "Stock:  ";
+            lbStock.Click += lbStock_Click;
+            // 
+            // lbFechaLlegada
+            // 
+            lbFechaLlegada.AutoSize = true;
+            lbFechaLlegada.Location = new Point(482, 334);
+            lbFechaLlegada.Name = "lbFechaLlegada";
+            lbFechaLlegada.Size = new Size(119, 20);
+            lbFechaLlegada.TabIndex = 48;
+            lbFechaLlegada.Text = "Fecha Llegada:   ";
             // 
             // ConsultarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbFechaLlegada);
             Controls.Add(lbStock);
             Controls.Add(lbNombreProveedor);
             Controls.Add(lbNombreGerente);
@@ -199,5 +211,6 @@
         private Label lbNombreGerente;
         private Label lbNombreProveedor;
         private Label lbStock;
+        private Label lbFechaLlegada;
     }
 }

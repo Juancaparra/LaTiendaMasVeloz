@@ -47,6 +47,8 @@
             tbNitProveedor = new TextBox();
             label10 = new Label();
             tbStock = new TextBox();
+            label11 = new Label();
+            fechaLlegada = new DateTimePicker();
             SuspendLayout();
             // 
             // label3
@@ -108,7 +110,7 @@
             // 
             // btRegistrar
             // 
-            btRegistrar.Location = new Point(362, 353);
+            btRegistrar.Location = new Point(362, 358);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(94, 29);
             btRegistrar.TabIndex = 30;
@@ -156,7 +158,7 @@
             // lbResultado
             // 
             lbResultado.AutoSize = true;
-            lbResultado.Location = new Point(396, 401);
+            lbResultado.Location = new Point(396, 406);
             lbResultado.Name = "lbResultado";
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 36;
@@ -209,11 +211,29 @@
             tbStock.Size = new Size(133, 27);
             tbStock.TabIndex = 41;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(355, 300);
+            label11.Name = "label11";
+            label11.Size = new Size(192, 20);
+            label11.TabIndex = 44;
+            label11.Text = "Ingrese la fecha de llegada ";
+            // 
+            // fechaLlegada
+            // 
+            fechaLlegada.Location = new Point(561, 298);
+            fechaLlegada.Name = "fechaLlegada";
+            fechaLlegada.Size = new Size(190, 27);
+            fechaLlegada.TabIndex = 45;
+            // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(819, 450);
+            Controls.Add(fechaLlegada);
+            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(tbStock);
             Controls.Add(label9);
@@ -261,5 +281,7 @@
         private TextBox tbNitProveedor;
         private Label label10;
         private TextBox tbStock;
+        private Label label11;
+        private DateTimePicker fechaLlegada;
     }
 }

@@ -41,20 +41,21 @@
             label6 = new Label();
             textBox1 = new TextBox();
             btBuscar = new Button();
-            lbNombreProducto = new Label();
-            precioUnitario = new Label();
-            cantidad = new Label();
-            precioTotal = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
             label7 = new Label();
             totalVenta = new Label();
             panel1 = new Panel();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbResultadoRegistrar
             // 
             lbResultadoRegistrar.AutoSize = true;
-            lbResultadoRegistrar.Location = new Point(365, 503);
+            lbResultadoRegistrar.Location = new Point(365, 482);
             lbResultadoRegistrar.Name = "lbResultadoRegistrar";
             lbResultadoRegistrar.Size = new Size(0, 20);
             lbResultadoRegistrar.TabIndex = 38;
@@ -79,7 +80,7 @@
             // 
             // btRegistrar
             // 
-            btRegistrar.Location = new Point(329, 469);
+            btRegistrar.Location = new Point(329, 448);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(94, 29);
             btRegistrar.TabIndex = 34;
@@ -162,59 +163,6 @@
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
             // 
-            // lbNombreProducto
-            // 
-            lbNombreProducto.AutoSize = true;
-            lbNombreProducto.Location = new Point(29, 270);
-            lbNombreProducto.Name = "lbNombreProducto";
-            lbNombreProducto.Size = new Size(71, 20);
-            lbNombreProducto.TabIndex = 43;
-            lbNombreProducto.Text = "Nombre: ";
-            // 
-            // precioUnitario
-            // 
-            precioUnitario.AutoSize = true;
-            precioUnitario.Location = new Point(229, 270);
-            precioUnitario.Name = "precioUnitario";
-            precioUnitario.Size = new Size(85, 20);
-            precioUnitario.TabIndex = 44;
-            precioUnitario.Text = "Valor Unit:  ";
-            precioUnitario.Click += precioUnitario_Click;
-            // 
-            // cantidad
-            // 
-            cantidad.AutoSize = true;
-            cantidad.Location = new Point(403, 270);
-            cantidad.Name = "cantidad";
-            cantidad.Size = new Size(80, 20);
-            cantidad.TabIndex = 45;
-            cantidad.Text = "Cantidad:  ";
-            // 
-            // precioTotal
-            // 
-            precioTotal.AutoSize = true;
-            precioTotal.Location = new Point(486, 270);
-            precioTotal.Name = "precioTotal";
-            precioTotal.Size = new Size(91, 20);
-            precioTotal.TabIndex = 46;
-            precioTotal.Text = "Valor Total:  ";
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.3875351F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.6124649F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 85F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 173F));
-            tableLayoutPanel1.Location = new Point(29, 293);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 24F));
-            tableLayoutPanel1.Size = new Size(628, 125);
-            tableLayoutPanel1.TabIndex = 48;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -227,7 +175,7 @@
             // totalVenta
             // 
             totalVenta.AutoSize = true;
-            totalVenta.Location = new Point(435, 430);
+            totalVenta.Location = new Point(536, 429);
             totalVenta.Name = "totalVenta";
             totalVenta.Size = new Size(49, 20);
             totalVenta.TabIndex = 50;
@@ -235,24 +183,58 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(483, 419);
+            panel1.Location = new Point(584, 418);
             panel1.Name = "panel1";
             panel1.Size = new Size(174, 43);
             panel1.TabIndex = 51;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dataGridView1.Location = new Point(29, 277);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(750, 119);
+            dataGridView1.TabIndex = 52;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Nombre";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Valor Unit";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 180;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Cantidad";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Valor Total";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 190;
             // 
             // RegistrarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 542);
+            Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(label7);
-            Controls.Add(precioUnitario);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(precioTotal);
-            Controls.Add(cantidad);
-            Controls.Add(lbNombreProducto);
             Controls.Add(btBuscar);
             Controls.Add(label6);
             Controls.Add(textBox1);
@@ -268,6 +250,8 @@
             Controls.Add(label1);
             Name = "RegistrarVenta";
             Text = "RegistrarVenta";
+            Load += RegistrarVenta_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -288,13 +272,13 @@
         private DateTimePicker fecha;
         private TextBox textBox1;
         private Button btBuscar;
-        private Label lbNombreProducto;
-        private Label precioUnitario;
-        private Label cantidad;
-        private Label precioTotal;
-        private TableLayoutPanel tableLayoutPanel1;
         private Label label7;
         private Label totalVenta;
         private Panel panel1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }
