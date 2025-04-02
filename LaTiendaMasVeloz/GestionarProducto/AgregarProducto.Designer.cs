@@ -177,11 +177,11 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(354, 237);
+            label9.Location = new Point(362, 237);
             label9.Name = "label9";
-            label9.Size = new Size(202, 20);
+            label9.Size = new Size(188, 20);
             label9.TabIndex = 40;
-            label9.Text = "Ingrese el nombre proveedor";
+            label9.Text = "Ingrese el id del proveedor";
             // 
             // tbNombreProveedor
             // 
