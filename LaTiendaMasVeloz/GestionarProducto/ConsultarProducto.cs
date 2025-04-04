@@ -19,12 +19,12 @@ namespace Principal
             InitializeComponent();
         }
 
+        
         private void btConsultar_Click(object sender, EventArgs e)
         {
-            string referencia = tbReferencia.Text;
-            ProductoController controller = new ProductoController();
+            ProductoController pc = new ProductoController();
             ProductoEntity producto;
-            string resultado = controller.ConsultarProducto(referencia, out producto);
+            string resultado = pc.ConsultarProducto(tbReferencia.Text, out producto);
 
             if (producto != null && producto.id_producto != 0)
             {
@@ -33,12 +33,13 @@ namespace Principal
                 lbMarcaConsultar.Text += producto.marca;
                 lbStock.Text += producto.stock.ToString();
                 lbNombreGerente.Text += producto.gerente_nombre;
-                lbNombreProveedor.Text += producto.proveedor_nombre;
+                lbFechaLlegada.Text += producto.fechaLlegada.ToString("dd/MM/yyyy");
             }
             else
             {
                 lbResultadoConsultar.Text = resultado;
             }
+
         }
 
         private void lbStock_Click(object sender, EventArgs e)

@@ -31,7 +31,8 @@ namespace Modelo
             cmd.CommandText = @"
         SELECT p.id_producto, p.referencia, p.nombre, p.precio, p.marca, p.stock, 
                g.usuario AS gerente_usuario, g.nombre AS gerente_nombre, 
-               pr.nit AS proveedor_nit, pr.nombre AS proveedor_nombre
+               pr.nit AS proveedor_nit, pr.nombre AS proveedor_nombre,
+               p.fecha_llegada
         FROM Producto p
         JOIN Gerente g ON p.fk_gerente_usuario = g.usuario
         JOIN Proveedor pr ON p.fk_nit_proveedor = pr.nit
@@ -51,6 +52,7 @@ namespace Modelo
                 ProductoActual.gerente_nombre = reader.GetString(reader.GetOrdinal("gerente_nombre"));
                 ProductoActual.nit_proveedor = reader.GetString(reader.GetOrdinal("proveedor_nit"));
                 ProductoActual.proveedor_nombre = reader.GetString(reader.GetOrdinal("proveedor_nombre"));
+                ProductoActual.fechaLlegada = reader.GetDateTime(reader.GetOrdinal("fecha_llegada")); // Nueva propiedad
             }
 
             return ProductoActual;
