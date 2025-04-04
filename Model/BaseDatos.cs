@@ -67,7 +67,8 @@ namespace Modelo
                               "marca = @marca, " +
                               "stock = @stock, " +
                               "fk_gerente_usuario = @fk_gerente_usuario, " +
-                              "fk_nit_proveedor = @fk_nit_proveedor" +
+                              "fk_nit_proveedor = @fk_nit_proveedor, " +
+                              "fecha_llegada = @fecha_llegada" + // Nueva propiedad
                               (string.IsNullOrEmpty(producto.referencia) ? "" : ", referencia = @nuevaReferencia") +
                               " WHERE referencia = @referencia";
             cmd.Parameters.AddWithValue("@referencia", producto.referencia);
@@ -77,6 +78,7 @@ namespace Modelo
             cmd.Parameters.AddWithValue("@stock", producto.stock);
             cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
             cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
+            cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada); // Nueva propiedad
             if (!string.IsNullOrEmpty(producto.referencia))
             {
                 cmd.Parameters.AddWithValue("@nuevaReferencia", producto.referencia);
