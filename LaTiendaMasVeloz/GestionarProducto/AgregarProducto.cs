@@ -39,7 +39,8 @@ namespace Principal
                 marca = tbMarca.Text,
                 stock = int.Parse(tbStock.Text),
                 usuario = tbUsuario.Text,
-                nit_proveedor = tbNitProveedor.Text
+                nit_proveedor = tbNitProveedor.Text,
+                fechaLlegada = fechaLlegada.Value
             };
 
             ProductoController pc = new ProductoController();

@@ -9,8 +9,8 @@ namespace Modelo
         public int GuardarProducto(ProductoEntity producto)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Producto (referencia, nombre, precio, marca, stock, fk_gerente_usuario, fk_nit_proveedor) " +
-                              "VALUES (@referencia, @nombre, @precio, @marca, @stock, @fk_gerente_usuario, @fk_nit_proveedor)";
+            cmd.CommandText = "INSERT INTO Producto (referencia, nombre, precio, marca, stock, fk_gerente_usuario, fk_nit_proveedor, fecha_llegada) " +
+                              "VALUES (@referencia, @nombre, @precio, @marca, @stock, @fk_gerente_usuario, @fk_nit_proveedor, @fecha_llegada)";
             cmd.Parameters.AddWithValue("@referencia", producto.referencia);
             cmd.Parameters.AddWithValue("@nombre", producto.nombre);
             cmd.Parameters.AddWithValue("@precio", producto.precio);
@@ -18,6 +18,7 @@ namespace Modelo
             cmd.Parameters.AddWithValue("@stock", producto.stock);
             cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
             cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
+            cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;

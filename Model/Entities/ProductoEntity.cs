@@ -18,5 +18,6 @@ namespace Modelo.Entities
         public string gerente_nombre { get; set; }
         public string nit_proveedor { get; set; }
         public string proveedor_nombre { get; set; }
+        public DateTime fechaLlegada { get; set; }
     }
 }
