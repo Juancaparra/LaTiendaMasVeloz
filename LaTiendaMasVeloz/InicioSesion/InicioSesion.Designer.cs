@@ -34,17 +34,19 @@
             lbUsuario = new Label();
             lbContraseña = new Label();
             tbContraseña = new TextBox();
+            button1 = new Button();
+            lbResultado = new Label();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(265, 78);
+            label2.Location = new Point(317, 78);
             label2.Name = "label2";
-            label2.Size = new Size(268, 25);
+            label2.Size = new Size(166, 25);
             label2.TabIndex = 9;
-            label2.Text = "INICIO DE SESION EMPLEADO";
+            label2.Text = "INICIO DE SESION";
             // 
             // label1
             // 
@@ -88,11 +90,30 @@
             tbContraseña.Size = new Size(179, 27);
             tbContraseña.TabIndex = 12;
             // 
+            // button1
+            // 
+            button1.Location = new Point(350, 292);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 14;
+            button1.Text = "Iniciar";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // lbResultado
+            // 
+            lbResultado.AutoSize = true;
+            lbResultado.Location = new Point(349, 360);
+            lbResultado.Name = "lbResultado";
+            lbResultado.Size = new Size(0, 20);
+            lbResultado.TabIndex = 15;
+            // 
             // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbResultado);
+            Controls.Add(button1);
             Controls.Add(lbContraseña);
             Controls.Add(tbContraseña);
             Controls.Add(lbUsuario);
@@ -112,5 +133,7 @@
         private Label lbUsuario;
         private Label lbContraseña;
         private TextBox tbContraseña;
+        private Button button1;
+        private Label lbResultado;
     }
 }

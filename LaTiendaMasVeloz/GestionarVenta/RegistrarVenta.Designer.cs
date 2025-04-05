@@ -37,7 +37,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            fecha = new DateTimePicker();
             label6 = new Label();
             textBox1 = new TextBox();
             btBuscar = new Button();
@@ -49,6 +48,7 @@
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -129,14 +129,6 @@
             label1.Size = new Size(375, 54);
             label1.TabIndex = 28;
             label1.Text = "La Tienda Mas Veloz";
-            // 
-            // fecha
-            // 
-            fecha.Location = new Point(496, 36);
-            fecha.Name = "fecha";
-            fecha.Size = new Size(283, 27);
-            fecha.TabIndex = 39;
-            fecha.Value = new DateTime(2025, 4, 1, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -226,11 +218,19 @@
             Column4.Name = "Column4";
             Column4.Width = 190;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(498, 36);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(272, 27);
+            dateTimePicker1.TabIndex = 53;
+            // 
             // RegistrarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 542);
+            Controls.Add(dateTimePicker1);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
@@ -238,7 +238,6 @@
             Controls.Add(btBuscar);
             Controls.Add(label6);
             Controls.Add(textBox1);
-            Controls.Add(fecha);
             Controls.Add(lbResultadoRegistrar);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -269,7 +268,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private DateTimePicker fecha;
         private TextBox textBox1;
         private Button btBuscar;
         private Label label7;
@@ -280,5 +278,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
+        private DateTimePicker dateTimePicker1;
     }
 }

@@ -1,3 +1,5 @@
+using Principal.Menus;
+
 namespace LaTiendaMasVeloz
 {
     internal static class Program

@@ -158,7 +158,7 @@
             // lbResultado
             // 
             lbResultado.AutoSize = true;
-            lbResultado.Location = new Point(396, 406);
+            lbResultado.Location = new Point(311, 406);
             lbResultado.Name = "lbResultado";
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 36;
@@ -226,6 +226,7 @@
             fechaLlegada.Name = "fechaLlegada";
             fechaLlegada.Size = new Size(190, 27);
             fechaLlegada.TabIndex = 45;
+            fechaLlegada.Value = new DateTime(2025, 4, 2, 0, 0, 0, 0);
             // 
             // AgregarProducto
             // 
