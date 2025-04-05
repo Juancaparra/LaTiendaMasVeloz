@@ -41,14 +41,8 @@
             label7 = new Label();
             tbMarca = new TextBox();
             lbResultado = new Label();
-            label8 = new Label();
-            tbUsuario = new TextBox();
-            label9 = new Label();
-            tbNitProveedor = new TextBox();
             label10 = new Label();
             tbStock = new TextBox();
-            label11 = new Label();
-            fechaLlegada = new DateTimePicker();
             SuspendLayout();
             // 
             // label3
@@ -110,7 +104,7 @@
             // 
             // btRegistrar
             // 
-            btRegistrar.Location = new Point(362, 358);
+            btRegistrar.Location = new Point(362, 339);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(94, 29);
             btRegistrar.TabIndex = 30;
@@ -158,47 +152,15 @@
             // lbResultado
             // 
             lbResultado.AutoSize = true;
-            lbResultado.Location = new Point(311, 406);
+            lbResultado.Location = new Point(311, 387);
             lbResultado.Name = "lbResultado";
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 36;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(426, 178);
-            label8.Name = "label8";
-            label8.Size = new Size(125, 20);
-            label8.TabIndex = 38;
-            label8.Text = "Ingrese el usuario";
-            // 
-            // tbUsuario
-            // 
-            tbUsuario.Location = new Point(561, 174);
-            tbUsuario.Name = "tbUsuario";
-            tbUsuario.Size = new Size(133, 27);
-            tbUsuario.TabIndex = 37;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(362, 237);
-            label9.Name = "label9";
-            label9.Size = new Size(192, 20);
-            label9.TabIndex = 40;
-            label9.Text = "Ingrese el nit del proveedor";
-            // 
-            // tbNitProveedor
-            // 
-            tbNitProveedor.Location = new Point(561, 233);
-            tbNitProveedor.Name = "tbNitProveedor";
-            tbNitProveedor.Size = new Size(133, 27);
-            tbNitProveedor.TabIndex = 39;
-            // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(80, 302);
+            label10.Location = new Point(429, 185);
             label10.Name = "label10";
             label10.Size = new Size(115, 20);
             label10.TabIndex = 42;
@@ -206,41 +168,18 @@
             // 
             // tbStock
             // 
-            tbStock.Location = new Point(215, 295);
+            tbStock.Location = new Point(564, 178);
             tbStock.Name = "tbStock";
             tbStock.Size = new Size(133, 27);
             tbStock.TabIndex = 41;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(355, 300);
-            label11.Name = "label11";
-            label11.Size = new Size(192, 20);
-            label11.TabIndex = 44;
-            label11.Text = "Ingrese la fecha de llegada ";
-            // 
-            // fechaLlegada
-            // 
-            fechaLlegada.Location = new Point(561, 298);
-            fechaLlegada.Name = "fechaLlegada";
-            fechaLlegada.Size = new Size(190, 27);
-            fechaLlegada.TabIndex = 45;
-            fechaLlegada.Value = new DateTime(2025, 4, 2, 0, 0, 0, 0);
             // 
             // AgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(819, 450);
-            Controls.Add(fechaLlegada);
-            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(tbStock);
-            Controls.Add(label9);
-            Controls.Add(tbNitProveedor);
-            Controls.Add(label8);
-            Controls.Add(tbUsuario);
             Controls.Add(lbResultado);
             Controls.Add(label7);
             Controls.Add(tbMarca);
@@ -276,13 +215,7 @@
         private Label label7;
         private TextBox tbMarca;
         private Label lbResultado;
-        private Label label8;
-        private TextBox tbUsuario;
-        private Label label9;
-        private TextBox tbNitProveedor;
         private Label label10;
         private TextBox tbStock;
-        private Label label11;
-        private DateTimePicker fechaLlegada;
     }
 }

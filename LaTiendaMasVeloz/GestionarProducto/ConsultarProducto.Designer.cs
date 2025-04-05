@@ -38,10 +38,8 @@
             btConsultar = new Button();
             tbReferencia = new TextBox();
             lbMarcaConsultar = new Label();
-            lbNombreGerente = new Label();
             lbNombreProveedor = new Label();
             lbStock = new Label();
-            lbFechaLlegada = new Label();
             SuspendLayout();
             // 
             // label3
@@ -134,15 +132,6 @@
             lbMarcaConsultar.TabIndex = 44;
             lbMarcaConsultar.Text = "Marca:  ";
             // 
-            // lbNombreGerente
-            // 
-            lbNombreGerente.AutoSize = true;
-            lbNombreGerente.Location = new Point(482, 245);
-            lbNombreGerente.Name = "lbNombreGerente";
-            lbNombreGerente.Size = new Size(150, 20);
-            lbNombreGerente.TabIndex = 45;
-            lbNombreGerente.Text = "Nombre Encargado:  ";
-            // 
             // lbNombreProveedor
             // 
             lbNombreProveedor.AutoSize = true;
@@ -155,31 +144,20 @@
             // lbStock
             // 
             lbStock.AutoSize = true;
-            lbStock.Location = new Point(217, 376);
+            lbStock.Location = new Point(482, 247);
             lbStock.Name = "lbStock";
             lbStock.Size = new Size(56, 20);
             lbStock.TabIndex = 47;
             lbStock.Text = "Stock:  ";
             lbStock.Click += lbStock_Click;
             // 
-            // lbFechaLlegada
-            // 
-            lbFechaLlegada.AutoSize = true;
-            lbFechaLlegada.Location = new Point(482, 334);
-            lbFechaLlegada.Name = "lbFechaLlegada";
-            lbFechaLlegada.Size = new Size(119, 20);
-            lbFechaLlegada.TabIndex = 48;
-            lbFechaLlegada.Text = "Fecha Llegada:   ";
-            // 
             // ConsultarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lbFechaLlegada);
             Controls.Add(lbStock);
             Controls.Add(lbNombreProveedor);
-            Controls.Add(lbNombreGerente);
             Controls.Add(lbMarcaConsultar);
             Controls.Add(lbResultadoConsultar);
             Controls.Add(lbPrecioConsultar);
@@ -208,9 +186,7 @@
         private Button btConsultar;
         private TextBox tbReferencia;
         private Label lbMarcaConsultar;
-        private Label lbNombreGerente;
         private Label lbNombreProveedor;
         private Label lbStock;
-        private Label lbFechaLlegada;
     }
 }
