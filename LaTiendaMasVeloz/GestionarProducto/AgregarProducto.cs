@@ -37,10 +37,7 @@ namespace Principal
                 nombre = tbNombre.Text,
                 precio = decimal.Parse(tbPrecio.Text),
                 marca = tbMarca.Text,
-                stock = int.Parse(tbStock.Text),
-                usuario = tbUsuario.Text,
-                nit_proveedor = tbNitProveedor.Text,
-                fechaLlegada = fechaLlegada.Value
+                stock = int.Parse(tbStock.Text)
             };
 
             ProductoController pc = new ProductoController();

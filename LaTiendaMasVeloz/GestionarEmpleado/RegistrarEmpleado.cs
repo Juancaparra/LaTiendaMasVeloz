@@ -24,5 +24,6 @@ namespace Principal.GestionarEmpleado
             string resultado = controller.GuardarEmpleado(tbCedula.Text, tbNombre.Text, tbUsuario.Text, tbContraseña.Text);
             lbResultadoRegistrar.Text = resultado;
         }
+
     }
 }

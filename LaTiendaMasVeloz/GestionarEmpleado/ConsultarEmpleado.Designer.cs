@@ -37,6 +37,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            contraseña = new Label();
+            rol = new Label();
             SuspendLayout();
             // 
             // lbResultadoConsultar
@@ -120,11 +122,31 @@
             label1.TabIndex = 38;
             label1.Text = "La Tienda Mas Veloz";
             // 
+            // contraseña
+            // 
+            contraseña.AutoSize = true;
+            contraseña.Location = new Point(192, 345);
+            contraseña.Name = "contraseña";
+            contraseña.Size = new Size(94, 20);
+            contraseña.TabIndex = 47;
+            contraseña.Text = "Contraseña:  ";
+            // 
+            // rol
+            // 
+            rol.AutoSize = true;
+            rol.Location = new Point(451, 240);
+            rol.Name = "rol";
+            rol.Size = new Size(42, 20);
+            rol.TabIndex = 48;
+            rol.Text = "Rol:  ";
+            // 
             // ConsultarEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(rol);
+            Controls.Add(contraseña);
             Controls.Add(lbResultadoConsultar);
             Controls.Add(lbUsuarioConsultar);
             Controls.Add(lbNombreConsultar);
@@ -151,5 +173,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label contraseña;
+        private Label rol;
     }
 }

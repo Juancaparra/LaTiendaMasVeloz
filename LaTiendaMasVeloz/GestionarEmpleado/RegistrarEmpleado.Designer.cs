@@ -41,6 +41,8 @@
             label1 = new Label();
             lbContraseña = new Label();
             tbContraseña = new TextBox();
+            comboBoxRol = new ComboBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // lbResultadoRegistrar
@@ -54,7 +56,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(186, 250);
+            label6.Location = new Point(80, 250);
             label6.Name = "label6";
             label6.Size = new Size(125, 20);
             label6.TabIndex = 37;
@@ -63,7 +65,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(188, 192);
+            label5.Location = new Point(82, 192);
             label5.Name = "label5";
             label5.Size = new Size(129, 20);
             label5.TabIndex = 36;
@@ -72,7 +74,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(189, 140);
+            label4.Location = new Point(83, 140);
             label4.Name = "label4";
             label4.Size = new Size(121, 20);
             label4.TabIndex = 35;
@@ -90,21 +92,21 @@
             // 
             // tbUsuario
             // 
-            tbUsuario.Location = new Point(321, 243);
+            tbUsuario.Location = new Point(215, 243);
             tbUsuario.Name = "tbUsuario";
             tbUsuario.Size = new Size(133, 27);
             tbUsuario.TabIndex = 33;
             // 
             // tbNombre
             // 
-            tbNombre.Location = new Point(321, 189);
+            tbNombre.Location = new Point(215, 189);
             tbNombre.Name = "tbNombre";
             tbNombre.Size = new Size(133, 27);
             tbNombre.TabIndex = 32;
             // 
             // tbCedula
             // 
-            tbCedula.Location = new Point(321, 137);
+            tbCedula.Location = new Point(215, 137);
             tbCedula.Name = "tbCedula";
             tbCedula.Size = new Size(133, 27);
             tbCedula.TabIndex = 31;
@@ -141,7 +143,7 @@
             // lbContraseña
             // 
             lbContraseña.AutoSize = true;
-            lbContraseña.Location = new Point(157, 308);
+            lbContraseña.Location = new Point(415, 144);
             lbContraseña.Name = "lbContraseña";
             lbContraseña.Size = new Size(149, 20);
             lbContraseña.TabIndex = 40;
@@ -149,16 +151,36 @@
             // 
             // tbContraseña
             // 
-            tbContraseña.Location = new Point(321, 301);
+            tbContraseña.Location = new Point(579, 137);
             tbContraseña.Name = "tbContraseña";
             tbContraseña.Size = new Size(133, 27);
             tbContraseña.TabIndex = 39;
+            // 
+            // comboBoxRol
+            // 
+            comboBoxRol.FormattingEnabled = true;
+            comboBoxRol.Items.AddRange(new object[] { "Gerente ", "Supervisor", "Vendedor" });
+            comboBoxRol.Location = new Point(579, 201);
+            comboBoxRol.Name = "comboBoxRol";
+            comboBoxRol.Size = new Size(151, 28);
+            comboBoxRol.TabIndex = 41;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(420, 209);
+            label7.Name = "label7";
+            label7.Size = new Size(118, 20);
+            label7.TabIndex = 42;
+            label7.Text = "Seleccione el rol";
             // 
             // RegistrarEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
+            Controls.Add(comboBoxRol);
             Controls.Add(lbContraseña);
             Controls.Add(tbContraseña);
             Controls.Add(lbResultadoRegistrar);
@@ -193,5 +215,7 @@
         private Label label1;
         private Label lbContraseña;
         private TextBox tbContraseña;
+        private ComboBox comboBoxRol;
+        private Label label7;
     }
 }

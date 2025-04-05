@@ -28,9 +28,6 @@ namespace Principal
                 precio = decimal.Parse(tbPrecio.Text),
                 marca = tbMarca.Text,
                 stock = int.Parse(tbStock.Text),
-                usuario = tbUsuario.Text,
-                nit_proveedor = tbNitProveedor.Text,
-                fechaLlegada = dateTimePicker1.Value
             };
 
             if (!string.IsNullOrEmpty(tbReferenciaActualizar.Text))

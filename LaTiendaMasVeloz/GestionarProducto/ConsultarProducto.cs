@@ -32,8 +32,6 @@ namespace Principal
                 lbPrecioConsultar.Text += producto.precio.ToString();
                 lbMarcaConsultar.Text += producto.marca;
                 lbStock.Text += producto.stock.ToString();
-                lbNombreGerente.Text += producto.gerente_nombre;
-                lbFechaLlegada.Text += producto.fechaLlegada.ToString("dd/MM/yyyy");
             }
             else
             {

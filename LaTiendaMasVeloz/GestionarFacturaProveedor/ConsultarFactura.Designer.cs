@@ -31,22 +31,22 @@
             panel1 = new Panel();
             totalVenta = new Label();
             dataGridView1 = new DataGridView();
-            label11 = new Label();
-            lbResultado = new Label();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            btRegistrar = new Button();
-            tbNit = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            btBuscar = new Button();
             referencia = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             precio = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
             subtotal = new DataGridViewTextBoxColumn();
+            lbFechaLlegada = new Label();
+            lbResultado = new Label();
+            label7 = new Label();
+            lbNitProveedor = new Label();
+            label4 = new Label();
+            btConsultar = new Button();
+            tbNit = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            btBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,14 +76,49 @@
             dataGridView1.Size = new Size(744, 114);
             dataGridView1.TabIndex = 87;
             // 
-            // label11
+            // referencia
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(69, 232);
-            label11.Name = "label11";
-            label11.Size = new Size(133, 20);
-            label11.TabIndex = 85;
-            label11.Text = "Fecha de llegada:  ";
+            referencia.HeaderText = "Referencia";
+            referencia.MinimumWidth = 6;
+            referencia.Name = "referencia";
+            referencia.Width = 125;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.Width = 190;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.Width = 125;
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.MinimumWidth = 6;
+            cantidad.Name = "cantidad";
+            cantidad.Width = 125;
+            // 
+            // subtotal
+            // 
+            subtotal.HeaderText = "Subtotal";
+            subtotal.MinimumWidth = 6;
+            subtotal.Name = "subtotal";
+            subtotal.Width = 125;
+            // 
+            // lbFechaLlegada
+            // 
+            lbFechaLlegada.AutoSize = true;
+            lbFechaLlegada.Location = new Point(69, 232);
+            lbFechaLlegada.Name = "lbFechaLlegada";
+            lbFechaLlegada.Size = new Size(133, 20);
+            lbFechaLlegada.TabIndex = 85;
+            lbFechaLlegada.Text = "Fecha de llegada:  ";
             // 
             // lbResultado
             // 
@@ -102,14 +137,14 @@
             label7.TabIndex = 81;
             label7.Text = "Factura Nº";
             // 
-            // label5
+            // lbNitProveedor
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(69, 180);
-            label5.Name = "label5";
-            label5.Size = new Size(102, 20);
-            label5.TabIndex = 78;
-            label5.Text = "Nit proveedor";
+            lbNitProveedor.AutoSize = true;
+            lbNitProveedor.Location = new Point(69, 180);
+            lbNitProveedor.Name = "lbNitProveedor";
+            lbNitProveedor.Size = new Size(102, 20);
+            lbNitProveedor.TabIndex = 78;
+            lbNitProveedor.Text = "Nit proveedor";
             // 
             // label4
             // 
@@ -120,14 +155,14 @@
             label4.TabIndex = 77;
             label4.Text = "Ingrese el N° de factura";
             // 
-            // btRegistrar
+            // btConsultar
             // 
-            btRegistrar.Location = new Point(393, 483);
-            btRegistrar.Name = "btRegistrar";
-            btRegistrar.Size = new Size(94, 29);
-            btRegistrar.TabIndex = 76;
-            btRegistrar.Text = "Consultar";
-            btRegistrar.UseVisualStyleBackColor = true;
+            btConsultar.Location = new Point(393, 483);
+            btConsultar.Name = "btConsultar";
+            btConsultar.Size = new Size(94, 29);
+            btConsultar.TabIndex = 76;
+            btConsultar.Text = "Consultar";
+            btConsultar.UseVisualStyleBackColor = true;
             // 
             // tbNit
             // 
@@ -174,41 +209,6 @@
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
             // 
-            // referencia
-            // 
-            referencia.HeaderText = "Referencia";
-            referencia.MinimumWidth = 6;
-            referencia.Name = "referencia";
-            referencia.Width = 125;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.MinimumWidth = 6;
-            nombre.Name = "nombre";
-            nombre.Width = 190;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
-            precio.Name = "precio";
-            precio.Width = 125;
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.MinimumWidth = 6;
-            cantidad.Name = "cantidad";
-            cantidad.Width = 125;
-            // 
-            // subtotal
-            // 
-            subtotal.HeaderText = "Subtotal";
-            subtotal.MinimumWidth = 6;
-            subtotal.Name = "subtotal";
-            subtotal.Width = 125;
-            // 
             // ConsultarFactura
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -218,12 +218,12 @@
             Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(dataGridView1);
-            Controls.Add(label11);
+            Controls.Add(lbFechaLlegada);
             Controls.Add(lbResultado);
             Controls.Add(label7);
-            Controls.Add(label5);
+            Controls.Add(lbNitProveedor);
             Controls.Add(label4);
-            Controls.Add(btRegistrar);
+            Controls.Add(btConsultar);
             Controls.Add(tbNit);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -240,12 +240,12 @@
         private Panel panel1;
         private Label totalVenta;
         private DataGridView dataGridView1;
-        private Label label11;
+        private Label lbFechaLlegada;
         private Label lbResultado;
         private Label label7;
-        private Label label5;
+        private Label lbNitProveedor;
         private Label label4;
-        private Button btRegistrar;
+        private Button btConsultar;
         private TextBox tbNit;
         private Label label3;
         private Label label2;
