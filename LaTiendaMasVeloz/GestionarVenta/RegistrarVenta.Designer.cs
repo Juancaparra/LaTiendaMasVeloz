@@ -40,7 +40,6 @@
             label6 = new Label();
             textBox1 = new TextBox();
             btBuscar = new Button();
-            label7 = new Label();
             totalVenta = new Label();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
@@ -155,15 +154,6 @@
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(586, 104);
-            label7.Name = "label7";
-            label7.Size = new Size(88, 20);
-            label7.TabIndex = 49;
-            label7.Text = "Factura N°:  ";
-            // 
             // totalVenta
             // 
             totalVenta.AutoSize = true;
@@ -234,7 +224,6 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
-            Controls.Add(label7);
             Controls.Add(btBuscar);
             Controls.Add(label6);
             Controls.Add(textBox1);
@@ -270,7 +259,6 @@
         private Label label1;
         private TextBox textBox1;
         private Button btBuscar;
-        private Label label7;
         private Label totalVenta;
         private Panel panel1;
         private DataGridView dataGridView1;

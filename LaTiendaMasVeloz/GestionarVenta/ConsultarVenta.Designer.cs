@@ -31,11 +31,6 @@
             panel1 = new Panel();
             totalVenta = new Label();
             label7 = new Label();
-            precioUnitario = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            precioTotal = new Label();
-            cantidad = new Label();
-            lbNombreProducto = new Label();
             btBuscar = new Button();
             fecha = new DateTimePicker();
             label5 = new Label();
@@ -46,6 +41,12 @@
             label8 = new Label();
             textBox2 = new TextBox();
             lbResultado = new Label();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -73,57 +74,6 @@
             label7.TabIndex = 70;
             label7.Text = "Factura N°:  ";
             label7.Click += label7_Click;
-            // 
-            // precioUnitario
-            // 
-            precioUnitario.AutoSize = true;
-            precioUnitario.Location = new Point(240, 256);
-            precioUnitario.Name = "precioUnitario";
-            precioUnitario.Size = new Size(85, 20);
-            precioUnitario.TabIndex = 66;
-            precioUnitario.Text = "Valor Unit:  ";
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.3875351F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.6124649F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 85F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 173F));
-            tableLayoutPanel1.Location = new Point(40, 279);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 24F));
-            tableLayoutPanel1.Size = new Size(628, 125);
-            tableLayoutPanel1.TabIndex = 69;
-            // 
-            // precioTotal
-            // 
-            precioTotal.AutoSize = true;
-            precioTotal.Location = new Point(497, 256);
-            precioTotal.Name = "precioTotal";
-            precioTotal.Size = new Size(91, 20);
-            precioTotal.TabIndex = 68;
-            precioTotal.Text = "Valor Total:  ";
-            // 
-            // cantidad
-            // 
-            cantidad.AutoSize = true;
-            cantidad.Location = new Point(414, 256);
-            cantidad.Name = "cantidad";
-            cantidad.Size = new Size(80, 20);
-            cantidad.TabIndex = 67;
-            cantidad.Text = "Cantidad:  ";
-            // 
-            // lbNombreProducto
-            // 
-            lbNombreProducto.AutoSize = true;
-            lbNombreProducto.Location = new Point(40, 256);
-            lbNombreProducto.Name = "lbNombreProducto";
-            lbNombreProducto.Size = new Size(71, 20);
-            lbNombreProducto.TabIndex = 65;
-            lbNombreProducto.Text = "Nombre: ";
             // 
             // btBuscar
             // 
@@ -213,22 +163,56 @@
             lbResultado.Size = new Size(0, 20);
             lbResultado.TabIndex = 75;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dataGridView1.Location = new Point(27, 258);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(750, 119);
+            dataGridView1.TabIndex = 76;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Nombre";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Valor Unit";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 180;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Cantidad";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Valor Total";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 190;
+            // 
             // ConsultarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(829, 551);
+            Controls.Add(dataGridView1);
             Controls.Add(lbResultado);
             Controls.Add(label8);
             Controls.Add(textBox2);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(label7);
-            Controls.Add(precioUnitario);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(precioTotal);
-            Controls.Add(cantidad);
-            Controls.Add(lbNombreProducto);
             Controls.Add(btBuscar);
             Controls.Add(fecha);
             Controls.Add(label5);
@@ -238,6 +222,7 @@
             Controls.Add(label1);
             Name = "ConsultarVenta";
             Text = "ConsultarVenta";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,11 +232,6 @@
         private Panel panel1;
         private Label totalVenta;
         private Label label7;
-        private Label precioUnitario;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label precioTotal;
-        private Label cantidad;
-        private Label lbNombreProducto;
         private Button btBuscar;
         private DateTimePicker fecha;
         private Label label5;
@@ -262,5 +242,10 @@
         private Label label8;
         private TextBox textBox2;
         private Label lbResultado;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }
