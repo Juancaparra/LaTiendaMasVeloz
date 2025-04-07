@@ -9,16 +9,13 @@ namespace Modelo
         public int GuardarProducto(ProductoEntity producto)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Producto (referencia, nombre, precio, marca, stock, fk_gerente_usuario, fk_nit_proveedor, fecha_llegada) " +
-                              "VALUES (@referencia, @nombre, @precio, @marca, @stock, @fk_gerente_usuario, @fk_nit_proveedor, @fecha_llegada)";
+            cmd.CommandText = "INSERT INTO Producto (referencia, nombre, precio, marca, stock) " +
+                              "VALUES (@referencia, @nombre, @precio, @marca, @stock)";
             cmd.Parameters.AddWithValue("@referencia", producto.referencia);
             cmd.Parameters.AddWithValue("@nombre", producto.nombre);
             cmd.Parameters.AddWithValue("@precio", producto.precio);
             cmd.Parameters.AddWithValue("@marca", producto.marca);
             cmd.Parameters.AddWithValue("@stock", producto.stock);
-            cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
-            cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
-            cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;
@@ -26,67 +23,63 @@ namespace Modelo
 
         public ProductoEntity MostrarProducto(string referencia)
         {
-            ProductoEntity ProductoActual = new ProductoEntity();
+            ProductoEntity producto = null;
             MySqlCommand cmd = GetConnection().CreateCommand();
             cmd.CommandText = @"
-        SELECT p.id_producto, p.referencia, p.nombre, p.precio, p.marca, p.stock, 
-               g.usuario AS gerente_usuario, g.nombre AS gerente_nombre, 
-               pr.nit AS proveedor_nit, pr.nombre AS proveedor_nombre,
-               p.fecha_llegada
-        FROM Producto p
-        JOIN Gerente g ON p.fk_gerente_usuario = g.usuario
-        JOIN Proveedor pr ON p.fk_nit_proveedor = pr.nit
+        SELECT p.referencia, p.nombre, p.precio, p.marca, p.stock, pr.nombre AS proveedor_nombre
+        FROM PRODUCTO p
+        JOIN FACTURA_PROVEEDOR fp ON p.referencia = fp.referencia
+        JOIN PROVEEDOR pr ON fp.nit = pr.nit
         WHERE p.referencia = @referencia
         LIMIT 1";
             cmd.Parameters.AddWithValue("@referencia", referencia);
+
             MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            if (reader.Read())
             {
-                ProductoActual.id_producto = reader.GetInt32(reader.GetOrdinal("id_producto"));
-                ProductoActual.referencia = reader.GetString(reader.GetOrdinal("referencia"));
-                ProductoActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
-                ProductoActual.precio = reader.GetDecimal(reader.GetOrdinal("precio"));
-                ProductoActual.marca = reader.GetString(reader.GetOrdinal("marca"));
-                ProductoActual.stock = reader.GetInt32(reader.GetOrdinal("stock"));
-                ProductoActual.usuario = reader.GetString(reader.GetOrdinal("gerente_usuario"));
-                ProductoActual.gerente_nombre = reader.GetString(reader.GetOrdinal("gerente_nombre"));
-                ProductoActual.nit_proveedor = reader.GetString(reader.GetOrdinal("proveedor_nit"));
-                ProductoActual.proveedor_nombre = reader.GetString(reader.GetOrdinal("proveedor_nombre"));
-                ProductoActual.fechaLlegada = reader.GetDateTime(reader.GetOrdinal("fecha_llegada")); // Nueva propiedad
+                producto = new ProductoEntity
+                {
+                    referencia = reader.GetString(reader.GetOrdinal("referencia")),
+                    nombre = reader.GetString(reader.GetOrdinal("nombre")),
+                    precio = reader.GetDecimal(reader.GetOrdinal("precio")),
+                    marca = reader.GetString(reader.GetOrdinal("marca")),
+                    stock = reader.GetInt32(reader.GetOrdinal("stock")),
+                    ProveedorNombre = reader.GetString(reader.GetOrdinal("proveedor_nombre"))
+                };
             }
 
-            return ProductoActual;
+            return producto;
         }
 
-        public int ActualizarProducto(ProductoEntity producto)
-        {
-            MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "UPDATE Producto SET " +
-                              "nombre = @nombre, " +
-                              "precio = @precio, " +
-                              "marca = @marca, " +
-                              "stock = @stock, " +
-                              "fk_gerente_usuario = @fk_gerente_usuario, " +
-                              "fk_nit_proveedor = @fk_nit_proveedor, " +
-                              "fecha_llegada = @fecha_llegada" + // Nueva propiedad
-                              (string.IsNullOrEmpty(producto.referencia) ? "" : ", referencia = @nuevaReferencia") +
-                              " WHERE referencia = @referencia";
-            cmd.Parameters.AddWithValue("@referencia", producto.referencia);
-            cmd.Parameters.AddWithValue("@nombre", producto.nombre);
-            cmd.Parameters.AddWithValue("@precio", producto.precio);
-            cmd.Parameters.AddWithValue("@marca", producto.marca);
-            cmd.Parameters.AddWithValue("@stock", producto.stock);
-            cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
-            cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
-            cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada); // Nueva propiedad
-            if (!string.IsNullOrEmpty(producto.referencia))
-            {
-                cmd.Parameters.AddWithValue("@nuevaReferencia", producto.referencia);
-            }
-            int filasAfectadas = cmd.ExecuteNonQuery();
+        //public int ActualizarProducto(ProductoEntity producto)
+        //{
+        //    MySqlCommand cmd = GetConnection().CreateCommand();
+        //    cmd.CommandText = "UPDATE Producto SET " +
+        //                      "nombre = @nombre, " +
+        //                      "precio = @precio, " +
+        //                      "marca = @marca, " +
+        //                      "stock = @stock, " +
+        //                      "fk_gerente_usuario = @fk_gerente_usuario, " +
+        //                      "fk_nit_proveedor = @fk_nit_proveedor, " +
+        //                      "fecha_llegada = @fecha_llegada" + // Nueva propiedad
+        //                      (string.IsNullOrEmpty(producto.referencia) ? "" : ", referencia = @nuevaReferencia") +
+        //                      " WHERE referencia = @referencia";
+        //    cmd.Parameters.AddWithValue("@referencia", producto.referencia);
+        //    cmd.Parameters.AddWithValue("@nombre", producto.nombre);
+        //    cmd.Parameters.AddWithValue("@precio", producto.precio);
+        //    cmd.Parameters.AddWithValue("@marca", producto.marca);
+        //    cmd.Parameters.AddWithValue("@stock", producto.stock);
+        //    cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
+        //    cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
+        //    cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada); // Nueva propiedad
+        //    if (!string.IsNullOrEmpty(producto.referencia))
+        //    {
+        //        cmd.Parameters.AddWithValue("@nuevaReferencia", producto.referencia);
+        //    }
+        //    int filasAfectadas = cmd.ExecuteNonQuery();
 
-            return filasAfectadas;
-        }
+        //    return filasAfectadas;
+        //}
 
         public int EliminarProducto(string referencia)
         {

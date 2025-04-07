@@ -39,38 +39,38 @@ namespace Logica
             return "Producto encontrado";
         }
 
-        public string ActualizarProducto(ProductoEntity producto)
-        {
-            string resultado;
-            BaseDatos db = new BaseDatos();
-            int filasActualizadas = db.ActualizarProducto(producto);
+        //public string ActualizarProducto(ProductoEntity producto)
+        //{
+        //    string resultado;
+        //    BaseDatos db = new BaseDatos();
+        //    int filasActualizadas = db.ActualizarProducto(producto);
 
-            if (filasActualizadas > 0)
-            {
-                resultado = "Producto actualizado correctamente";
-            }
-            else
-            {
-                resultado = "Error al actualizar el producto";
-            }
-            return resultado;
-        }
+        //    if (filasActualizadas > 0)
+        //    {
+        //        resultado = "Producto actualizado correctamente";
+        //    }
+        //    else
+        //    {
+        //        resultado = "Error al actualizar el producto";
+        //    }
+        //    return resultado;
+        //}
 
-        public string EliminarProducto(string referencia)
-        {
-            string resultado;
-            BaseDatos db = new BaseDatos();
-            int filasEliminadas = db.EliminarProducto(referencia);
+        //public string EliminarProducto(string referencia)
+        //{
+        //    string resultado;
+        //    BaseDatos db = new BaseDatos();
+        //    int filasEliminadas = db.EliminarProducto(referencia);
 
-            if (filasEliminadas > 0)
-            {
-                resultado = "Producto eliminado correctamente";
-            }
-            else
-            {
-                resultado = "Error al eliminar el producto";
-            }
-            return resultado;
-        }
+        //    if (filasEliminadas > 0)
+        //    {
+        //        resultado = "Producto eliminado correctamente";
+        //    }
+        //    else
+        //    {
+        //        resultado = "Error al eliminar el producto";
+        //    }
+        //    return resultado;
+        //}
     }
 }

@@ -19,7 +19,7 @@ namespace Principal
             InitializeComponent();
         }
 
-        
+
         private void btConsultar_Click(object sender, EventArgs e)
         {
             ProductoController pc = new ProductoController();
@@ -28,16 +28,16 @@ namespace Principal
 
             if (producto != null && producto.id_producto != 0)
             {
-                lbNombreConsultar.Text += producto.nombre;
-                lbPrecioConsultar.Text += producto.precio.ToString();
-                lbMarcaConsultar.Text += producto.marca;
-                lbStock.Text += producto.stock.ToString();
+                lbNombreConsultar.Text = "Nombre: " + producto.nombre;
+                lbPrecioConsultar.Text = "Precio: " + producto.precio.ToString();
+                lbMarcaConsultar.Text = "Marca: " + producto.marca;
+                lbStock.Text = "Stock: " + producto.stock.ToString();
+                lbNombreProveedor.Text = "Proveedor: " + producto.ProveedorNombre; // Nueva línea
             }
             else
             {
                 lbResultadoConsultar.Text = resultado;
             }
-
         }
 
         private void lbStock_Click(object sender, EventArgs e)
