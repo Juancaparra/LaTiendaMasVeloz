@@ -267,5 +267,15 @@ namespace Modelo
 
             return filasAfectadas;
         }
+
+        public int EliminarEmpleado(string cedula)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "DELETE FROM Empleado WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
+        }
     }
 }

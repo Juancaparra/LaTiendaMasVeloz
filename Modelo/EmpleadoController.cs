@@ -50,5 +50,22 @@ namespace Logica
             }
             return resultado;
         }
+
+        public string EliminarEmpleado(string cedula)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasEliminadas = db.EliminarEmpleado(cedula);
+
+            if (filasEliminadas > 0)
+            {
+                resultado = "Eliminado";
+            }
+            else
+            {
+                resultado = "No Eliminado";
+            }
+            return resultado;
+        }
     }
 }
