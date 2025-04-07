@@ -20,10 +20,10 @@ namespace Principal
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
-            //string referencia = tbReferencia.Text;
-            //ProductoController controller = new ProductoController();
-            //string resultado = controller.EliminarProducto(referencia);
-            //lbResultadoEliminar.Text = resultado;
+            string referencia = tbReferencia.Text;
+            ProductoController controller = new ProductoController();
+            string resultado = controller.EliminarProducto(referencia);
+            lbResultadoEliminar.Text = resultado;
         }
     }
 }
