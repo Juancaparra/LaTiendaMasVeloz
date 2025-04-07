@@ -21,7 +21,8 @@ namespace Principal.GestionarEmpleado
         private void btRegistrar_Click(object sender, EventArgs e)
         {
             EmpleadoController controller = new EmpleadoController();
-            string resultado = controller.GuardarEmpleado(tbCedula.Text, tbNombre.Text, tbUsuario.Text, tbContraseña.Text);
+            string rol = comboBoxRol.SelectedItem.ToString();
+            string resultado = controller.GuardarEmpleado(tbCedula.Text, tbNombre.Text, tbUsuario.Text, tbContraseña.Text, rol);
             lbResultadoRegistrar.Text = resultado;
         }
 

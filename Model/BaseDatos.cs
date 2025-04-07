@@ -6,6 +6,19 @@ namespace Modelo
     public class BaseDatos : ConexionMySql
     {
 
+        public string VerificarCredenciales(string nombreUsuario, string contrasena)
+        {
+                string query = "SELECT Rol FROM empleado WHERE nombreUsuario = @nombreUsuario AND contrasena = @contrasena";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+                cmd.Parameters.AddWithValue("@contrasena", contrasena);
+
+                var result = cmd.ExecuteScalar();
+
+                return result?.ToString();
+            
+        }
+
         public int GuardarProducto(ProductoEntity producto)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
@@ -201,14 +214,15 @@ namespace Modelo
             return filasAfectadas;
         }
 
-        public int GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña)
+        public int GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña, string rol)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Empleado (cedula, nombre, usuario, contraseña) VALUES (@cedula, @nombre, @usuario, @contraseña)";
+            cmd.CommandText = "INSERT INTO Empleado (cedula, nombre, usuario, contraseña, rol) VALUES (@cedula, @nombre, @usuario, @contraseña, @rol)";
             cmd.Parameters.AddWithValue("@cedula", cedula);
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@usuario", usuario);
             cmd.Parameters.AddWithValue("@contraseña", contraseña);
+            cmd.Parameters.AddWithValue("@rol", rol);
             int filasAfectadas = cmd.ExecuteNonQuery();
 
             return filasAfectadas;
@@ -228,10 +242,30 @@ namespace Modelo
                 EmpleadoActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
                 EmpleadoActual.usuario = reader.GetString(reader.GetOrdinal("usuario"));
                 EmpleadoActual.contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
-
+                EmpleadoActual.rol = reader.GetString(reader.GetOrdinal("rol")); // Nuevo campo
             }
 
             return EmpleadoActual;
+        }
+
+        public int ActualizarEmpleado(EmpleadoEntity empleado, string nuevaCedula)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "UPDATE Empleado SET nombre = @nombre, usuario = @usuario, contraseña = @contraseña, rol = @rol" +
+                              (string.IsNullOrEmpty(nuevaCedula) ? "" : ", cedula = @nuevaCedula") +
+                              " WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", empleado.cedula);
+            cmd.Parameters.AddWithValue("@nombre", empleado.nombre);
+            cmd.Parameters.AddWithValue("@usuario", empleado.usuario);
+            cmd.Parameters.AddWithValue("@contraseña", empleado.contraseña);
+            cmd.Parameters.AddWithValue("@rol", empleado.rol);
+            if (!string.IsNullOrEmpty(nuevaCedula))
+            {
+                cmd.Parameters.AddWithValue("@nuevaCedula", nuevaCedula);
+            }
+            int filasAfectadas = cmd.ExecuteNonQuery();
+
+            return filasAfectadas;
         }
     }
 }

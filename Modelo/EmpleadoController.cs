@@ -10,11 +10,11 @@ namespace Logica
 {
     public class EmpleadoController
     {
-        public string GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña)
+        public string GuardarEmpleado(string cedula, string nombre, string usuario, string contraseña, string rol)
         {
             string resultado;
             BaseDatos db = new BaseDatos();
-            int filasInsertadas = db.GuardarEmpleado(cedula, nombre, usuario, contraseña);
+            int filasInsertadas = db.GuardarEmpleado(cedula, nombre, usuario, contraseña, rol);
 
             if (filasInsertadas > 0)
             {
@@ -26,13 +26,29 @@ namespace Logica
             }
             return resultado;
         }
+
         public EmpleadoEntity MostrarEmpleado(string cedula)
         {
             BaseDatos db = new BaseDatos();
-
             EmpleadoEntity empleado = db.MostrarEmpleado(cedula);
-
             return empleado;
+        }
+
+        public string ActualizarEmpleado(EmpleadoEntity empleado, string nuevaCedula)
+        {
+            string resultado;
+            BaseDatos db = new BaseDatos();
+            int filasActualizadas = db.ActualizarEmpleado(empleado, nuevaCedula);
+
+            if (filasActualizadas > 0)
+            {
+                resultado = "Actualizado";
+            }
+            else
+            {
+                resultado = "No Actualizado";
+            }
+            return resultado;
         }
     }
 }

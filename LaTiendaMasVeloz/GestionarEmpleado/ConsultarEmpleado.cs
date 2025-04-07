@@ -27,6 +27,7 @@ namespace Principal.GestionarEmpleado
 
             lbNombreConsultar.Text = "Nombre: " + empleado.nombre;
             lbUsuarioConsultar.Text = "Usuario: " + empleado.usuario;
+            rol.Text = "Rol: " + empleado.rol; 
         }
     }
 }

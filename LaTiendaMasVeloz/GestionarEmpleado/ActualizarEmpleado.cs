@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Logica;
+using Modelo.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +19,21 @@ namespace Principal.GestionarEmpleado
             InitializeComponent();
         }
 
-        private void lbUsuarioActualizar_Click(object sender, EventArgs e)
+        private void btActualizar_Click(object sender, EventArgs e)
         {
+            EmpleadoController controller = new EmpleadoController();
+            EmpleadoEntity empleado = new EmpleadoEntity
+            {
+                cedula = tbCedula.Text,
+                nombre = textBox1.Text,
+                usuario = tbUsuario.Text,
+                contraseña = tbContraseña.Text,
+                rol = comboBoxRol.SelectedItem.ToString()
+            };
 
+            string nuevaCedula = tbCedulaActualizar.Text;
+            string resultado = controller.ActualizarEmpleado(empleado, nuevaCedula);
+            lbResultadoActualizar.Text = resultado;
         }
     }
 }
