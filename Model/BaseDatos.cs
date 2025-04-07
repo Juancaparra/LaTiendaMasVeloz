@@ -51,35 +51,29 @@ namespace Modelo
             return producto;
         }
 
-        //public int ActualizarProducto(ProductoEntity producto)
-        //{
-        //    MySqlCommand cmd = GetConnection().CreateCommand();
-        //    cmd.CommandText = "UPDATE Producto SET " +
-        //                      "nombre = @nombre, " +
-        //                      "precio = @precio, " +
-        //                      "marca = @marca, " +
-        //                      "stock = @stock, " +
-        //                      "fk_gerente_usuario = @fk_gerente_usuario, " +
-        //                      "fk_nit_proveedor = @fk_nit_proveedor, " +
-        //                      "fecha_llegada = @fecha_llegada" + // Nueva propiedad
-        //                      (string.IsNullOrEmpty(producto.referencia) ? "" : ", referencia = @nuevaReferencia") +
-        //                      " WHERE referencia = @referencia";
-        //    cmd.Parameters.AddWithValue("@referencia", producto.referencia);
-        //    cmd.Parameters.AddWithValue("@nombre", producto.nombre);
-        //    cmd.Parameters.AddWithValue("@precio", producto.precio);
-        //    cmd.Parameters.AddWithValue("@marca", producto.marca);
-        //    cmd.Parameters.AddWithValue("@stock", producto.stock);
-        //    cmd.Parameters.AddWithValue("@fk_gerente_usuario", producto.usuario);
-        //    cmd.Parameters.AddWithValue("@fk_nit_proveedor", producto.nit_proveedor);
-        //    cmd.Parameters.AddWithValue("@fecha_llegada", producto.fechaLlegada); // Nueva propiedad
-        //    if (!string.IsNullOrEmpty(producto.referencia))
-        //    {
-        //        cmd.Parameters.AddWithValue("@nuevaReferencia", producto.referencia);
-        //    }
-        //    int filasAfectadas = cmd.ExecuteNonQuery();
+        public int ActualizarProducto(ProductoEntity producto, string nuevaReferencia)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "UPDATE Producto SET " +
+                              "nombre = @nombre, " +
+                              "precio = @precio, " +
+                              "marca = @marca, " +
+                              "stock = @stock" +
+                              (string.IsNullOrEmpty(nuevaReferencia) ? "" : ", referencia = @nuevaReferencia") +
+                              " WHERE referencia = @referencia";
+            cmd.Parameters.AddWithValue("@referencia", producto.referencia);
+            cmd.Parameters.AddWithValue("@nombre", producto.nombre);
+            cmd.Parameters.AddWithValue("@precio", producto.precio);
+            cmd.Parameters.AddWithValue("@marca", producto.marca);
+            cmd.Parameters.AddWithValue("@stock", producto.stock);
+            if (!string.IsNullOrEmpty(nuevaReferencia))
+            {
+                cmd.Parameters.AddWithValue("@nuevaReferencia", nuevaReferencia);
+            }
+            int filasAfectadas = cmd.ExecuteNonQuery();
 
-        //    return filasAfectadas;
-        //}
+            return filasAfectadas;
+        }
 
         public int EliminarProducto(string referencia)
         {

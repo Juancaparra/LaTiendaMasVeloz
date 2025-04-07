@@ -21,24 +21,22 @@ namespace Principal
 
         private void btActualizar_Click(object sender, EventArgs e)
         {
-            //ProductoEntity producto = new ProductoEntity
-            //{
-            //    referencia = tbReferencia.Text,
-            //    nombre = tbNombre.Text,
-            //    precio = decimal.Parse(tbPrecio.Text),
-            //    marca = tbMarca.Text,
-            //    stock = int.Parse(tbStock.Text),
-            //};
+            ProductoEntity producto = new ProductoEntity
+            {
+                referencia = tbReferencia.Text,
+                nombre = tbNombre.Text,
+                precio = decimal.Parse(tbPrecio.Text),
+                marca = tbMarca.Text,
+                stock = int.Parse(tbStock.Text),
+            };
 
-            //if (!string.IsNullOrEmpty(tbReferenciaActualizar.Text))
-            //{
-            //    producto.referencia = tbReferenciaActualizar.Text;
-            //}
+            string nuevaReferencia = tbReferenciaActualizar.Text;
 
-            //ProductoController pc = new ProductoController();
-            //string resultado = pc.ActualizarProducto(producto);
+            ProductoController pc = new ProductoController();
+            string resultado = pc.ActualizarProducto(producto, nuevaReferencia);
 
-            //lbResultadoActualizar.Text = resultado;
+            lbResultadoActualizar.Text = resultado;
         }
     }
 }
+
