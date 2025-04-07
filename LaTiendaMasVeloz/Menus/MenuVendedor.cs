@@ -26,7 +26,7 @@ namespace Principal.Menus
 
         private void btGestionarVenta_Click(object sender, EventArgs e)
         {
-            Principal.GestionarVenta.GestionarVenta gestionarVenta = new Principal.GestionarVenta.GestionarVenta();
+            Principal.GestionarVenta.GestionarVentaVendedor gestionarVenta = new Principal.GestionarVenta.GestionarVentaVendedor();
             gestionarVenta.ShowDialog();
         }
     }
