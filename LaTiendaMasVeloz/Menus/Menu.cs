@@ -3,6 +3,7 @@ using Principal.GestionarClientes;
 using Principal.GestionarEmpleado;
 using Principal.GestionarProveedor;
 using Principal.GestionarVenta;
+using Principal.GestionarFacturaProveedor;
 
 namespace LaTiendaMasVeloz
 {
@@ -41,6 +42,12 @@ namespace LaTiendaMasVeloz
         {
             GestionarVenta gestionarVenta = new GestionarVenta();
             gestionarVenta.ShowDialog();
+        }
+
+        private void btGestionarFacturaProveedores_Click(object sender, EventArgs e)
+        {
+            GestionarFacturaProveedor gestionarFacturaProveedor = new GestionarFacturaProveedor();
+            gestionarFacturaProveedor.ShowDialog();
         }
     }
 }

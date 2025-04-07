@@ -33,8 +33,9 @@
             BtGestionarProductos = new Button();
             BtGestionarCliente = new Button();
             BtGestionarEmpleados = new Button();
-            button1 = new Button();
-            button2 = new Button();
+            btGestionarProveedores = new Button();
+            btGestionarVenta = new Button();
+            btGestionarFacturaProveedores = new Button();
             SuspendLayout();
             // 
             // label1
@@ -59,7 +60,7 @@
             // 
             // BtGestionarProductos
             // 
-            BtGestionarProductos.Location = new Point(192, 244);
+            BtGestionarProductos.Location = new Point(64, 253);
             BtGestionarProductos.Name = "BtGestionarProductos";
             BtGestionarProductos.Size = new Size(162, 60);
             BtGestionarProductos.TabIndex = 2;
@@ -87,33 +88,44 @@
             BtGestionarEmpleados.UseVisualStyleBackColor = true;
             BtGestionarEmpleados.Click += BtGestionarEmpleados_Click;
             // 
-            // button1
+            // btGestionarProveedores
             // 
-            button1.Location = new Point(441, 244);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 60);
-            button1.TabIndex = 7;
-            button1.Text = "GESTIONAR PROVEEDORES";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btGestionarProveedores.Location = new Point(312, 253);
+            btGestionarProveedores.Name = "btGestionarProveedores";
+            btGestionarProveedores.Size = new Size(162, 60);
+            btGestionarProveedores.TabIndex = 7;
+            btGestionarProveedores.Text = "GESTIONAR PROVEEDORES";
+            btGestionarProveedores.UseVisualStyleBackColor = true;
+            btGestionarProveedores.Click += button1_Click;
             // 
-            // button2
+            // btGestionarVenta
             // 
-            button2.Location = new Point(312, 134);
-            button2.Name = "button2";
-            button2.Size = new Size(162, 60);
-            button2.TabIndex = 6;
-            button2.Text = "GESTIONAR VENTA";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btGestionarVenta.Location = new Point(312, 134);
+            btGestionarVenta.Name = "btGestionarVenta";
+            btGestionarVenta.Size = new Size(162, 60);
+            btGestionarVenta.TabIndex = 6;
+            btGestionarVenta.Text = "GESTIONAR VENTA";
+            btGestionarVenta.UseVisualStyleBackColor = true;
+            btGestionarVenta.Click += button2_Click;
+            // 
+            // btGestionarFacturaProveedores
+            // 
+            btGestionarFacturaProveedores.Location = new Point(577, 253);
+            btGestionarFacturaProveedores.Name = "btGestionarFacturaProveedores";
+            btGestionarFacturaProveedores.Size = new Size(162, 60);
+            btGestionarFacturaProveedores.TabIndex = 8;
+            btGestionarFacturaProveedores.Text = "FACTURAS PROVEEDORES";
+            btGestionarFacturaProveedores.UseVisualStyleBackColor = true;
+            btGestionarFacturaProveedores.Click += btGestionarFacturaProveedores_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(btGestionarFacturaProveedores);
+            Controls.Add(btGestionarProveedores);
+            Controls.Add(btGestionarVenta);
             Controls.Add(BtGestionarEmpleados);
             Controls.Add(BtGestionarCliente);
             Controls.Add(BtGestionarProductos);
@@ -132,7 +144,8 @@
         private Button BtGestionarProductos;
         private Button BtGestionarCliente;
         private Button BtGestionarEmpleados;
-        private Button button1;
-        private Button button2;
+        private Button btGestionarProveedores;
+        private Button btGestionarVenta;
+        private Button btGestionarFacturaProveedores;
     }
 }
