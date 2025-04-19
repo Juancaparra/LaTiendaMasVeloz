@@ -9,7 +9,7 @@ namespace Modelo
 {
     public class ConexionMySql
     {
-        public MySqlConnection connection;
+        public static MySqlConnection connection;
         private string cadenaConexion;
 
         public ConexionMySql()

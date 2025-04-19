@@ -6,18 +6,6 @@ namespace Modelo
     public class BaseDatos : ConexionMySql
     {
 
-        public string VerificarCredenciales(string nombreUsuario, string contrasena)
-        {
-                string query = "SELECT Rol FROM empleado WHERE nombreUsuario = @nombreUsuario AND contrasena = @contrasena";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
-                cmd.Parameters.AddWithValue("@contrasena", contrasena);
-
-                var result = cmd.ExecuteScalar();
-
-                return result?.ToString();
-            
-        }
 
         public int GuardarProducto(ProductoEntity producto)
         {

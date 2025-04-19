@@ -98,6 +98,7 @@
             button1.TabIndex = 14;
             button1.Text = "Iniciar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // lbResultado
             // 

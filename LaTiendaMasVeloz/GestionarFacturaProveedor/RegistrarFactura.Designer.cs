@@ -50,7 +50,6 @@
             precio = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
             subtotal = new DataGridViewTextBoxColumn();
-            panel1 = new Panel();
             totalVenta = new Label();
             btAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -105,7 +104,6 @@
             label7.Size = new Size(194, 20);
             label7.TabIndex = 57;
             label7.Text = "Ingrese el nombre producto";
-            label7.Click += label7_Click;
             // 
             // tbNombre
             // 
@@ -238,13 +236,6 @@
             subtotal.Name = "subtotal";
             subtotal.Width = 125;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(611, 473);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(174, 43);
-            panel1.TabIndex = 69;
-            // 
             // totalVenta
             // 
             totalVenta.AutoSize = true;
@@ -269,7 +260,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 594);
             Controls.Add(btAgregar);
-            Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(dataGridView1);
             Controls.Add(fechaLlegada);
@@ -320,7 +310,6 @@
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn subtotal;
-        private Panel panel1;
         private Label totalVenta;
         private Button btAgregar;
     }

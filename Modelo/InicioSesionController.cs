@@ -1,35 +1,37 @@
 ﻿using Modelo;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 
 namespace Logica
 {
-        public class InicioSesionController
+    public class InicioSesionController
+    {
+        private ConexionMySql conexion;
+
+        public InicioSesionController()
         {
-            private BaseDatos baseDatos;
+            conexion = new ConexionMySql();
+        }
 
-            public InicioSesionController()
-            {
-                baseDatos = new BaseDatos();
-            }
-
-        public string IniciarSesion(string nombreUsuario, string contrasena)
+        public string IniciarSesion(string usuario, string contraseña)
         {
-            string rol = baseDatos.VerificarCredenciales(nombreUsuario, contrasena);
+            var connection = conexion.GetConnection();
 
-            if (rol == "Gerente")
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT rol FROM Empleado WHERE usuario = @usuario AND contraseña = @contraseña";
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            cmd.Parameters.AddWithValue("@contraseña", contraseña);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string rol = null;
+            if (reader.Read())
             {
-                return "Menu";
+                rol = reader["rol"].ToString();
             }
-            else if (rol == "Vendedor")
-            {
-                return "MenuVendedor";
-            }
-            else
-            {
-                return "Usuario o contraseña incorrectos";
-            }
+
+            reader.Close();
+            return rol;
         }
     }
-    }
+}
