@@ -6,6 +6,78 @@ namespace Modelo
     public class BaseDatos : ConexionMySql
     {
 
+        public bool ValidarProveedor(string nit)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Proveedor WHERE nit = @nit";
+            cmd.Parameters.AddWithValue("@nit", nit);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+
+        public bool ValidarProducto(string referencia)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Producto WHERE referencia = @referencia";
+            cmd.Parameters.AddWithValue("@referencia", referencia);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+
+        public int RegistrarFacturaProveedor(FacturaProveedorEntity factura)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "INSERT INTO Factura_proveedor (nit, referencia, fecha_llegada, nombre, precio, cantidad) " +
+                              "VALUES (@nit, @referencia, @fecha_llegada, @nombre, @precio, @cantidad)";
+            cmd.Parameters.AddWithValue("@nit", factura.Nit);
+            cmd.Parameters.AddWithValue("@referencia", factura.Referencia);
+            cmd.Parameters.AddWithValue("@fecha_llegada", factura.FechaLlegada);
+            cmd.Parameters.AddWithValue("@nombre", factura.Nombre);
+            cmd.Parameters.AddWithValue("@precio", factura.Precio);
+            cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
+            return cmd.ExecuteNonQuery();
+        }
+
+        public FacturaProveedorEntity ConsultarFacturaProveedor(int idFactura)
+        {
+            FacturaProveedorEntity factura = null;
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = @"
+        SELECT fp.id_factura_proveedor, fp.nit, fp.fecha_llegada, p.referencia, p.nombre, fp.precio, fp.cantidad
+        FROM Factura_proveedor fp
+        INNER JOIN Producto p ON fp.referencia = p.referencia
+        WHERE fp.id_factura_proveedor = @idFactura";
+            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<ProductoEntity> productos = new List<ProductoEntity>();
+
+            while (reader.Read())
+            {
+                if (factura == null)
+                {
+                    factura = new FacturaProveedorEntity
+                    {
+                        IdFactura = reader.GetInt32(reader.GetOrdinal("id_factura_proveedor")),
+                        Nit = reader.GetString(reader.GetOrdinal("nit")),
+                        FechaLlegada = reader.GetDateTime(reader.GetOrdinal("fecha_llegada")),
+                        Productos = productos
+                    };
+                }
+
+                productos.Add(new ProductoEntity
+                {
+                    referencia = reader.GetString(reader.GetOrdinal("referencia")),
+                    nombre = reader.GetString(reader.GetOrdinal("nombre")),
+                    precio = reader.GetDecimal(reader.GetOrdinal("precio")),
+                    stock = reader.GetInt32(reader.GetOrdinal("cantidad"))
+                });
+            }
+
+            reader.Close();
+            return factura;
+        }
+
 
         public int GuardarProducto(ProductoEntity producto)
         {

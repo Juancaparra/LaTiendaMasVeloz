@@ -147,6 +147,7 @@
             btRegistrar.TabIndex = 52;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // tbPrecio
             // 
@@ -253,6 +254,7 @@
             btAgregar.TabIndex = 70;
             btAgregar.Text = "Agregar";
             btAgregar.UseVisualStyleBackColor = true;
+            btAgregar.Click += btAgregar_Click;
             // 
             // RegistrarFactura
             // 

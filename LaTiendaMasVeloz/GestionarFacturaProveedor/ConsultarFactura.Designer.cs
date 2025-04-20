@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             totalVenta = new Label();
             dataGridView1 = new DataGridView();
             referencia = new DataGridViewTextBoxColumn();
@@ -41,7 +40,6 @@
             label7 = new Label();
             lbNitProveedor = new Label();
             label4 = new Label();
-            btConsultar = new Button();
             tbNit = new TextBox();
             label3 = new Label();
             label2 = new Label();
@@ -49,13 +47,6 @@
             btBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(639, 438);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(174, 43);
-            panel1.TabIndex = 89;
             // 
             // totalVenta
             // 
@@ -133,18 +124,18 @@
             label7.AutoSize = true;
             label7.Location = new Point(661, 117);
             label7.Name = "label7";
-            label7.Size = new Size(77, 20);
+            label7.Size = new Size(81, 20);
             label7.TabIndex = 81;
-            label7.Text = "Factura Nº";
+            label7.Text = "Factura Nº ";
             // 
             // lbNitProveedor
             // 
             lbNitProveedor.AutoSize = true;
             lbNitProveedor.Location = new Point(69, 180);
             lbNitProveedor.Name = "lbNitProveedor";
-            lbNitProveedor.Size = new Size(102, 20);
+            lbNitProveedor.Size = new Size(109, 20);
             lbNitProveedor.TabIndex = 78;
-            lbNitProveedor.Text = "Nit proveedor";
+            lbNitProveedor.Text = "Nit proveedor: ";
             // 
             // label4
             // 
@@ -154,15 +145,6 @@
             label4.Size = new Size(165, 20);
             label4.TabIndex = 77;
             label4.Text = "Ingrese el N° de factura";
-            // 
-            // btConsultar
-            // 
-            btConsultar.Location = new Point(393, 483);
-            btConsultar.Name = "btConsultar";
-            btConsultar.Size = new Size(94, 29);
-            btConsultar.TabIndex = 76;
-            btConsultar.Text = "Consultar";
-            btConsultar.UseVisualStyleBackColor = true;
             // 
             // tbNit
             // 
@@ -208,6 +190,7 @@
             btBuscar.TabIndex = 90;
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
+            btBuscar.Click += btBuscar_Click;
             // 
             // ConsultarFactura
             // 
@@ -215,7 +198,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 602);
             Controls.Add(btBuscar);
-            Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(dataGridView1);
             Controls.Add(lbFechaLlegada);
@@ -223,7 +205,6 @@
             Controls.Add(label7);
             Controls.Add(lbNitProveedor);
             Controls.Add(label4);
-            Controls.Add(btConsultar);
             Controls.Add(tbNit);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -236,8 +217,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Label totalVenta;
         private DataGridView dataGridView1;
         private Label lbFechaLlegada;
@@ -245,7 +224,6 @@
         private Label label7;
         private Label lbNitProveedor;
         private Label label4;
-        private Button btConsultar;
         private TextBox tbNit;
         private Label label3;
         private Label label2;
