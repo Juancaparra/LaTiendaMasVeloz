@@ -35,5 +35,11 @@ namespace Logica
             BaseDatos db = new BaseDatos();
             return db.EliminarFacturaProveedor(idFactura);
         }
+
+        public bool ActualizarFacturaProveedor(FacturaProveedorEntity factura)
+        {
+            BaseDatos db = new BaseDatos();
+            return db.ActualizarFacturaProveedor(factura);
+        }
     }
 }

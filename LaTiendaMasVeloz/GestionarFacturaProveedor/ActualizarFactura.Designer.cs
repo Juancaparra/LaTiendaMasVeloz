@@ -45,7 +45,7 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            btRegistrar = new Button();
+            btActualizar = new Button();
             tbPrecio = new TextBox();
             tbReferencia = new TextBox();
             tbNit = new TextBox();
@@ -53,6 +53,8 @@
             label2 = new Label();
             label1 = new Label();
             btAgregar = new Button();
+            lbIdFactura = new Label();
+            tbIdFactura = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -179,7 +181,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(38, 182);
+            label5.Location = new Point(42, 209);
             label5.Name = "label5";
             label5.Size = new Size(208, 20);
             label5.TabIndex = 78;
@@ -188,20 +190,21 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(75, 122);
+            label4.Location = new Point(79, 165);
             label4.Name = "label4";
             label4.Size = new Size(167, 20);
             label4.TabIndex = 77;
             label4.Text = "Ingrese el nit proveedor";
             // 
-            // btRegistrar
+            // btActualizar
             // 
-            btRegistrar.Location = new Point(399, 532);
-            btRegistrar.Name = "btRegistrar";
-            btRegistrar.Size = new Size(94, 29);
-            btRegistrar.TabIndex = 76;
-            btRegistrar.Text = "Registrar";
-            btRegistrar.UseVisualStyleBackColor = true;
+            btActualizar.Location = new Point(399, 532);
+            btActualizar.Name = "btActualizar";
+            btActualizar.Size = new Size(94, 29);
+            btActualizar.TabIndex = 76;
+            btActualizar.Text = "Actualizar";
+            btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
             // tbPrecio
             // 
@@ -212,14 +215,14 @@
             // 
             // tbReferencia
             // 
-            tbReferencia.Location = new Point(252, 179);
+            tbReferencia.Location = new Point(256, 206);
             tbReferencia.Name = "tbReferencia";
             tbReferencia.Size = new Size(133, 27);
             tbReferencia.TabIndex = 74;
             // 
             // tbNit
             // 
-            tbNit.Location = new Point(252, 119);
+            tbNit.Location = new Point(256, 162);
             tbNit.Name = "tbNit";
             tbNit.Size = new Size(133, 27);
             tbNit.TabIndex = 73;
@@ -261,12 +264,31 @@
             btAgregar.TabIndex = 90;
             btAgregar.Text = "Agregar";
             btAgregar.UseVisualStyleBackColor = true;
+            btAgregar.Click += btAgregar_Click;
+            // 
+            // lbIdFactura
+            // 
+            lbIdFactura.AutoSize = true;
+            lbIdFactura.Location = new Point(79, 126);
+            lbIdFactura.Name = "lbIdFactura";
+            lbIdFactura.Size = new Size(140, 20);
+            lbIdFactura.TabIndex = 92;
+            lbIdFactura.Text = "Ingrese el id factura";
+            // 
+            // tbIdFactura
+            // 
+            tbIdFactura.Location = new Point(256, 123);
+            tbIdFactura.Name = "tbIdFactura";
+            tbIdFactura.Size = new Size(133, 27);
+            tbIdFactura.TabIndex = 91;
             // 
             // ActualizarFactura
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(835, 615);
+            Controls.Add(lbIdFactura);
+            Controls.Add(tbIdFactura);
             Controls.Add(btAgregar);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
@@ -281,7 +303,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(btRegistrar);
+            Controls.Add(btActualizar);
             Controls.Add(tbPrecio);
             Controls.Add(tbReferencia);
             Controls.Add(tbNit);
@@ -314,7 +336,7 @@
         private Label label6;
         private Label label5;
         private Label label4;
-        private Button btRegistrar;
+        private Button btActualizar;
         private TextBox tbPrecio;
         private TextBox tbReferencia;
         private TextBox tbNit;
@@ -322,5 +344,7 @@
         private Label label2;
         private Label label1;
         private Button btAgregar;
+        private Label lbIdFactura;
+        private TextBox tbIdFactura;
     }
 }

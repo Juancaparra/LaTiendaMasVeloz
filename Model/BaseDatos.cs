@@ -87,6 +87,25 @@ namespace Modelo
             return filasAfectadas > 0;
         }
 
+        public bool ActualizarFacturaProveedor(FacturaProveedorEntity factura)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = @"
+        UPDATE Factura_proveedor 
+        SET nit = @nit, fecha_llegada = @fecha_llegada, nombre = @nombre, precio = @precio, cantidad = @cantidad
+        WHERE id_factura_proveedor = @idFactura AND referencia = @referencia";
+            cmd.Parameters.AddWithValue("@idFactura", factura.IdFactura);
+            cmd.Parameters.AddWithValue("@nit", factura.Nit);
+            cmd.Parameters.AddWithValue("@fecha_llegada", factura.FechaLlegada);
+            cmd.Parameters.AddWithValue("@referencia", factura.Referencia);
+            cmd.Parameters.AddWithValue("@nombre", factura.Nombre);
+            cmd.Parameters.AddWithValue("@precio", factura.Precio);
+            cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
+
+            int filasAfectadas = cmd.ExecuteNonQuery();
+            return filasAfectadas > 0;
+        }
+
         public int GuardarProducto(ProductoEntity producto)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();
