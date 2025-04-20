@@ -27,16 +27,10 @@ namespace Logica
             return resultado;
         }
 
-        public string ConsultarProducto(string referencia, out ProductoEntity producto)
+        public ProductoEntity ConsultarProducto(string referencia)
         {
             BaseDatos db = new BaseDatos();
-            producto = db.MostrarProducto(referencia);
-
-            if (producto == null || producto.id_producto == 0)
-            {
-                return "Producto no encontrado";
-            }
-            return "Producto encontrado";
+            return db.ConsultarProducto(referencia);
         }
 
         public string ActualizarProducto(ProductoEntity producto, string nuevaReferencia)

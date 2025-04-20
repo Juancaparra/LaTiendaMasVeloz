@@ -22,33 +22,28 @@ namespace Modelo
             return filasAfectadas;
         }
 
-        public ProductoEntity MostrarProducto(string referencia)
+        public ProductoEntity ConsultarProducto(string referencia)
         {
             ProductoEntity producto = null;
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = @"
-        SELECT p.referencia, p.nombre, p.precio, p.marca, p.stock, pr.nombre AS proveedor_nombre
-        FROM PRODUCTO p
-        JOIN FACTURA_PROVEEDOR fp ON p.referencia = fp.referencia
-        JOIN PROVEEDOR pr ON fp.nit = pr.nit
-        WHERE p.referencia = @referencia
-        LIMIT 1";
+            cmd.CommandText = "SELECT id_producto, referencia, nombre, precio, marca, stock FROM Producto WHERE referencia = @referencia LIMIT 1";
             cmd.Parameters.AddWithValue("@referencia", referencia);
-
             MySqlDataReader reader = cmd.ExecuteReader();
+
             if (reader.Read())
             {
                 producto = new ProductoEntity
                 {
+                    id_producto = reader.GetInt32(reader.GetOrdinal("id_producto")),
                     referencia = reader.GetString(reader.GetOrdinal("referencia")),
                     nombre = reader.GetString(reader.GetOrdinal("nombre")),
                     precio = reader.GetDecimal(reader.GetOrdinal("precio")),
                     marca = reader.GetString(reader.GetOrdinal("marca")),
-                    stock = reader.GetInt32(reader.GetOrdinal("stock")),
-                    ProveedorNombre = reader.GetString(reader.GetOrdinal("proveedor_nombre"))
+                    stock = reader.GetInt32(reader.GetOrdinal("stock"))
                 };
             }
 
+            reader.Close();
             return producto;
         }
 

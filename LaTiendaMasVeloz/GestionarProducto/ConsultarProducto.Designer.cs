@@ -38,7 +38,6 @@
             btConsultar = new Button();
             tbReferencia = new TextBox();
             lbMarcaConsultar = new Label();
-            lbNombreProveedor = new Label();
             lbStock = new Label();
             SuspendLayout();
             // 
@@ -132,15 +131,6 @@
             lbMarcaConsultar.TabIndex = 44;
             lbMarcaConsultar.Text = "Marca:  ";
             // 
-            // lbNombreProveedor
-            // 
-            lbNombreProveedor.AutoSize = true;
-            lbNombreProveedor.Location = new Point(482, 289);
-            lbNombreProveedor.Name = "lbNombreProveedor";
-            lbNombreProveedor.Size = new Size(147, 20);
-            lbNombreProveedor.TabIndex = 46;
-            lbNombreProveedor.Text = "Nombre Proveedor:  ";
-            // 
             // lbStock
             // 
             lbStock.AutoSize = true;
@@ -157,7 +147,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lbStock);
-            Controls.Add(lbNombreProveedor);
             Controls.Add(lbMarcaConsultar);
             Controls.Add(lbResultadoConsultar);
             Controls.Add(lbPrecioConsultar);
@@ -186,7 +175,6 @@
         private Button btConsultar;
         private TextBox tbReferencia;
         private Label lbMarcaConsultar;
-        private Label lbNombreProveedor;
         private Label lbStock;
     }
 }

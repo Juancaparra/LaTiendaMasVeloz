@@ -22,21 +22,27 @@ namespace Principal
 
         private void btConsultar_Click(object sender, EventArgs e)
         {
-            ProductoController pc = new ProductoController();
-            ProductoEntity producto;
-            string resultado = pc.ConsultarProducto(tbReferencia.Text, out producto);
+            string referencia = tbReferencia.Text.Trim();
 
-            if (producto != null && producto.id_producto != 0)
+            if (string.IsNullOrEmpty(referencia))
             {
-                lbNombreConsultar.Text = "Nombre: " + producto.nombre;
-                lbPrecioConsultar.Text = "Precio: " + producto.precio.ToString();
-                lbMarcaConsultar.Text = "Marca: " + producto.marca;
-                lbStock.Text = "Stock: " + producto.stock.ToString();
-                lbNombreProveedor.Text = "Proveedor: " + producto.ProveedorNombre; // Nueva línea
+                MessageBox.Show("Por favor, ingrese una referencia válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ProductoController controller = new ProductoController();
+            ProductoEntity producto = controller.ConsultarProducto(referencia);
+
+            if (producto != null)
+            {
+                lbNombreConsultar.Text += producto.nombre;
+                lbPrecioConsultar.Text += producto.precio.ToString("F2");
+                lbMarcaConsultar.Text += producto.marca;
+                lbStock.Text += producto.stock.ToString();
             }
             else
             {
-                lbResultadoConsultar.Text = resultado;
+                MessageBox.Show("Producto no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
