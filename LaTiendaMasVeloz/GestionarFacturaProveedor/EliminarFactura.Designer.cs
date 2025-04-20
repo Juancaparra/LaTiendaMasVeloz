@@ -62,6 +62,7 @@
             btEliminar.TabIndex = 62;
             btEliminar.Text = "Eliminar";
             btEliminar.UseVisualStyleBackColor = true;
+            btEliminar.Click += btEliminar_Click;
             // 
             // tbNumeroFactura
             // 

@@ -78,6 +78,14 @@ namespace Modelo
             return factura;
         }
 
+        public bool EliminarFacturaProveedor(int idFactura)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "DELETE FROM Factura_proveedor WHERE id_factura_proveedor = @idFactura";
+            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            int filasAfectadas = cmd.ExecuteNonQuery();
+            return filasAfectadas > 0;
+        }
 
         public int GuardarProducto(ProductoEntity producto)
         {

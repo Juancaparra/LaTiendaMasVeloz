@@ -29,5 +29,11 @@ namespace Logica
             BaseDatos db = new BaseDatos();
             return db.ConsultarFacturaProveedor(idFactura);
         }
+
+        public static bool EliminarFacturaProveedor(int idFactura)
+        {
+            BaseDatos db = new BaseDatos();
+            return db.EliminarFacturaProveedor(idFactura);
+        }
     }
 }
