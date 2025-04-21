@@ -28,35 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             totalVenta = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            fecha = new DateTimePicker();
+            tbReferencia = new TextBox();
+            fechaVenta = new DateTimePicker();
             lbResultadoRegistrar = new Label();
             label5 = new Label();
             label4 = new Label();
             btActualizar = new Button();
-            tbNombre = new TextBox();
-            tbCedulaEmpleado = new TextBox();
+            tbCliente = new TextBox();
+            tbIdVenta = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             btBuscar = new Button();
             dataGridView1 = new DataGridView();
+            Column5 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
+            label8 = new Label();
+            tbEmpleado = new TextBox();
+            label7 = new Label();
+            tbCantidad = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(558, 425);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(174, 43);
-            panel1.TabIndex = 72;
             // 
             // totalVenta
             // 
@@ -76,20 +73,20 @@
             label6.TabIndex = 63;
             label6.Text = "Ingrese la referencia del producto";
             // 
-            // textBox1
+            // tbReferencia
             // 
-            textBox1.Location = new Point(239, 203);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 27);
-            textBox1.TabIndex = 62;
+            tbReferencia.Location = new Point(239, 203);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 62;
             // 
-            // fecha
+            // fechaVenta
             // 
-            fecha.Location = new Point(503, 42);
-            fecha.Name = "fecha";
-            fecha.Size = new Size(283, 27);
-            fecha.TabIndex = 61;
-            fecha.Value = new DateTime(2025, 4, 1, 0, 0, 0, 0);
+            fechaVenta.Location = new Point(503, 42);
+            fechaVenta.Name = "fechaVenta";
+            fechaVenta.Size = new Size(283, 27);
+            fechaVenta.TabIndex = 61;
+            fechaVenta.Value = new DateTime(2025, 4, 1, 0, 0, 0, 0);
             // 
             // lbResultadoRegistrar
             // 
@@ -125,20 +122,21 @@
             btActualizar.TabIndex = 57;
             btActualizar.Text = "Actualizar";
             btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
-            // tbNombre
+            // tbCliente
             // 
-            tbNombre.Location = new Point(239, 156);
-            tbNombre.Name = "tbNombre";
-            tbNombre.Size = new Size(133, 27);
-            tbNombre.TabIndex = 56;
+            tbCliente.Location = new Point(239, 156);
+            tbCliente.Name = "tbCliente";
+            tbCliente.Size = new Size(133, 27);
+            tbCliente.TabIndex = 56;
             // 
-            // tbCedulaEmpleado
+            // tbIdVenta
             // 
-            tbCedulaEmpleado.Location = new Point(239, 110);
-            tbCedulaEmpleado.Name = "tbCedulaEmpleado";
-            tbCedulaEmpleado.Size = new Size(133, 27);
-            tbCedulaEmpleado.TabIndex = 55;
+            tbIdVenta.Location = new Point(239, 110);
+            tbIdVenta.Name = "tbIdVenta";
+            tbIdVenta.Size = new Size(133, 27);
+            tbIdVenta.TabIndex = 55;
             // 
             // label3
             // 
@@ -177,23 +175,31 @@
             btBuscar.TabIndex = 64;
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
+            btBuscar.Click += btBuscar_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column5, Column1, Column2, Column3, Column4 });
             dataGridView1.Location = new Point(15, 282);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(750, 119);
+            dataGridView1.Size = new Size(771, 119);
             dataGridView1.TabIndex = 73;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Referencia";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 110;
             // 
             // Column1
             // 
             Column1.HeaderText = "Nombre";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 200;
+            Column1.Width = 170;
             // 
             // Column2
             // 
@@ -207,7 +213,7 @@
             Column3.HeaderText = "Cantidad";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
+            Column3.Width = 110;
             // 
             // Column4
             // 
@@ -216,24 +222,59 @@
             Column4.Name = "Column4";
             Column4.Width = 190;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(416, 159);
+            label8.Name = "label8";
+            label8.Size = new Size(193, 20);
+            label8.TabIndex = 75;
+            label8.Text = "Ingrese la cedula empleado";
+            // 
+            // tbEmpleado
+            // 
+            tbEmpleado.Location = new Point(619, 156);
+            tbEmpleado.Name = "tbEmpleado";
+            tbEmpleado.Size = new Size(133, 27);
+            tbEmpleado.TabIndex = 74;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(474, 111);
+            label7.Name = "label7";
+            label7.Size = new Size(135, 20);
+            label7.TabIndex = 77;
+            label7.Text = "Ingrese la cantidad";
+            // 
+            // tbCantidad
+            // 
+            tbCantidad.Location = new Point(615, 108);
+            tbCantidad.Name = "tbCantidad";
+            tbCantidad.Size = new Size(133, 27);
+            tbCantidad.TabIndex = 76;
+            // 
             // ActualizarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 532);
+            Controls.Add(label7);
+            Controls.Add(tbCantidad);
+            Controls.Add(label8);
+            Controls.Add(tbEmpleado);
             Controls.Add(dataGridView1);
-            Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(btBuscar);
             Controls.Add(label6);
-            Controls.Add(textBox1);
-            Controls.Add(fecha);
+            Controls.Add(tbReferencia);
+            Controls.Add(fechaVenta);
             Controls.Add(lbResultadoRegistrar);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(btActualizar);
-            Controls.Add(tbNombre);
-            Controls.Add(tbCedulaEmpleado);
+            Controls.Add(tbCliente);
+            Controls.Add(tbIdVenta);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -245,24 +286,26 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Label totalVenta;
         private Label label7;
         private Label label6;
-        private TextBox textBox1;
-        private DateTimePicker fecha;
+        private TextBox tbReferencia;
+        private DateTimePicker fechaVenta;
         private Label lbResultadoRegistrar;
         private Label label5;
         private Label label4;
         private Button btActualizar;
-        private TextBox tbNombre;
-        private TextBox tbCedulaEmpleado;
+        private TextBox tbCliente;
+        private TextBox tbIdVenta;
         private Label label3;
         private Label label2;
         private Label label1;
         private Button btBuscar;
         private DataGridView dataGridView1;
+        private Label label8;
+        private TextBox tbEmpleado;
+        private TextBox tbCantidad;
+        private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;

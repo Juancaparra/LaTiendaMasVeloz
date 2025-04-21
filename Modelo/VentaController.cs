@@ -35,7 +35,36 @@ namespace Logica
         public VentaEntity ConsultarVentaPorId(int idVenta)
         {
             BaseDatos db = new BaseDatos();
-            return db.ConsultarVentaPorId(idVenta); // Asegúrate de que este método exista en la clase BaseDatos
+            return db.ConsultarVentaPorId(idVenta); 
+        }
+
+        public bool ActualizarVenta(int idVenta, string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
+        {
+            BaseDatos db = new BaseDatos();
+
+            // Validar que las cédulas del cliente y empleado existan
+            if (!db.ValidarCliente(cedulaCliente))
+            {
+                throw new Exception("La cédula del cliente no existe.");
+            }
+
+            if (!db.ValidarEmpleado(cedulaEmpleado))
+            {
+                throw new Exception("La cédula del empleado no existe.");
+            }
+
+            // Actualizar la venta
+            return db.ActualizarVenta(idVenta, cedulaEmpleado, cedulaCliente, fecha, detalles);
+        }
+
+        public ProductoEntity ObtenerProducto(string referencia)
+        {
+            BaseDatos db = new BaseDatos();
+            if (db.ValidarProducto(referencia))
+            {
+                return db.ConsultarProductoPorReferencia(referencia);
+            }
+            return null;
         }
     }
 }

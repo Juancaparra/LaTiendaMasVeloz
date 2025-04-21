@@ -89,6 +89,55 @@ namespace Modelo
             return venta;
         }
 
+        public bool ActualizarVenta(int idVenta, string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
+        {
+            MySqlTransaction transaction = GetConnection().BeginTransaction();
+            try
+            {
+                // Actualizar la tabla Factura
+                MySqlCommand cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "UPDATE Factura SET cedula_em = @cedulaEmpleado, cedula_cliente = @cedulaCliente, fecha = @fecha WHERE id_factura = @idVenta";
+                cmd.Parameters.AddWithValue("@cedulaEmpleado", cedulaEmpleado);
+                cmd.Parameters.AddWithValue("@cedulaCliente", cedulaCliente);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                cmd.ExecuteNonQuery();
+
+                // Eliminar los detalles existentes de la venta
+                cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "DELETE FROM Detalle_factura WHERE id_factura = @idVenta";
+                cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                cmd.ExecuteNonQuery();
+
+                // Insertar los nuevos detalles de la venta
+                foreach (var detalle in detalles)
+                {
+                    cmd = GetConnection().CreateCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "INSERT INTO Detalle_factura (id_factura, referencia, precio_unitario, cantidad, precio_total) " +
+                                      "VALUES (@idVenta, @referencia, @precioUnitario, @cantidad, @precioTotal)";
+                    cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                    cmd.Parameters.AddWithValue("@referencia", detalle.Referencia);
+                    cmd.Parameters.AddWithValue("@precioUnitario", detalle.PrecioUnitario);
+                    cmd.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
+                    cmd.Parameters.AddWithValue("@precioTotal", detalle.PrecioTotal);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Confirmar la transacción
+                transaction.Commit();
+                return true;
+            }
+            catch
+            {
+                // Revertir la transacción en caso de error
+                transaction.Rollback();
+                throw;
+            }
+        }
+
         public int RegistrarVenta(string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
         {
             MySqlTransaction transaction = GetConnection().BeginTransaction();
