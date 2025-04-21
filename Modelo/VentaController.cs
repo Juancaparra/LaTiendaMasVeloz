@@ -1,0 +1,35 @@
+﻿using Modelo.Entities;
+using Modelo;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Logica
+{
+    public class VentaController
+    {
+        private BaseDatos db = new BaseDatos();
+
+        public bool ValidarEmpleado(string cedula)
+        {
+            return db.ValidarEmpleado(cedula);
+        }
+
+        public bool ValidarCliente(string cedula)
+        {
+            return db.ValidarCliente(cedula);
+        }
+
+        public ProductoEntity ConsultarProductoPorReferencia(string referencia)
+        {
+            return db.ConsultarProductoPorReferencia(referencia);
+        }
+
+        public int RegistrarVenta(string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
+        {
+            return db.RegistrarVenta(cedulaEmpleado, cedulaCliente, fecha, detalles);
+        }
+    }
+}

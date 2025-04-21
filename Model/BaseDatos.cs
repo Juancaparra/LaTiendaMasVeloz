@@ -6,6 +6,87 @@ namespace Modelo
     public class BaseDatos : ConexionMySql
     {
 
+        public bool ValidarEmpleado(string cedula)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Empleado WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+
+        public bool ValidarCliente(string cedula)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Cliente WHERE cedula = @cedula";
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+
+        public ProductoEntity ConsultarProductoPorReferencia(string referencia)
+        {
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = "SELECT * FROM Producto WHERE referencia = @referencia LIMIT 1";
+            cmd.Parameters.AddWithValue("@referencia", referencia);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            ProductoEntity producto = null;
+            if (reader.Read())
+            {
+                producto = new ProductoEntity
+                {
+                    referencia = reader.GetString(reader.GetOrdinal("referencia")),
+                    nombre = reader.GetString(reader.GetOrdinal("nombre")),
+                    precio = reader.GetDecimal(reader.GetOrdinal("precio"))
+                };
+            }
+
+            reader.Close();
+            return producto;
+        }
+
+        public int RegistrarVenta(string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
+        {
+            MySqlTransaction transaction = GetConnection().BeginTransaction();
+            try
+            {
+                // Insertar la venta
+                MySqlCommand cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "INSERT INTO Factura (cedula_em, cedula_cliente, fecha) VALUES (@cedulaEmpleado, @cedulaCliente, @fecha)";
+                cmd.Parameters.AddWithValue("@cedulaEmpleado", cedulaEmpleado);
+                cmd.Parameters.AddWithValue("@cedulaCliente", cedulaCliente);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.ExecuteNonQuery();
+
+                int idFactura = (int)cmd.LastInsertedId;
+
+                // Insertar los detalles de la venta
+                foreach (var detalle in detalles)
+                {
+                    cmd = GetConnection().CreateCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "INSERT INTO Detalle_factura (id_factura, referencia, precio_unitario, cantidad, precio_total) " +
+                                      "VALUES (@idFactura, @referencia, @precioUnitario, @cantidad, @precioTotal)";
+                    cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                    cmd.Parameters.AddWithValue("@referencia", detalle.Referencia);
+                    cmd.Parameters.AddWithValue("@precioUnitario", detalle.PrecioUnitario);
+                    cmd.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
+                    cmd.Parameters.AddWithValue("@precioTotal", detalle.PrecioTotal);
+                    cmd.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
+                return idFactura;
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+
         public bool ValidarProveedor(string nit)
         {
             MySqlCommand cmd = GetConnection().CreateCommand();

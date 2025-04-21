@@ -32,13 +32,11 @@
             label5 = new Label();
             label4 = new Label();
             btRegistrar = new Button();
-            tbNombre = new TextBox();
+            tbCliente = new TextBox();
             tbCedulaEmpleado = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            label6 = new Label();
-            textBox1 = new TextBox();
             btBuscar = new Button();
             totalVenta = new Label();
             panel1 = new Panel();
@@ -48,6 +46,10 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             dateTimePicker1 = new DateTimePicker();
+            tbReferencia = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
+            tbCantidad = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -85,13 +87,14 @@
             btRegistrar.TabIndex = 34;
             btRegistrar.Text = "Registrar";
             btRegistrar.UseVisualStyleBackColor = true;
+            btRegistrar.Click += btRegistrar_Click;
             // 
-            // tbNombre
+            // tbCliente
             // 
-            tbNombre.Location = new Point(232, 150);
-            tbNombre.Name = "tbNombre";
-            tbNombre.Size = new Size(133, 27);
-            tbNombre.TabIndex = 32;
+            tbCliente.Location = new Point(232, 150);
+            tbCliente.Name = "tbCliente";
+            tbCliente.Size = new Size(133, 27);
+            tbCliente.TabIndex = 32;
             // 
             // tbCedulaEmpleado
             // 
@@ -129,22 +132,6 @@
             label1.TabIndex = 28;
             label1.Text = "La Tienda Mas Veloz";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(0, 200);
-            label6.Name = "label6";
-            label6.Size = new Size(233, 20);
-            label6.TabIndex = 41;
-            label6.Text = "Ingrese la referencia del producto";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(232, 197);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(133, 27);
-            textBox1.TabIndex = 40;
-            // 
             // btBuscar
             // 
             btBuscar.Location = new Point(403, 197);
@@ -153,6 +140,7 @@
             btBuscar.TabIndex = 42;
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
+            btBuscar.Click += btBuscar_Click;
             // 
             // totalVenta
             // 
@@ -215,30 +203,63 @@
             dateTimePicker1.Size = new Size(272, 27);
             dateTimePicker1.TabIndex = 53;
             // 
+            // tbReferencia
+            // 
+            tbReferencia.Location = new Point(232, 197);
+            tbReferencia.Name = "tbReferencia";
+            tbReferencia.Size = new Size(133, 27);
+            tbReferencia.TabIndex = 40;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(0, 200);
+            label6.Name = "label6";
+            label6.Size = new Size(233, 20);
+            label6.TabIndex = 41;
+            label6.Text = "Ingrese la referencia del producto";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(405, 153);
+            label7.Name = "label7";
+            label7.Size = new Size(135, 20);
+            label7.TabIndex = 55;
+            label7.Text = "Ingrese la cantidad";
+            // 
+            // tbCantidad
+            // 
+            tbCantidad.Location = new Point(546, 150);
+            tbCantidad.Name = "tbCantidad";
+            tbCantidad.Size = new Size(133, 27);
+            tbCantidad.TabIndex = 54;
+            // 
             // RegistrarVenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 542);
+            Controls.Add(label7);
+            Controls.Add(tbCantidad);
             Controls.Add(dateTimePicker1);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(totalVenta);
             Controls.Add(btBuscar);
             Controls.Add(label6);
-            Controls.Add(textBox1);
+            Controls.Add(tbReferencia);
             Controls.Add(lbResultadoRegistrar);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(btRegistrar);
-            Controls.Add(tbNombre);
+            Controls.Add(tbCliente);
             Controls.Add(tbCedulaEmpleado);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "RegistrarVenta";
             Text = "RegistrarVenta";
-            Load += RegistrarVenta_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -247,17 +268,15 @@
         #endregion
 
         private Label lbResultadoRegistrar;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Button btRegistrar;
         private TextBox tbTelefono;
-        private TextBox tbNombre;
+        private TextBox tbCliente;
         private TextBox tbCedulaEmpleado;
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
         private Button btBuscar;
         private Label totalVenta;
         private Panel panel1;
@@ -267,5 +286,9 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DateTimePicker dateTimePicker1;
+        private TextBox tbReferencia;
+        private Label label6;
+        private Label label7;
+        private TextBox tbCantidad;
     }
 }
