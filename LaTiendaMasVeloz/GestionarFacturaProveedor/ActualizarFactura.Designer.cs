@@ -118,7 +118,7 @@
             fechaLlegada.Name = "fechaLlegada";
             fechaLlegada.Size = new Size(190, 27);
             fechaLlegada.TabIndex = 86;
-            fechaLlegada.Value = new DateTime(2025, 4, 2, 0, 0, 0, 0);
+            fechaLlegada.Value = new DateTime(2025, 4, 21, 0, 0, 0, 0);
             // 
             // label11
             // 
