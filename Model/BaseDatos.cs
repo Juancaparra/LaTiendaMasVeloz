@@ -46,6 +46,49 @@ namespace Modelo
             return producto;
         }
 
+        public VentaEntity ConsultarVentaPorId(int idVenta)
+        {
+            VentaEntity venta = null;
+            MySqlCommand cmd = GetConnection().CreateCommand();
+            cmd.CommandText = @"
+        SELECT v.cedula_em, v.cedula_cliente, v.fecha, 
+               p.nombre, df.precio_unitario, df.cantidad, df.precio_total
+        FROM Factura v
+        INNER JOIN Detalle_factura df ON v.id_factura = df.id_factura
+        INNER JOIN Producto p ON df.referencia = p.referencia
+        WHERE v.id_factura = @idVenta";
+            cmd.Parameters.AddWithValue("@idVenta", idVenta);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<DetalleVentaEntity> detalles = new List<DetalleVentaEntity>();
+
+            while (reader.Read())
+            {
+                if (venta == null)
+                {
+                    venta = new VentaEntity
+                    {
+                        IdVenta = idVenta,
+                        CedulaEmpleado = reader.GetString(reader.GetOrdinal("cedula_em")),
+                        CedulaCliente = reader.GetString(reader.GetOrdinal("cedula_cliente")),
+                        Fecha = reader.GetDateTime(reader.GetOrdinal("fecha")),
+                        Detalles = detalles
+                    };
+                }
+
+                detalles.Add(new DetalleVentaEntity
+                {
+                    Referencia = reader.GetString(reader.GetOrdinal("nombre")),
+                    PrecioUnitario = reader.GetDecimal(reader.GetOrdinal("precio_unitario")),
+                    Cantidad = reader.GetInt32(reader.GetOrdinal("cantidad")),
+                    PrecioTotal = reader.GetDecimal(reader.GetOrdinal("precio_total"))
+                });
+            }
+
+            reader.Close();
+            return venta;
+        }
+
         public int RegistrarVenta(string cedulaEmpleado, string cedulaCliente, DateTime fecha, List<DetalleVentaEntity> detalles)
         {
             MySqlTransaction transaction = GetConnection().BeginTransaction();

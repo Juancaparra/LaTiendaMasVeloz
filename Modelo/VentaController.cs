@@ -31,5 +31,11 @@ namespace Logica
         {
             return db.RegistrarVenta(cedulaEmpleado, cedulaCliente, fecha, detalles);
         }
+
+        public VentaEntity ConsultarVentaPorId(int idVenta)
+        {
+            BaseDatos db = new BaseDatos();
+            return db.ConsultarVentaPorId(idVenta); // Asegúrate de que este método exista en la clase BaseDatos
+        }
     }
 }

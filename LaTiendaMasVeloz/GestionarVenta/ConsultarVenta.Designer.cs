@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             totalVenta = new Label();
             label7 = new Label();
             btBuscar = new Button();
@@ -39,7 +38,7 @@
             label2 = new Label();
             label1 = new Label();
             label8 = new Label();
-            textBox2 = new TextBox();
+            tbIdFactura = new TextBox();
             lbResultado = new Label();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -48,13 +47,6 @@
             Column4 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(494, 405);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(174, 43);
-            panel1.TabIndex = 72;
             // 
             // totalVenta
             // 
@@ -83,6 +75,7 @@
             btBuscar.TabIndex = 64;
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = true;
+            btBuscar.Click += btBuscar_Click;
             // 
             // fecha
             // 
@@ -148,12 +141,12 @@
             label8.TabIndex = 74;
             label8.Text = "Ingrese el N° de factura";
             // 
-            // textBox2
+            // tbIdFactura
             // 
-            textBox2.Location = new Point(244, 112);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(133, 27);
-            textBox2.TabIndex = 73;
+            tbIdFactura.Location = new Point(244, 112);
+            tbIdFactura.Name = "tbIdFactura";
+            tbIdFactura.Size = new Size(133, 27);
+            tbIdFactura.TabIndex = 73;
             // 
             // lbResultado
             // 
@@ -209,8 +202,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(lbResultado);
             Controls.Add(label8);
-            Controls.Add(textBox2);
-            Controls.Add(panel1);
+            Controls.Add(tbIdFactura);
             Controls.Add(totalVenta);
             Controls.Add(label7);
             Controls.Add(btBuscar);
@@ -228,8 +220,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Label totalVenta;
         private Label label7;
         private Button btBuscar;
@@ -240,7 +230,7 @@
         private Label label2;
         private Label label1;
         private Label label8;
-        private TextBox textBox2;
+        private TextBox tbIdFactura;
         private Label lbResultado;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
