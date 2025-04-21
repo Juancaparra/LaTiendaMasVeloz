@@ -39,6 +39,14 @@ namespace Principal.GestionarVenta
                 return;
             }
 
+            // Validar si hay suficiente stock
+            if (producto.stock < cantidad)
+            {
+                MessageBox.Show($"No hay suficiente stock para el producto con referencia '{producto.referencia}'. Stock disponible: {producto.stock}, cantidad solicitada: {cantidad}.",
+                                "Error de stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var detalle = new DetalleVentaEntity
             {
                 Referencia = producto.referencia,
@@ -49,7 +57,6 @@ namespace Principal.GestionarVenta
 
             detalles.Add(detalle);
             ActualizarTabla();
-
         }
 
         private void ActualizarTabla()

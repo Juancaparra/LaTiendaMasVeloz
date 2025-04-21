@@ -26,19 +26,22 @@ namespace Modelo
 
         public ProductoEntity ConsultarProductoPorReferencia(string referencia)
         {
+            ProductoEntity producto = null;
             MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "SELECT * FROM Producto WHERE referencia = @referencia LIMIT 1";
+            cmd.CommandText = "SELECT id_producto, referencia, nombre, precio, marca, stock FROM Producto WHERE referencia = @referencia LIMIT 1";
             cmd.Parameters.AddWithValue("@referencia", referencia);
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            ProductoEntity producto = null;
             if (reader.Read())
             {
                 producto = new ProductoEntity
                 {
+                    id_producto = reader.GetInt32(reader.GetOrdinal("id_producto")),
                     referencia = reader.GetString(reader.GetOrdinal("referencia")),
                     nombre = reader.GetString(reader.GetOrdinal("nombre")),
-                    precio = reader.GetDecimal(reader.GetOrdinal("precio"))
+                    precio = reader.GetDecimal(reader.GetOrdinal("precio")),
+                    marca = reader.GetString(reader.GetOrdinal("marca")),
+                    stock = reader.GetInt32(reader.GetOrdinal("stock")) // Asegúrate de que este campo se está leyendo correctamente
                 };
             }
 
@@ -154,9 +157,22 @@ namespace Modelo
 
                 int idFactura = (int)cmd.LastInsertedId;
 
-                // Insertar los detalles de la venta
+                // Insertar los detalles de la venta y actualizar el stock
                 foreach (var detalle in detalles)
                 {
+                    // Validar el stock disponible
+                    cmd = GetConnection().CreateCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "SELECT stock FROM Producto WHERE referencia = @referencia";
+                    cmd.Parameters.AddWithValue("@referencia", detalle.Referencia);
+                    int stockDisponible = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (stockDisponible < detalle.Cantidad)
+                    {
+                        throw new InvalidOperationException($"No hay suficiente stock para el producto con referencia '{detalle.Referencia}'. Stock disponible: {stockDisponible}, cantidad solicitada: {detalle.Cantidad}.");
+                    }
+
+                    // Insertar el detalle de la venta
                     cmd = GetConnection().CreateCommand();
                     cmd.Transaction = transaction;
                     cmd.CommandText = "INSERT INTO Detalle_factura (id_factura, referencia, precio_unitario, cantidad, precio_total) " +
@@ -166,6 +182,14 @@ namespace Modelo
                     cmd.Parameters.AddWithValue("@precioUnitario", detalle.PrecioUnitario);
                     cmd.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
                     cmd.Parameters.AddWithValue("@precioTotal", detalle.PrecioTotal);
+                    cmd.ExecuteNonQuery();
+
+                    // Actualizar el stock del producto
+                    cmd = GetConnection().CreateCommand();
+                    cmd.Transaction = transaction;
+                    cmd.CommandText = "UPDATE Producto SET stock = stock - @cantidad WHERE referencia = @referencia";
+                    cmd.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
+                    cmd.Parameters.AddWithValue("@referencia", detalle.Referencia);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -199,16 +223,38 @@ namespace Modelo
 
         public int RegistrarFacturaProveedor(FacturaProveedorEntity factura)
         {
-            MySqlCommand cmd = GetConnection().CreateCommand();
-            cmd.CommandText = "INSERT INTO Factura_proveedor (nit, referencia, fecha_llegada, nombre, precio, cantidad) " +
-                              "VALUES (@nit, @referencia, @fecha_llegada, @nombre, @precio, @cantidad)";
-            cmd.Parameters.AddWithValue("@nit", factura.Nit);
-            cmd.Parameters.AddWithValue("@referencia", factura.Referencia);
-            cmd.Parameters.AddWithValue("@fecha_llegada", factura.FechaLlegada);
-            cmd.Parameters.AddWithValue("@nombre", factura.Nombre);
-            cmd.Parameters.AddWithValue("@precio", factura.Precio);
-            cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
-            return cmd.ExecuteNonQuery();
+            MySqlTransaction transaction = GetConnection().BeginTransaction();
+            try
+            {
+                // Insertar la factura del proveedor
+                MySqlCommand cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "INSERT INTO Factura_proveedor (nit, referencia, fecha_llegada, nombre, precio, cantidad) " +
+                                  "VALUES (@nit, @referencia, @fecha_llegada, @nombre, @precio, @cantidad)";
+                cmd.Parameters.AddWithValue("@nit", factura.Nit);
+                cmd.Parameters.AddWithValue("@referencia", factura.Referencia);
+                cmd.Parameters.AddWithValue("@fecha_llegada", factura.FechaLlegada);
+                cmd.Parameters.AddWithValue("@nombre", factura.Nombre);
+                cmd.Parameters.AddWithValue("@precio", factura.Precio);
+                cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
+                cmd.ExecuteNonQuery();
+
+                // Actualizar el stock del producto
+                cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "UPDATE Producto SET stock = stock + @cantidad WHERE referencia = @referencia";
+                cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
+                cmd.Parameters.AddWithValue("@referencia", factura.Referencia);
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+                return 1;
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
+            }
         }
 
         public FacturaProveedorEntity ConsultarFacturaProveedor(int idFactura)
