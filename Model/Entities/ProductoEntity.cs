@@ -14,6 +14,6 @@ namespace Modelo.Entities
         public decimal precio { get; set; }
         public string marca { get; set; }
         public int stock { get; set; }
-        public string ProveedorNombre { get; set; } // Nueva propiedad
+        public string ProveedorNombre { get; set; } 
     }
 }

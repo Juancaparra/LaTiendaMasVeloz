@@ -42,7 +42,6 @@ namespace Logica
         {
             BaseDatos db = new BaseDatos();
 
-            // Validar que las cédulas del cliente y empleado existan
             if (!db.ValidarCliente(cedulaCliente))
             {
                 throw new Exception("La cédula del cliente no existe.");
@@ -53,7 +52,6 @@ namespace Logica
                 throw new Exception("La cédula del empleado no existe.");
             }
 
-            // Actualizar la venta
             return db.ActualizarVenta(idVenta, cedulaEmpleado, cedulaCliente, fecha, detalles);
         }
 
@@ -65,6 +63,11 @@ namespace Logica
                 return db.ConsultarProductoPorReferencia(referencia);
             }
             return null;
+        }
+
+        public bool EliminarVenta(int idFactura)
+        {
+            return db.EliminarVenta(idFactura);
         }
     }
 }

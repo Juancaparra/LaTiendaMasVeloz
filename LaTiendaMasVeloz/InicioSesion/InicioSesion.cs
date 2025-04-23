@@ -29,8 +29,6 @@ namespace Principal.InicioSesion
                     return;
                 }
 
-                // Solo para verificar qué rol llega
-                // MessageBox.Show($"Rol obtenido: '{rol}'");
 
                 if (rol == "gerente" || rol == "supervisor")
                 {

@@ -41,7 +41,7 @@ namespace Modelo
                     nombre = reader.GetString(reader.GetOrdinal("nombre")),
                     precio = reader.GetDecimal(reader.GetOrdinal("precio")),
                     marca = reader.GetString(reader.GetOrdinal("marca")),
-                    stock = reader.GetInt32(reader.GetOrdinal("stock")) // Asegúrate de que este campo se está leyendo correctamente
+                    stock = reader.GetInt32(reader.GetOrdinal("stock")) 
                 };
             }
 
@@ -97,7 +97,7 @@ namespace Modelo
             MySqlTransaction transaction = GetConnection().BeginTransaction();
             try
             {
-                // Actualizar la tabla Factura
+                
                 MySqlCommand cmd = GetConnection().CreateCommand();
                 cmd.Transaction = transaction;
                 cmd.CommandText = "UPDATE Factura SET cedula_em = @cedulaEmpleado, cedula_cliente = @cedulaCliente, fecha = @fecha WHERE id_factura = @idVenta";
@@ -107,14 +107,14 @@ namespace Modelo
                 cmd.Parameters.AddWithValue("@idVenta", idVenta);
                 cmd.ExecuteNonQuery();
 
-                // Eliminar los detalles existentes de la venta
+                
                 cmd = GetConnection().CreateCommand();
                 cmd.Transaction = transaction;
                 cmd.CommandText = "DELETE FROM Detalle_factura WHERE id_factura = @idVenta";
                 cmd.Parameters.AddWithValue("@idVenta", idVenta);
                 cmd.ExecuteNonQuery();
 
-                // Insertar los nuevos detalles de la venta
+                
                 foreach (var detalle in detalles)
                 {
                     cmd = GetConnection().CreateCommand();
@@ -129,13 +129,40 @@ namespace Modelo
                     cmd.ExecuteNonQuery();
                 }
 
-                // Confirmar la transacción
+                
                 transaction.Commit();
                 return true;
             }
             catch
             {
-                // Revertir la transacción en caso de error
+                
+                transaction.Rollback();
+                throw;
+            }
+        }
+
+        public bool EliminarVenta(int idFactura)
+        {
+            MySqlTransaction transaction = GetConnection().BeginTransaction();
+            try
+            {
+                MySqlCommand cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "DELETE FROM Detalle_factura WHERE id_factura = @idFactura";
+                cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                cmd.ExecuteNonQuery();
+
+                cmd = GetConnection().CreateCommand();
+                cmd.Transaction = transaction;
+                cmd.CommandText = "DELETE FROM Factura WHERE id_factura = @idFactura";
+                cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+                return true;
+            }
+            catch
+            {
                 transaction.Rollback();
                 throw;
             }
@@ -146,7 +173,7 @@ namespace Modelo
             MySqlTransaction transaction = GetConnection().BeginTransaction();
             try
             {
-                // Insertar la venta
+                
                 MySqlCommand cmd = GetConnection().CreateCommand();
                 cmd.Transaction = transaction;
                 cmd.CommandText = "INSERT INTO Factura (cedula_em, cedula_cliente, fecha) VALUES (@cedulaEmpleado, @cedulaCliente, @fecha)";
@@ -157,10 +184,9 @@ namespace Modelo
 
                 int idFactura = (int)cmd.LastInsertedId;
 
-                // Insertar los detalles de la venta y actualizar el stock
+                
                 foreach (var detalle in detalles)
                 {
-                    // Validar el stock disponible
                     cmd = GetConnection().CreateCommand();
                     cmd.Transaction = transaction;
                     cmd.CommandText = "SELECT stock FROM Producto WHERE referencia = @referencia";
@@ -172,7 +198,6 @@ namespace Modelo
                         throw new InvalidOperationException($"No hay suficiente stock para el producto con referencia '{detalle.Referencia}'. Stock disponible: {stockDisponible}, cantidad solicitada: {detalle.Cantidad}.");
                     }
 
-                    // Insertar el detalle de la venta
                     cmd = GetConnection().CreateCommand();
                     cmd.Transaction = transaction;
                     cmd.CommandText = "INSERT INTO Detalle_factura (id_factura, referencia, precio_unitario, cantidad, precio_total) " +
@@ -184,7 +209,6 @@ namespace Modelo
                     cmd.Parameters.AddWithValue("@precioTotal", detalle.PrecioTotal);
                     cmd.ExecuteNonQuery();
 
-                    // Actualizar el stock del producto
                     cmd = GetConnection().CreateCommand();
                     cmd.Transaction = transaction;
                     cmd.CommandText = "UPDATE Producto SET stock = stock - @cantidad WHERE referencia = @referencia";
@@ -226,7 +250,6 @@ namespace Modelo
             MySqlTransaction transaction = GetConnection().BeginTransaction();
             try
             {
-                // Insertar la factura del proveedor
                 MySqlCommand cmd = GetConnection().CreateCommand();
                 cmd.Transaction = transaction;
                 cmd.CommandText = "INSERT INTO Factura_proveedor (nit, referencia, fecha_llegada, nombre, precio, cantidad) " +
@@ -239,7 +262,6 @@ namespace Modelo
                 cmd.Parameters.AddWithValue("@cantidad", factura.Cantidad);
                 cmd.ExecuteNonQuery();
 
-                // Actualizar el stock del producto
                 cmd = GetConnection().CreateCommand();
                 cmd.Transaction = transaction;
                 cmd.CommandText = "UPDATE Producto SET stock = stock + @cantidad WHERE referencia = @referencia";
@@ -543,7 +565,7 @@ namespace Modelo
                 EmpleadoActual.nombre = reader.GetString(reader.GetOrdinal("nombre"));
                 EmpleadoActual.usuario = reader.GetString(reader.GetOrdinal("usuario"));
                 EmpleadoActual.contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
-                EmpleadoActual.rol = reader.GetString(reader.GetOrdinal("rol")); // Nuevo campo
+                EmpleadoActual.rol = reader.GetString(reader.GetOrdinal("rol"));
             }
 
             return EmpleadoActual;

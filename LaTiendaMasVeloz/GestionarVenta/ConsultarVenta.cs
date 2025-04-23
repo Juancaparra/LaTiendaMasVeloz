@@ -49,12 +49,10 @@ namespace Principal.GestionarVenta
                 return;
             }
 
-            // Mostrar datos de la venta
             label7.Text += venta.IdVenta.ToString();
             label4.Text += venta.CedulaEmpleado;
             label5.Text += venta.CedulaCliente;
 
-            // Mostrar productos en la tabla
             dataGridView1.Rows.Clear();
             decimal total = 0;
 

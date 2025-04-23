@@ -36,12 +36,10 @@ namespace Principal.GestionarFacturaProveedor
                 return;
             }
 
-            // Mostrar datos de la factura
             label7.Text += factura.IdFactura.ToString();
             lbNitProveedor.Text += factura.Nit;
             lbFechaLlegada.Text += factura.FechaLlegada.ToString("dd/MM/yyyy");
 
-            // Mostrar productos en la tabla
             dataGridView1.Rows.Clear();
             decimal total = 0;
 
