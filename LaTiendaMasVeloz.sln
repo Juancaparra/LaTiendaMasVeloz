@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Principal", "LaTiendaMasVeloz\Principal.csproj", "{263837F3-A1E4-4A5F-99D2-512FFC92E519}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "LaTiendaMasVeloz\Vista.csproj", "{263837F3-A1E4-4A5F-99D2-512FFC92E519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Modelo\Logica.csproj", "{3BC703A0-B6C0-48E6-8C65-90AC0AE518E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controlador", "Modelo\Controlador.csproj", "{3BC703A0-B6C0-48E6-8C65-90AC0AE518E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Model\Modelo.csproj", "{F0DB36D8-EA73-4D3D-9D2A-FEAF78542917}"
 EndProject

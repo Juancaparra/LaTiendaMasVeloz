@@ -86,7 +86,7 @@
             fechaVenta.Name = "fechaVenta";
             fechaVenta.Size = new Size(283, 27);
             fechaVenta.TabIndex = 61;
-            fechaVenta.Value = new DateTime(2025, 4, 21, 0, 0, 0, 0);
+            fechaVenta.Value = new DateTime(2025, 4, 23, 0, 0, 0, 0);
             // 
             // lbResultadoRegistrar
             // 

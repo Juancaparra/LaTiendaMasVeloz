@@ -80,6 +80,7 @@
             label3.Size = new Size(185, 25);
             label3.TabIndex = 60;
             label3.Text = "ELIMINAR FACTURA";
+            label3.Click += label3_Click;
             // 
             // label2
             // 
